@@ -23,3 +23,7 @@ Route::prefix('/admin')->group(function (){
         return view('admin.home');
     });
 });
+
+Route::get('/collab', function () {
+    return view('collaborators.layouts.master');
+});
