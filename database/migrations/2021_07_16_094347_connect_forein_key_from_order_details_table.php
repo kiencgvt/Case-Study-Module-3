@@ -15,7 +15,7 @@ class ConnectForeinKeyFromOrderDetailsTable extends Migration
     {
         Schema::table('order_details', function (Blueprint $table) {
             $table->foreign('food_id')->references('id')->on('foods');
-            $table->foreign('order_id')->references('id')->on('order');
+            $table->foreign('order_id')->references('id')->on('orders');
         });
     }
 

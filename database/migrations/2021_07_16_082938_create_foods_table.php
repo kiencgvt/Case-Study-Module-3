@@ -17,12 +17,12 @@ class CreateFoodsTable extends Migration
             $table->increments('id');
             $table->string('image');
             $table->string('name');
-            $table->integer('price');
+            $table->unsignedInteger('price');
             $table->unsignedInteger('promotion_price');
             $table->unsignedInteger('service_charge');
             $table->unsignedInteger('shop_id');
             $table->unsignedInteger('category_id');
-            $table->date('require_date');
+            $table->integer('preparation_time');
             $table->string('tag');
             $table->timestamps();
         });
