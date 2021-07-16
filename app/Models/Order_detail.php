@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Order_details extends Model
+class Order_detail extends Model
 {
     use HasFactory;
     protected $table = 'order_details';
@@ -15,9 +15,9 @@ class Order_details extends Model
         $this->belongsTo(Order::class);
     }
 
-    public function foods()
+    public function food()
     {
 
-        $this->belongsTo(Foods::class);
+        $this->belongsTo(Food::class);
     }
 }
