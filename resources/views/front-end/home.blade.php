@@ -1,4 +1,4 @@
-@extends('customer.layouts.masters')
+@extends('front-end.layouts.masters')
 @section('content')
     <div class="osahan-home-page">
             <div class="bg-primary p-3 d-none">
@@ -18,7 +18,7 @@
                     <input type="text" class="shadow-none border-0 form-control" placeholder="Search for restaurants or dishes">
                 </div>
             </div>
-            &lt;!&ndash; Filters &ndash;&gt;
+
             <div class="container">
                 <div class="cat-slider">
                     <div class="cat-item px-1 py-3">
@@ -77,7 +77,6 @@
                     </div>
                 </div>
             </div>
-            &lt;!&ndash; offer sectio slider &ndash;&gt;
             <div class="bg-white">
                 <div class="container">
                     <div class="offer-slider">
@@ -110,12 +109,10 @@
                 </div>
             </div>
             <div class="container">
-                &lt;!&ndash; Trending this week &ndash;&gt;
                 <div class="pt-4 pb-2 title d-flex align-items-center">
                     <h5 class="m-0">Trending this week</h5>
                     <a class="font-weight-bold ml-auto" href="trending.html">View all <i class="feather-chevrons-right"></i></a>
                 </div>
-                &lt;!&ndash; slider &ndash;&gt;
                 <div class="trending-slider">
                     <div class="osahan-slider-item">
                         <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
@@ -210,12 +207,10 @@
                         </div>
                     </div>
                 </div>
-                &lt;!&ndash; Most popular &ndash;&gt;
                 <div class="py-3 title d-flex align-items-center">
                     <h5 class="m-0">Most popular</h5>
                     <a class="font-weight-bold ml-auto" href="most_popular.html">26 places <i class="feather-chevrons-right"></i></a>
                 </div>
-                &lt;!&ndash; Most popular &ndash;&gt;
                 <div class="most_popular">
                     <div class="row">
                         <div class="col-md-3 pb-3">
@@ -494,12 +489,10 @@
                         </div>
                     </div>
                 </div>
-                &lt;!&ndash; Most sales &ndash;&gt;
                 <div class="pt-2 pb-3 title d-flex align-items-center">
                     <h5 class="m-0">Most sales</h5>
                     <a class="font-weight-bold ml-auto" href="#">26 places <i class="feather-chevrons-right"></i></a>
                 </div>
-                &lt;!&ndash; Most sales &ndash;&gt;
                 <div class="most_sale">
                     <div class="row mb-3">
                         <div class="col-md-4 mb-3">

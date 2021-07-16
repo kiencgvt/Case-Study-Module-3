@@ -14,5 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts.masters');
+    return view('front-end.home');
+});
+
+
+Route::prefix('/admin')->group(function (){
+    Route::get('/home', function (){
+        return view('admin.home');
+    });
 });
