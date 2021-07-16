@@ -9,15 +9,15 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $table = 'order';
+    protected $table = 'orders';
 
-    public function users()
+    public function user()
     {
-        $this->belongsTo(Users::class);
+        $this->belongsTo(User::class);
     }
 
     public function order_details()
     {
-        $this->hasMany(Order_details::class);
+        $this->hasMany(Order_detail::class);
     }
 }
