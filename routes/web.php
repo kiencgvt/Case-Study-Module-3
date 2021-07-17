@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,15 +20,6 @@ Route::get('/', function () {
 });
 
 
-Route::prefix('/admin')->group(function (){
-    Route::get('/home', function (){
-        return view('admin.home');
-    });
-    Route::get('/list', function (){
-        return view('admin.users.list');
-    });
-});
-
 Route::prefix('/collab')->group(function (){
 //    return view('collaborators.layouts.master');
     Route::get('/',[FoodController::class,'index'])->name('collab.index');
@@ -39,8 +31,8 @@ Route::prefix('/collab')->group(function (){
 });
 
 Route::prefix('user')->group(function (){
-    Route::get('list',[\App\Http\Controllers\UserController::class,'getAllUser'])->name('user.list');
-    Route::get('search',[\App\Http\Controllers\UserController::class,'searchUser'])->name('user.search');
-    Route::get('{id}/delete',[\App\Http\Controllers\UserController::class,'searchUser'])->name('user.delete');
+    Route::get('list',[UserController::class,'getAllUser'])->name('user.list');
+    Route::get('search',[UserController::class,'searchUser'])->name('user.search');
+    Route::get('/{id}/delete',[UserController::class,'deleteUser'])->name('user.delete');
 });
 
