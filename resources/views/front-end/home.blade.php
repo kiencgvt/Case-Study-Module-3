@@ -24,7 +24,7 @@
                     <div class="cat-item px-1 py-3">
                         <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
                             <img alt="#" src="img/icons/Fries.png" class="img-fluid mb-2">
-                            <p class="m-0 small">Fries</p>
+                            <p class="m-0 small"></p>
                         </a>
                     </div>
                     <div class="cat-item px-1 py-3">
