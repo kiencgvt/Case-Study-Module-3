@@ -23,6 +23,9 @@ Route::prefix('/admin')->group(function (){
     Route::get('/home', function (){
         return view('admin.home');
     });
+    Route::get('/list', function (){
+        return view('admin.users.list');
+    });
 });
 
 Route::prefix('/collab')->group(function (){
