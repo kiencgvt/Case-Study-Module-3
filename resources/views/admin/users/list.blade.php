@@ -219,26 +219,34 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
-                        <th>Date Created</th>
-                        <th>Role</th>
-                        <th>Status</th>
-                        <th>Action</th>
+                        <th>avatar</th>
+                        <th>Email</th>
+                        <th>password</th>
+                        <th>address</th>
+                        <th>phone</th>
+                        <th>role</th>
                     </tr>
                     </thead>
                     <tbody>
+                    @foreach($users as $key=>$user)
                     <tr>
-                        <td>1</td>
-                        <td><a href="#"><img src="/examples/images/avatar/1.jpg" class="avatar" alt="Avatar"> Michael
-                                Holz</a></td>
-                        <td>04/10/2013</td>
-                        <td>Admin</td>
+                        <td>STT</td>
+                        <td>{{$user->name}}</td>
+                        <td><a href="#"><img style="max-width: 100px" src="{{$user->avatar}}" alt="Avatar">
+                            </a></td>
+                        <td>{{$user->email}}</td>
+                        <td>{{$user->password}}</td>
+                        <td>{{$user->address}}</td>
+                        <td>{{$user->phone}}</td>
+                        <td>{{$user->role}}</td>
                         <td><span class="status text-success">&bull;</span> Active</td>
                         <td>
 {{--                            <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i--}}
 {{--                                    class="material-icons">&#xE8B8;</i></a>--}}
-                            <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                            <a href="{{route('user.delete',$user->id)}}" title="Delete" data-toggle="tooltip" onclick="return confirm('Are you sure?')"><i class="far fa-trash-alt"></i></a>
                         </td>
                     </tr>
+                    @endforeach
                     </tbody>
                 </table>
                 <div class="clearfix">

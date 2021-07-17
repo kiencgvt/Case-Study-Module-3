@@ -1,6 +1,7 @@
 @extends('collaborators.layouts.master')
 @section('content')
     <h1>Danh sách món ăn</h1>
+
     <a href="{{route('collab.create')}}">Thêm mới món ăn</a>
     <nav class="navbar navbar-light bg-light" >
         <form class="form-inline" action=" {{route('collab.search')}}" method="get">
@@ -8,6 +9,7 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
     </nav>
+
     <table class="table table-striped">
         <thead>
         <tr>
@@ -47,6 +49,6 @@
 
         </tbody>
     </table>
-        {{$foods->links()}}
+      
 @endsection
 

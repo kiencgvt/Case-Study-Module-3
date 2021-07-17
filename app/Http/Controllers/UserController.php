@@ -16,13 +16,14 @@ class UserController extends Controller
     public function deleteUser($id)
     {
         $user = User::findOrFail($id);
-        $user->delete();
+        $user = User::where('id',$id)->first()->delete();
+        return redirect()->route('user.list');
     }
 
-    public function searchUser(\Illuminate\Support\Facades\Request $request)
+    public function searchUser(Request $request)
     {
         $keyword = $request->input('search');
-        $users = User::where('name', 'LIKE', '%' . $keyword . '%');
+        $users = User::query()->where('name', 'LIKE', '%' . $keyword . '%')->get();
         return view('admin.users.list', compact('users'));
     }
 }
