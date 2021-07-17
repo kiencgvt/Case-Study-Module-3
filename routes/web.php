@@ -28,6 +28,7 @@ Route::prefix('/collab')->group(function (){
     Route::get('/{id}/edit',[FoodController::class,'edit'])->name('collab.edit');
     Route::post('/{id}/edit',[FoodController::class,'update'])->name('collab.update');
     Route::get('/{id}/delete',[FoodController::class,'delete'])->name('collab.delete');
+    Route::get('/search',[FoodController::class,'search'])->name('collab.search');
 });
 
 Route::prefix('user')->group(function (){

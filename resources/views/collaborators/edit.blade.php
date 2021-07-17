@@ -7,7 +7,7 @@
                 <h1>Chỉnh sửa món ăn</h1>
             </div>
             <div class="col-12">
-                <form method="post" action="{{ route('collab.update') }}" enctype="multipart/form-data" >
+                <form method="post" action="{{ route('collab.update',$food->id) }}" enctype="multipart/form-data" >
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputEmail1">Anh món ăn</label>
@@ -20,6 +20,11 @@
 
                     </div>
                     <div class="form-group">
+                        <label>Gía</label>
+                        <input type="text" class="form-control" name="price" value="{{$food->price}}" required >
+
+                    </div>
+                    <div class="form-group">
                         <label>Gía khuyến mãi</label>
                         <input type="text" class="form-control" name="promotion_price" value="{{$food->promotion_price}}" required >
                     </div>
@@ -29,7 +34,7 @@
                     </div>
                     <div class="form-group">
                         <label>Tên cửa hàng </label>
-                        <select class="form-control" name="category_id" required >
+                        <select class="form-control" name="shop_id" required >
                             @foreach($shops as $shop)
                                 <option value="{{ $shop->id }}">{{ $shop->name }}</option>
                             @endforeach
@@ -45,8 +50,8 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Ngày giao hàng đến</label>
-                        <input type="text" class="form-control" name="require_date" value="{{$food->require_date}}" required >
+                        <label for="exampleInputEmail1">Thời gian chuẩn bị</label>
+                        <input type="text" class="form-control" name="preparation_time" value="{{$food->preparation_time}}" required >
 
                     </div>
                     <div class="form-group">

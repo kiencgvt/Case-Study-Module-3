@@ -91,7 +91,7 @@
                 <div class="col-8">
                     <div class="d-flex align-items-center justify-content-end pr-5">
                         <!-- search -->
-                        <a href="search.html" class="widget-header mr-4 text-dark">
+                        <a href="" class="widget-header mr-4 text-dark">
                             <div class="icon d-flex align-items-center">
                                 <i class="feather-search h6 mr-2 mb-0"></i> <span>Search</span>
                             </div>
@@ -151,6 +151,7 @@
     </div>
     <!-- profile -->
     <div class="container position-relative">
+
         <div class="py-5 osahan-profile row">
             <div class="col-md-4 mb-3">
                 <div class="bg-white rounded shadow-sm sticky_sidebar overflow-hidden">
@@ -180,6 +181,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-md-8 mb-3">
                 @yield('content')
             </div>
