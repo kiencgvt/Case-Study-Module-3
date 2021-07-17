@@ -27,3 +27,8 @@ Route::prefix('/admin')->group(function (){
 Route::get('/collab', function () {
     return view('collaborators.layouts.master');
 });
+Route::prefix('user')->group(function (){
+    Route::get('list',[\App\Http\Controllers\UserController::class,'getAllUser'])->name('user.list');
+    Route::get('search',[\App\Http\Controllers\UserController::class,'searchUser'])->name('user.search');
+    Route::get('{id}/delete',[\App\Http\Controllers\UserController::class,'searchUser'])->name('user.delete');
+});
