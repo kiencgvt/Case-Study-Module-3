@@ -37,6 +37,7 @@ Route::prefix('/collab')->group(function (){
     Route::post('/{id}/edit',[FoodController::class,'update'])->name('collab.update');
     Route::get('/{id}/delete',[FoodController::class,'delete'])->name('collab.delete');
 });
+
 Route::prefix('user')->group(function (){
     Route::get('list',[\App\Http\Controllers\UserController::class,'getAllUser'])->name('user.list');
     Route::get('search',[\App\Http\Controllers\UserController::class,'searchUser'])->name('user.search');
