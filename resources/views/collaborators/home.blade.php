@@ -1,7 +1,6 @@
 @extends('collaborators.layouts.master')
 @section('content')
     <h1>Danh sách món ăn</h1>
-    <a href="{{route('collab.create')}}">Thêm mới món ăn</a>
     <table class="table table-striped">
         <thead>
         <tr>
