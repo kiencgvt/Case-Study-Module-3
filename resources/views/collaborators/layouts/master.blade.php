@@ -229,7 +229,10 @@
                     </div>
                 </div>
             </div>
-         @yield('content')
+            <div class="col-md-8 mb-3">
+                @yield('content')
+            </div>
+
         </div>
     </div>
     <!-- Footer -->
