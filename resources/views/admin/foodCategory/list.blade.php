@@ -209,9 +209,9 @@
                         <div class="col-sm-5">
                             <h2>User <b>Management</b></h2>
                         </div>
-{{--                        <div class="col-sm-7">--}}
-{{--                            <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>--}}
-{{--                        </div>--}}
+                        {{--                        <div class="col-sm-7">--}}
+                        {{--                            <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>--}}
+                        {{--                        </div>--}}
                     </div>
                 </div>
                 <table class="table table-striped table-hover">
@@ -219,38 +219,23 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
-                        <th>avatar</th>
-                        <th>Email</th>
-                        <th>password</th>
-                        <th>address</th>
-                        <th>phone</th>
-                        <th>role</th>
+
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($users as $key=>$user)
-                    <tr>
-                        <td>STT{{$key+1}}</td>
-                        <td>{{$user->name}}</td>
-                        <td><a href="#"><img style="max-width: 100px" src="{{$user->avatar}}" alt="Avatar">
-                            </a></td>
-                        <td>{{$user->email}}</td>
-                        <td>{{$user->password}}</td>
-                        <td>{{$user->address}}</td>
-                        <td>{{$user->phone}}</td>
-                        <td>{{$user->role}}</td>
-                        <td><span class="status text-success">&bull;</span> Active</td>
-                        <td>
-{{--                            <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i--}}
-{{--                                    class="material-icons">&#xE8B8;</i></a>--}}
-                            <a href="{{route('user.delete',$user->id)}}" title="Delete" data-toggle="tooltip" onclick="return confirm('Are you sure?')"><i class="far fa-trash-alt"></i></a>
-                        </td>
-                    </tr>
+                    @foreach($categories as $key=>$category)
+                        <tr>
+                            <td>{{$key+1}}</td>
+                            <td>{{$category->name}}</td>
+                            <td>
+{{--
+                                <a href="{{route('user.delete',$user->id)}}" title="Delete" data-toggle="tooltip" onclick="return confirm('Are you sure?')"><i class="far fa-trash-alt"></i></a>
+--}}
+                            </td>
+                        </tr>
                     @endforeach
                     </tbody>
                 </table>
-                {{ $users->links() }}
-
             </div>
         </div>
     </div>
