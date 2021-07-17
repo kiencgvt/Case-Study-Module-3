@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FoodController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,13 @@ Route::prefix('/admin')->group(function (){
     });
 });
 
-Route::get('/collab', function () {
-    return view('collaborators.layouts.master');
+Route::prefix('/collab')->group(function (){
+//    return view('collaborators.layouts.master');
+    Route::get('/',[FoodController::class,'index'])->name('collab.index');
+    Route::get('/create',[FoodController::class,'create'])->name('collab.create');
+    Route::post('/create',[FoodController::class,'store'])->name('collab.store');
+    Route::get('/{id}/edit',[FoodController::class,'edit'])->name('collab.edit');
+    Route::post('/{id}/edit',[FoodController::class,'update'])->name('collab.update');
+    Route::get('/{id}/delete',[FoodController::class,'delete'])->name('collab.delete');
 });
+
