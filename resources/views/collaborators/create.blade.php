@@ -19,6 +19,11 @@
 
                     </div>
                     <div class="form-group">
+                        <label>Gía</label>
+                        <input type="text" class="form-control" name="price" placeholder="Enter price" required >
+
+                    </div>
+                    <div class="form-group">
                         <label>Gía khuyến mãi</label>
                         <input type="text" class="form-control" name="promotion_price" placeholder="Enter promotion_price" required >
 
@@ -29,7 +34,7 @@
                     </div>
                     <div class="form-group">
                         <label>Tên cửa hàng </label>
-                        <select class="form-control" name="category_id" >
+                        <select class="form-control" name="shop_id" >
                             @foreach($shops as $shop)
                                 <option value="{{ $shop->id }}">{{ $shop->name }}</option>
                             @endforeach
@@ -44,8 +49,8 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Ngày giao hàng đến</label>
-                        <input type="text" class="form-control" name="require_date" placeholder="Enter require_date" required >
+                        <label for="exampleInputEmail1">Thời gian chuẩn bị</label>
+                        <input type="text" class="form-control" name="preparation_time" placeholder="Enter preparation_time" required >
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Thẻ</label>

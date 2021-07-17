@@ -39,7 +39,7 @@ class FoodController extends Controller
         $food->service_charge = $request->input('service_charge');
         $food->shop_id = $request->input('shop_id');
         $food->category_id = $request->input('category_id');
-        $food->require_date = $request->input('require_date');
+        $food->preparation_time = $request->input('preparation_time');
         $food->tag = $request->input('tag');
         $food->save();
         Session::flash('success', 'Thêm mới món ăn thành công');
@@ -67,7 +67,7 @@ class FoodController extends Controller
         $food->service_charge = $request->input('service_charge');
         $food->shop_id = $request->input('shop_id');
         $food->category_id = $request->input('category_id');
-        $food->require_date = $request->input('require_date');
+        $food->preparation_time = $request->input('preparation_time');
         $food->tag = $request->input('tag');
         $food->save();
         Session::flash('success', 'Chỉnh sửa món ăn thành công');
@@ -82,13 +82,13 @@ class FoodController extends Controller
         Session::flash('success', 'Xóa món ăn thành công');
         return redirect()->route('collab.index');
     }
-//    public function search(Request $request)
-//    {
-//        $keyword = $request->input('search');
-//        if (!$keyword) {
-//            return redirect()->route('collab.index');
-//        }
-//        $foods = Food ::where('name', 'LIKE', '%' . $keyword . '%')->paginate(4);
-//        return view('products.list', compact('foods'));
-//    }
+    public function search(Request $request)
+    {
+        $keyword = $request->input('search');
+        if (!$keyword) {
+            return redirect()->route('collab.index');
+        }
+        $foods = Food ::where('name', 'LIKE', '%' . $keyword . '%')->paginate(4);
+        return view('collaborators.home', compact('foods'));
+    }
 }
