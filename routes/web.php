@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -32,8 +33,10 @@ Route::prefix('/collab')->group(function (){
 });
 
 Route::prefix('user')->group(function (){
-    Route::get('list',[UserController::class,'getAllUser'])->name('user.list');
-    Route::get('search',[UserController::class,'searchUser'])->name('user.search');
+    Route::get('/',[UserController::class,'getAllUser'])->name('user.index');
+    Route::get('/search',[UserController::class,'searchUser'])->name('user.search');
     Route::get('/{id}/delete',[UserController::class,'deleteUser'])->name('user.delete');
 });
-
+Route::prefix('category')->group(function (){
+    Route::get('list',[CategoryController::class,'getAllCategory'])->name('category.list');
+});

@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function getAllUser()
     {
-        $users = User::all();
+        $users = User::paginate(3);
         return view('admin.users.list', compact('users'));
     }
 
