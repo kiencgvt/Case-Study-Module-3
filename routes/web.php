@@ -38,3 +38,9 @@ Route::prefix('/collab')->group(function (){
     Route::get('/{id}/delete',[FoodController::class,'delete'])->name('collab.delete');
 });
 
+Route::prefix('user')->group(function (){
+    Route::get('list',[\App\Http\Controllers\UserController::class,'getAllUser'])->name('user.list');
+    Route::get('search',[\App\Http\Controllers\UserController::class,'searchUser'])->name('user.search');
+    Route::get('{id}/delete',[\App\Http\Controllers\UserController::class,'searchUser'])->name('user.delete');
+});
+
