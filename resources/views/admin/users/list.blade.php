@@ -242,7 +242,7 @@
                     <tr>
                         <td>STT{{$key+1}}</td>
                         <td>{{$user->name}}</td>
-                        <td><a href="#"><img style="max-width: 100px" src="{{$user->avatar}}" alt="Avatar">
+                        <td><a href="#"><img style="max-width: 100px" src="{{ asset($user->avatar)}}" alt="Avatar">
                             </a></td>
                         <td>{{$user->email}}</td>
                         <td>{{$user->password}}</td>

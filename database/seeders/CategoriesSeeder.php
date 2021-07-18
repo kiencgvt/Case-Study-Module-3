@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class CategoriesSeeder extends Seeder
@@ -13,19 +14,19 @@ class CategoriesSeeder extends Seeder
      */
     public function run()
     {
-        $category = new \App\Models\Category();
+        $category = new Category();
         $category->name = 'Cơm';
         $category->save();
-        $category = new \App\Models\Category();
+        $category = new Category();
         $category->name = 'Đồ ăn nhanh';
         $category->save();
-        $category = new \App\Models\Category();
+        $category = new Category();
         $category->name = 'Bún Phở';
         $category->save();
-        $category = new \App\Models\Category();
+        $category = new Category();
         $category->name = 'Đồ Uống';
         $category->save();
-        $category = new \App\Models\Category();
+        $category = new Category();
         $category->name = 'Đồ ăn vặt';
         $category->save();
     }
