@@ -1,4 +1,7 @@
 @extends('admin.master')
+
+@section('title','List Category')
+
 @section('content')
     <style>
         body {
@@ -197,7 +200,11 @@
 
     </style>
     <script>
+
+        $(document).ready(function () {
+
         $(document).ready(function(){
+
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
@@ -207,18 +214,49 @@
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-5">
+
+                            <h2>Category <b>Management</b></h2>
+
                             <h2>User <b>Management</b></h2>
+
                         </div>
                         {{--                        <div class="col-sm-7">--}}
                         {{--                            <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>--}}
                         {{--                        </div>--}}
                     </div>
                 </div>
+
+                @if (\Session::has('success'))
+                    <div class="alert alert-success">
+                        <ul>
+                            <li>{!! \Session::get('success') !!}</li>
+                        </ul>
+                    </div>
+                @endif
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand"  href="{{route('category.add')}}">Add Category</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <form class="form-inline my-2 my-lg-0" action="{{route('category.search')}}" method="get">
+                            <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search Category" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </div>
+                </nav>
+                <table class="table table-striped table-hover" style="width: 40%">
+
                 <table class="table table-striped table-hover">
+
                     <thead>
                     <tr>
                         <th>#</th>
                         <th>Name</th>
+
+                        <th>Actions</th>
+
 
                     </tr>
                     </thead>
@@ -227,10 +265,15 @@
                         <tr>
                             <td>{{$key+1}}</td>
                             <td>{{$category->name}}</td>
+
+                            <td><a href="{{route('category.edit',$category->id)}}" ><i class="fas fa-edit"></i></a>
+                                <a href="{{route('category.delete',$category->id)}}" onclick="return confirm('Delete this category?')"><i class="far fa-trash-alt"></i></a>
+
                             <td>
 {{--
                                 <a href="{{route('user.delete',$user->id)}}" title="Delete" data-toggle="tooltip" onclick="return confirm('Are you sure?')"><i class="far fa-trash-alt"></i></a>
 --}}
+
                             </td>
                         </tr>
                     @endforeach
@@ -239,4 +282,7 @@
             </div>
         </div>
     </div>
+
+    <div>{{ $categories->links()}}</div>
+
 @endsection

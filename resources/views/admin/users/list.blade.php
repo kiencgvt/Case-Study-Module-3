@@ -1,4 +1,5 @@
 @extends('admin.master')
+@section('title','Edit user page')
 @section('content')
     <style>
         body {
@@ -214,6 +215,15 @@
 {{--                        </div>--}}
                     </div>
                 </div>
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                        <form class="form-inline my-2 my-lg-0" method="get"
+                              action="{{route('user.search')}}">
+                            <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </div>
+                </nav>
                 <table class="table table-striped table-hover">
                     <thead>
                     <tr>
