@@ -37,6 +37,7 @@ Route::prefix('user')->group(function (){
     Route::get('/{id}/delete',[UserController::class,'deleteUser'])->name('user.delete');
 });
 Route::prefix('category')->group(function (){
+
     Route::get('/list',[CategoryController::class,'getAllCategory'])->name('category.list');
     Route::get('/add',[CategoryController::class,'addCategory'])->name('category.add');
     Route::post('/add',[CategoryController::class,'store'])->name('category.store');
@@ -44,4 +45,7 @@ Route::prefix('category')->group(function (){
     Route::post('/{id}/edit',[CategoryController::class,'updateCategory'])->name('category.update');
     Route::get('/{id}/delete',[CategoryController::class,'deleteCategory'])->name('category.delete');
     Route::get('/search',[CategoryController::class,'searchCategory'])->name('category.search');
+
+    Route::get('list',[CategoryController::class,'getAllCategory'])->name('category.list');
+
 });

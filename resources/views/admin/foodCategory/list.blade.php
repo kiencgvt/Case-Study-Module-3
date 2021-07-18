@@ -1,5 +1,7 @@
 @extends('admin.master')
+
 @section('title','List Category')
+
 @section('content')
     <style>
         body {
@@ -198,7 +200,11 @@
 
     </style>
     <script>
+
         $(document).ready(function () {
+
+        $(document).ready(function(){
+
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
@@ -208,13 +214,18 @@
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-5">
+
                             <h2>Category <b>Management</b></h2>
+
+                            <h2>User <b>Management</b></h2>
+
                         </div>
                         {{--                        <div class="col-sm-7">--}}
                         {{--                            <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>--}}
                         {{--                        </div>--}}
                     </div>
                 </div>
+
                 @if (\Session::has('success'))
                     <div class="alert alert-success">
                         <ul>
@@ -236,11 +247,16 @@
                     </div>
                 </nav>
                 <table class="table table-striped table-hover" style="width: 40%">
+
+                <table class="table table-striped table-hover">
+
                     <thead>
                     <tr>
                         <th>#</th>
                         <th>Name</th>
+
                         <th>Actions</th>
+
 
                     </tr>
                     </thead>
@@ -249,8 +265,15 @@
                         <tr>
                             <td>{{$key+1}}</td>
                             <td>{{$category->name}}</td>
+
                             <td><a href="{{route('category.edit',$category->id)}}" ><i class="fas fa-edit"></i></a>
                                 <a href="{{route('category.delete',$category->id)}}" onclick="return confirm('Delete this category?')"><i class="far fa-trash-alt"></i></a>
+
+                            <td>
+{{--
+                                <a href="{{route('user.delete',$user->id)}}" title="Delete" data-toggle="tooltip" onclick="return confirm('Are you sure?')"><i class="far fa-trash-alt"></i></a>
+--}}
+
                             </td>
                         </tr>
                     @endforeach
@@ -259,5 +282,7 @@
             </div>
         </div>
     </div>
+
     <div>{{ $categories->links()}}</div>
+
 @endsection
