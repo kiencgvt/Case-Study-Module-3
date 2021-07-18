@@ -16,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
 Route::get('/', function () {
     return view('front-end.home');
 });
@@ -30,21 +35,19 @@ Route::prefix('/collab')->group(function (){
     Route::get('/search',[FoodController::class,'search'])->name('collab.search');
 });
 
-Route::prefix('user')->group(function (){
+Route::prefix('user')->middleware('auth')->group(function (){
     Route::get('/',[UserController::class,'getAllUser'])->name('user.index');
     Route::get('/search',[UserController::class,'searchUser'])->name('user.search');
     Route::get('/{id}/delete',[UserController::class,'deleteUser'])->name('user.delete');
 });
-Route::prefix('category')->group(function (){
+Route::prefix('category')->middleware('auth')->group(function (){
 
-    Route::get('/list',[CategoryController::class,'getAllCategory'])->name('category.list');
+    Route::get('/',[CategoryController::class,'getAllCategory'])->name('category.list');
     Route::get('/add',[CategoryController::class,'addCategory'])->name('category.add');
     Route::post('/add',[CategoryController::class,'store'])->name('category.store');
     Route::get('/{id}/edit',[CategoryController::class,'editCategory'])->name('category.edit');
     Route::post('/{id}/edit',[CategoryController::class,'updateCategory'])->name('category.update');
     Route::get('/{id}/delete',[CategoryController::class,'deleteCategory'])->name('category.delete');
     Route::get('/search',[CategoryController::class,'searchCategory'])->name('category.search');
-
-    Route::get('list',[CategoryController::class,'getAllCategory'])->name('category.list');
-
 });
+require __DIR__.'/auth.php';
