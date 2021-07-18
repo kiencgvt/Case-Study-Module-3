@@ -18,6 +18,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $user = User::where('id',$id)->first()->delete();
+
         return redirect()->route('user.index');
     }
 

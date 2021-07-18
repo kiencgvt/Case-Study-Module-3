@@ -7,7 +7,7 @@
     <meta name="description" content="Askbootstrap">
     <meta name="author" content="Askbootstrap">
     <link rel="icon" type="image/png" href="img/fav.png">
-    <title>Swiggiweb - Online Food Ordering Website Template</title>
+    <title> Swiggiweb - Online Food Ordering Website Template</title>
     <!-- Slick Slider -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/slick.min.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('css/slick-theme.min.css')}}" />
@@ -151,6 +151,21 @@
     </div>
     <!-- profile -->
     <div class="container position-relative">
+        <div class="py-5 osahan-profile row">
+{{--            <div class="col-md-4 mb-3">--}}
+{{--                <div class="bg-white rounded shadow-sm sticky_sidebar overflow-hidden">--}}
+{{--                    <a href="profile.html" class="">--}}
+{{--                        <div class="d-flex align-items-center p-3">--}}
+{{--                            <div class="left mr-3">--}}
+{{--                                <img alt="#" src="img/user1.jpg" class="rounded-circle">--}}
+{{--                            </div>--}}
+{{--                            <div class="right">--}}
+{{--                                <h6 class="mb-1 font-weight-bold">Gurdeep Singh <i class="feather-check-circle text-success"></i></h6>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </a>--}}
+{{--                    <!-- profile-details -->--}}
+{{--                    <div class="bg-white profile-details">--}}
 
         <div class="py-5 osahan-profile row">
             <div class="col-md-4 mb-3">
@@ -181,7 +196,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-md-8 mb-3">
                 @yield('content')
             </div>

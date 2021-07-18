@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('front-end.home');
 });
-
 Route::prefix('/collab')->group(function (){
 //    return view('collaborators.layouts.master');
     Route::get('/',[FoodController::class,'index'])->name('collab.index');

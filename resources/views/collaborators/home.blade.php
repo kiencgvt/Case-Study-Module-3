@@ -37,8 +37,8 @@
                 <td>{{$food->price}}</td>
                 <td>{{$food->promotion_price}}</td>
                 <td>{{$food->service_charge}}</td>
-                <td>{{$food->shop_id}}</td>
-                <td>{{$food->category_id}}</td>
+                <td>{{\App\Models\Shop::find($food->shop_id)->name}}</td>
+                <td>{{\App\Models\Category::find($food->category_id)->name}}</td>
                 <td>{{$food->preparation_time}}</td>
                 <td>{{$food->tag}}</td>
                 <td><a href="{{ route('collab.edit',$food->id) }}" class="btn btn-success">Update</a></td>
