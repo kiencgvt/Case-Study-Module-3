@@ -20,7 +20,6 @@ Route::get('/', function () {
     return view('front-end.home');
 });
 
-
 Route::prefix('/collab')->group(function (){
 //    return view('collaborators.layouts.master');
     Route::get('/',[FoodController::class,'index'])->name('collab.index');
@@ -29,6 +28,7 @@ Route::prefix('/collab')->group(function (){
     Route::get('/{id}/edit',[FoodController::class,'edit'])->name('collab.edit');
     Route::post('/{id}/edit',[FoodController::class,'update'])->name('collab.update');
     Route::get('/{id}/delete',[FoodController::class,'delete'])->name('collab.delete');
+    Route::get('/search',[FoodController::class,'search'])->name('collab.search');
 });
 
 Route::prefix('user')->group(function (){
@@ -37,5 +37,11 @@ Route::prefix('user')->group(function (){
     Route::get('/{id}/delete',[UserController::class,'deleteUser'])->name('user.delete');
 });
 Route::prefix('category')->group(function (){
-    Route::get('list',[CategoryController::class,'getAllCategory'])->name('category.list');
+    Route::get('/list',[CategoryController::class,'getAllCategory'])->name('category.list');
+    Route::get('/add',[CategoryController::class,'addCategory'])->name('category.add');
+    Route::post('/add',[CategoryController::class,'store'])->name('category.store');
+    Route::get('/{id}/edit',[CategoryController::class,'editCategory'])->name('category.edit');
+    Route::post('/{id}/edit',[CategoryController::class,'updateCategory'])->name('category.update');
+    Route::get('/{id}/delete',[CategoryController::class,'deleteCategory'])->name('category.delete');
+    Route::get('/search',[CategoryController::class,'searchCategory'])->name('category.search');
 });
