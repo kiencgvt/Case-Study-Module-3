@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\HomeController;
@@ -18,8 +19,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home.index');
-
+Route::prefix('/')->group(function (){
+    Route::get('/', [HomeController::class, 'index'])->name('home.index');
+});
 Route::get('login', [AuthController::class, 'showFormLogin'])->name('auth.showFormLogin');
 Route::post('login', [AuthController::class, 'login'])->name('auth.login');
 
@@ -72,9 +74,7 @@ Route::middleware(['auth', 'checkCollab'])->prefix('collab')->group(function () 
 });
 
 Route::middleware(['auth', 'checkCustomer'])->prefix('customer')->group(function () {
-    Route::get('/cart', function () {
-        return view('front-end.cart');
-    });
+    Route::get('/cart', [CartController::class, 'index']);
 });
 
 
