@@ -23,7 +23,7 @@
 
         .table-title {
             padding-bottom: 15px;
-            background: #299be4;
+            background: crimson;
             color: #fff;
             padding: 16px 30px;
             margin: -20px -25px 10px;
@@ -49,7 +49,7 @@
         }
 
         .table-title .btn:hover, .table-title .btn:focus {
-            color: #566787;
+            color: #87565d;
             background: #f2f2f2;
         }
 
@@ -231,7 +231,6 @@
                         <th>Name</th>
                         <th>avatar</th>
                         <th>Email</th>
-                        <th>password</th>
                         <th>address</th>
                         <th>phone</th>
                         <th>role</th>
@@ -242,17 +241,14 @@
                     <tr>
                         <td>STT{{$key+1}}</td>
                         <td>{{$user->name}}</td>
-                        <td><a href="#"><img style="max-width: 100px" src="{{ asset($user->avatar)}}" alt="Avatar">
-                            </a></td>
+                        <td>
+                            <a href="#"><img style="max-width: 80px" src="{{ asset($user->avatar)}}" alt="Avatar"></a>
+                        </td>
                         <td>{{$user->email}}</td>
-                        <td>{{$user->password}}</td>
                         <td>{{$user->address}}</td>
                         <td>{{$user->phone}}</td>
                         <td>{{$user->role}}</td>
-                        <td><span class="status text-success">&bull;</span> Active</td>
                         <td>
-{{--                            <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i--}}
-{{--                                    class="material-icons">&#xE8B8;</i></a>--}}
                             <a href="{{route('user.delete',$user->id)}}" title="Delete" data-toggle="tooltip" onclick="return confirm('Are you sure?')"><i class="far fa-trash-alt"></i></a>
                         </td>
                     </tr>

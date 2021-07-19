@@ -25,7 +25,7 @@
 
         .table-title {
             padding-bottom: 15px;
-            background: #299be4;
+            background: firebrick;
             color: #fff;
             padding: 16px 30px;
             margin: -20px -25px 10px;
@@ -203,10 +203,11 @@
 
         $(document).ready(function () {
 
-        $(document).ready(function(){
+            $(document).ready(function () {
 
-            $('[data-toggle="tooltip"]').tooltip();
-        });
+                $('[data-toggle="tooltip"]').tooltip();
+
+            });
     </script>
     <div class="">
         <div class="table-responsive">
@@ -216,8 +217,6 @@
                         <div class="col-sm-5">
 
                             <h2>Category <b>Management</b></h2>
-
-                            <h2>User <b>Management</b></h2>
 
                         </div>
                         {{--                        <div class="col-sm-7">--}}
@@ -234,50 +233,47 @@
                     </div>
                 @endif
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand"  href="{{route('category.add')}}">Add Category</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <a class="navbar-brand" href="{{route('category.add')}}">Add Category</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <form class="form-inline my-2 my-lg-0" action="{{route('category.search')}}" method="get">
-                            <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search Category" aria-label="Search">
+                            <input class="form-control mr-sm-2" name="search" type="search"
+                                   placeholder="Search Category" aria-label="Search">
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                         </form>
                     </div>
                 </nav>
                 <table class="table table-striped table-hover" style="width: 40%">
 
-                <table class="table table-striped table-hover">
-
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-
-                        <th>Actions</th>
-
-
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($categories as $key=>$category)
+                    <table class="table table-striped table-hover">
+                        <thead>
                         <tr>
-                            <td>{{$key+1}}</td>
-                            <td>{{$category->name}}</td>
-
-                            <td><a href="{{route('category.edit',$category->id)}}" ><i class="fas fa-edit"></i></a>
-                                <a href="{{route('category.delete',$category->id)}}" onclick="return confirm('Delete this category?')"><i class="far fa-trash-alt"></i></a>
-
-                            <td>
-{{--
-                                <a href="{{route('user.delete',$user->id)}}" title="Delete" data-toggle="tooltip" onclick="return confirm('Are you sure?')"><i class="far fa-trash-alt"></i></a>
---}}
-
-                            </td>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Actions</th>
                         </tr>
-                    @endforeach
-                    </tbody>
+                        </thead>
+                        <tbody>
+                        @foreach($categories as $key=>$category)
+                            <tr>
+                                <td>{{$key+1}}</td>
+                                <td>{{$category->name}}</td>
+
+                                <td><a href="{{route('category.edit',$category->id)}}"><i class="fas fa-edit"></i></a>
+                                    <a href="{{route('category.delete',$category->id)}}"
+                                       onclick="return confirm('Delete this category?')"><i
+                                            class="far fa-trash-alt"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                 </table>
             </div>
         </div>
