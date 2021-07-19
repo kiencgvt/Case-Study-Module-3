@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FormFoodRequest;
 use App\Models\Category;
 use App\Models\Food;
 use App\Models\Shop;
@@ -26,7 +27,7 @@ class FoodController extends Controller
         return view('collaborators.create',compact('shops','categories'));
     }
 
-    public function store(Request $request)
+    public function store(FormFoodRequest $request)
     {
         $food = new Food();
         if($request->hasFile('image')){
@@ -54,7 +55,7 @@ class FoodController extends Controller
         return view('collaborators.edit',compact('food','shops','categories'));
     }
 
-    public function update(Request $request,$id)
+    public function update(FormFoodRequest $request,$id)
     {
         $food = Food::find($id);
         if($request->hasFile('image')){

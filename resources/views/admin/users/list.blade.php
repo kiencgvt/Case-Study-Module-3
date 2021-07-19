@@ -233,13 +233,14 @@
                         <th>Email</th>
                         <th>address</th>
                         <th>phone</th>
-                        <th>role</th>
+                        <th colspan="2">role</th>
+
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($users as $key=>$user)
                     <tr>
-                        <td>STT{{$key+1}}</td>
+                        <td>{{$key+1}}</td>
                         <td>{{$user->name}}</td>
                         <td>
                             <a href="#"><img style="max-width: 80px" src="{{ asset($user->avatar)}}" alt="Avatar"></a>
