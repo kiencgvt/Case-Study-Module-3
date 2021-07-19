@@ -79,7 +79,7 @@
                         </a>
                         @if(!\Illuminate\Support\Facades\Auth::check())
                         <!-- signin -->
-                        <a href="{{ route('collaborator.login') }}" class="widget-header mr-4 text-dark m-none">
+                        <a href="{{ route('auth.login') }}" class="widget-header mr-4 text-dark m-none">
                             <div class="icon d-flex align-items-center">
                                 <i class="feather-user h6 mr-2 mb-0"></i> <span>Sign in</span>
                             </div>
@@ -89,7 +89,7 @@
                         @if(\Illuminate\Support\Facades\Auth::check())
                         <div class="dropdown mr-4 m-none">
                             <a href="#" class="dropdown-toggle text-dark py-3 d-block" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img alt="#" src="{{asset('image/1.jpg')}}" class="img-fluid rounded-circle header-user mr-2 header-user"> Hi Osahan
+                                <img alt="#" src="{{asset('image/1.jpg')}}" class="img-fluid rounded-circle header-user mr-2 header-user"> {{ auth()->user()->name }}
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="profile.html">My account</a>
