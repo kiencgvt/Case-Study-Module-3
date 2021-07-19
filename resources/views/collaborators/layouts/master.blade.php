@@ -141,7 +141,7 @@
     </section>
     <!-- header-main .// -->
 </header>
-@yield('content')
+@yield("content")
 <!-- Footer -->
 <div class="osahan-menu-fotter fixed-bottom bg-white px-3 py-2 text-center d-none">
     <div class="row">

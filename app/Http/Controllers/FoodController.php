@@ -17,14 +17,14 @@ class FoodController extends Controller
         $foods = Food::paginate(3);
         $shops = Shop::all();
         $categories = Category::all();
-        return view('collaborators.home',compact('foods','shops','categories'));
+        return view('collaborators.foods.home',compact('foods','shops','categories'));
     }
 
     public function create()
     {
         $shops = Shop::all();
         $categories = Category::all();
-        return view('collaborators.create',compact('shops','categories'));
+        return view('collaborators.foods.create',compact('shops','categories'));
     }
 
     public function store(FormFoodRequest $request)
@@ -52,7 +52,7 @@ class FoodController extends Controller
         $food = Food::find($id);
         $shops = Shop::all();
         $categories = Category::all();
-        return view('collaborators.edit',compact('food','shops','categories'));
+        return view('collaborators.foods.edit',compact('food','shops','categories'));
     }
 
     public function update(FormFoodRequest $request,$id)
@@ -90,6 +90,6 @@ class FoodController extends Controller
             return redirect()->route('collab.index');
         }
         $foods = Food ::where('name', 'LIKE', '%' . $keyword . '%')->paginate(3);
-        return view('collaborators.home', compact('foods'));
+        return view('collaborators.foods.home', compact('foods'));
     }
 }

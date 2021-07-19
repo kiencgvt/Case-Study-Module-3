@@ -66,6 +66,3 @@ Route::middleware(['auth', 'checkCustomer'])->prefix('customer')->group(function
         return view('front-end.cart');
     });
 });
-
-
-
