@@ -13,7 +13,7 @@ class FoodController extends Controller
 {
     public function index()
     {
-        $foods = Food::paginate(20);
+        $foods = Food::paginate(3);
         $shops = Shop::all();
         $categories = Category::all();
         return view('collaborators.home',compact('foods','shops','categories'));
@@ -88,7 +88,7 @@ class FoodController extends Controller
         if (!$keyword) {
             return redirect()->route('collab.index');
         }
-        $foods = Food ::where('name', 'LIKE', '%' . $keyword . '%')->paginate(4);
+        $foods = Food ::where('name', 'LIKE', '%' . $keyword . '%')->paginate(3);
         return view('collaborators.home', compact('foods'));
     }
 }

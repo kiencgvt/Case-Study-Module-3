@@ -9,16 +9,16 @@
     <link rel="icon" type="image/png" href="img/fav.png">
     <title>Swiggiweb - Online Food Ordering Website Template</title>
     <!-- Slick Slider -->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/slick.min.css')}}" />
-    <link rel="stylesheet" type="text/css" href="{{asset('css/slick-theme.min.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('vendor/slick/slick.min.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('vendor/slick/slick-theme.min.css')}}" />
     <!-- Feather Icon-->
-    <link href="{{asset('css/feather.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('vendor/icons/feather.css')}}" rel="stylesheet" type="text/css">
     <!-- Bootstrap core CSS -->
-    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <!-- Sidebar CSS -->
-    <link href="{{asset('css/demo.css')}}" rel="stylesheet">
+    <link href="{{asset('vendor/sidebar/demo.css')}}" rel="stylesheet">
 </head>
 
 <body class="fixed-bottom-bar">
@@ -28,7 +28,7 @@
             <div class="row align-items-center">
                 <div class="col-1">
                     <a href="home.html" class="brand-wrap mb-0">
-                        <img alt="#" class="img-fluid" src="img/logo_web.png">
+                        <img alt="#" class="img-fluid" src="{{asset('image/logo_web.png')}}">
                     </a>
                     <!-- brand-wrap.// -->
                 </div>
@@ -38,7 +38,6 @@
                             <div><i class="feather-map-pin mr-2 bg-light rounded-pill p-2 icofont-size"></i></div>
                             <div>
                                 <p class="text-muted mb-0 small">Select Location</p>
-                                Jawaddi Ludhiana...
                             </div>
                         </a>
                         <div class="dropdown-menu p-0 drop-loc" aria-labelledby="navbarDropdown">
@@ -91,7 +90,7 @@
                 <div class="col-8">
                     <div class="d-flex align-items-center justify-content-end pr-5">
                         <!-- search -->
-                        <a href="" class="widget-header mr-4 text-dark">
+                        <a href="search.html" class="widget-header mr-4 text-dark">
                             <div class="icon d-flex align-items-center">
                                 <i class="feather-search h6 mr-2 mb-0"></i> <span>Search</span>
                             </div>
@@ -111,7 +110,7 @@
                         <!-- my account -->
                         <div class="dropdown mr-4 m-none">
                             <a href="#" class="dropdown-toggle text-dark py-3 d-block" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img alt="#" src="img/user/1.jpg" class="img-fluid rounded-circle header-user mr-2 header-user"> Hi Osahan
+                                <img alt="#" src="{{asset('image/1.jpg')}}" class="img-fluid rounded-circle header-user mr-2 header-user"> Hi Osahan
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="profile.html">My account</a>
@@ -142,86 +141,40 @@
     </section>
     <!-- header-main .// -->
 </header>
-<div class="osahan-profile">
-    <div class="d-none">
-        <div class="bg-primary border-bottom p-3 d-flex align-items-center">
-            <a class="toggle togglew toggle-2" href="#"><span></span></a>
-            <h4 class="font-weight-bold m-0 text-white">Profile</h4>
+@yield('content')
+<!-- Footer -->
+<div class="osahan-menu-fotter fixed-bottom bg-white px-3 py-2 text-center d-none">
+    <div class="row">
+        <div class="col selected">
+            <a href="home.html" class="text-danger small font-weight-bold text-decoration-none">
+                <p class="h4 m-0"><i class="feather-home text-danger"></i></p>
+                Home
+            </a>
         </div>
-    </div>
-    <!-- profile -->
-    <div class="container position-relative">
-
-        <div class="py-5 osahan-profile row">
-            <div class="col-md-4 mb-3">
-                <div class="bg-white rounded shadow-sm sticky_sidebar overflow-hidden">
-                    <a href="profile.html" class="">
-                        <div class="d-flex align-items-center p-3">
-                            <div class="left mr-3">
-                                <img alt="#" src="img/user1.jpg" class="rounded-circle">
-                            </div>
-                            <div class="right">
-                                <h6 class="mb-1 font-weight-bold">Gurdeep Singh <i class="feather-check-circle text-success"></i></h6>
-                            </div>
-                        </div>
-                    </a>
-                    <!-- profile-details -->
-                    <div class="bg-white profile-details">
-
-                        <a href="{{ route('collab.create') }}" class="d-flex w-100 align-items-center border-bottom px-3 py-4">
-                            <div class="left mr-3">
-                                <h6 class="font-weight-bold m-0 text-dark"> Thêm sản phẩm</h6>
-                            </div>
-                        </a>
-{{--                        <a href="{{ route('collab.edit') }}" class="d-flex w-100 align-items-center px-3 py-4">--}}
-                            <div class="left mr-3">
-                                <h6 class="font-weight-bold m-0 text-dark"></i>xoa san pham</h6>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-8 mb-3">
-                @yield('content')
-            </div>
-
+        <div class="col">
+            <a href="most_popular.html" class="text-dark small font-weight-bold text-decoration-none">
+                <p class="h4 m-0"><i class="feather-map-pin"></i></p>
+                Trending
+            </a>
         </div>
-    </div>
-    <!-- Footer -->
-    <div class="osahan-menu-fotter fixed-bottom bg-white px-3 py-2 text-center d-none">
-        <div class="row">
-            <div class="col">
-                <a href="home.html" class="text-dark small font-weight-bold text-decoration-none">
-                    <p class="h4 m-0"><i class="feather-home text-dark"></i></p>
-                    Home
+        <div class="col bg-white rounded-circle mt-n4 px-3 py-2">
+            <div class="bg-danger rounded-circle mt-n0 shadow">
+                <a href="checkout.html" class="text-white small font-weight-bold text-decoration-none">
+                    <i class="feather-shopping-cart"></i>
                 </a>
             </div>
-            <div class="col">
-                <a href="most_popular.html" class="text-dark small font-weight-bold text-decoration-none">
-                    <p class="h4 m-0"><i class="feather-map-pin"></i></p>
-                    Trending
-                </a>
-            </div>
-            <div class="col bg-white rounded-circle mt-n4 px-3 py-2">
-                <div class="bg-danger rounded-circle mt-n0 shadow">
-                    <a href="checkout.html" class="text-white small font-weight-bold text-decoration-none">
-                        <i class="feather-shopping-cart"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col">
-                <a href="favorites.html" class="text-dark small font-weight-bold text-decoration-none">
-                    <p class="h4 m-0"><i class="feather-heart"></i></p>
-                    Favorites
-                </a>
-            </div>
-            <div class="col selected">
-                <a href="profile.html" class="text-danger small font-weight-bold text-decoration-none">
-                    <p class="h4 m-0"><i class="feather-user"></i></p>
-                    Profile
-                </a>
-            </div>
+        </div>
+        <div class="col">
+            <a href="favorites.html" class="text-dark small font-weight-bold text-decoration-none">
+                <p class="h4 m-0"><i class="feather-heart"></i></p>
+                Favorites
+            </a>
+        </div>
+        <div class="col">
+            <a href="profile.html" class="text-dark small font-weight-bold text-decoration-none">
+                <p class="h4 m-0"><i class="feather-user"></i></p>
+                Profile
+            </a>
         </div>
     </div>
 </div>
@@ -229,10 +182,10 @@
 <footer class="section-footer border-top bg-dark">
     <div class="container">
         <section class="footer-top padding-y py-5">
-            <div class="row pt-3">
+            <div class="row">
                 <aside class="col-md-4 footer-about">
                     <article class="d-flex pb-3">
-                        <div><img alt="#" src="img/logo_web.png" class="logo-footer mr-3"></div>
+                        <div><img alt="#" src="{{asset('image/logo_web.png')}}" class="logo-footer mr-3"></div>
                         <div>
                             <h6 class="title text-white">About Us</h6>
                             <p class="text-muted">Some short text about company like You might remember the Dell computer commercials in which a youth reports.</p>
@@ -453,141 +406,99 @@
         </li>
     </ul>
 </nav>
-<!-- payment modal -->
-<div class="modal fade" id="paycard" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Add Credit/Debit Card</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <h6 class="m-0">Add new card</h6>
-                <p class="small">WE ACCEPT <span class="osahan-card ml-2 font-weight-bold">( Master Card / Visa Card / Rupay )</span></p>
-                <form>
-                    <div class="form-row">
-                        <div class="col-md-12 form-group">
-                            <label class="form-label font-weight-bold small">Card number</label>
-                            <div class="input-group">
-                                <input placeholder="Card number" type="number" class="form-control">
-                                <div class="input-group-append"><button type="button" class="btn btn-outline-secondary"><i class="feather-credit-card"></i></button></div>
-                            </div>
-                        </div>
-                        <div class="col-md-8 form-group"><label class="form-label font-weight-bold small">Valid through(MM/YY)</label><input placeholder="Enter Valid through(MM/YY)" type="number" class="form-control"></div>
-                        <div class="col-md-4 form-group"><label class="form-label font-weight-bold small">CVV</label><input placeholder="Enter CVV Number" type="number" class="form-control"></div>
-                        <div class="col-md-12 form-group"><label class="form-label font-weight-bold small">Name on card</label><input placeholder="Enter Card number" type="text" class="form-control"></div>
-                        <div class="col-md-12 form-group mb-0">
-                            <div class="custom-control custom-checkbox"><input type="checkbox" id="custom-checkbox1" class="custom-control-input"><label title="" type="checkbox" for="custom-checkbox1" class="custom-control-label small pt-1">Securely save this card for a faster checkout next time.</label></div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer p-0 border-0">
-                <div class="col-6 m-0 p-0">
-                    <button type="button" class="btn border-top btn-lg btn-block" data-dismiss="modal">Close</button>
-                </div>
-                <div class="col-6 m-0 p-0">
-                    <button type="button" class="btn btn-primary btn-lg btn-block">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- address modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Add Delivery Address</h5>
+                <h5 class="modal-title">Filter</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <form class="">
-                    <div class="form-row">
-                        <div class="col-md-12 form-group">
-                            <label class="form-label">Delivery Area</label>
-                            <div class="input-group">
-                                <input placeholder="Delivery Area" type="text" class="form-control">
-                                <div class="input-group-append"><button type="button" class="btn btn-outline-secondary"><i class="feather-map-pin"></i></button></div>
-                            </div>
+            <div class="modal-body p-0">
+                <div class="osahan-filter">
+                    <div class="filter">
+                        <!-- SORT BY -->
+                        <div class="p-3 bg-light border-bottom">
+                            <h6 class="m-0">SORT BY</h6>
                         </div>
-                        <div class="col-md-12 form-group"><label class="form-label">Complete Address</label><input placeholder="Complete Address e.g. house number, street name, landmark" type="text" class="form-control"></div>
-                        <div class="col-md-12 form-group"><label class="form-label">Delivery Instructions</label><input placeholder="Delivery Instructions e.g. Opposite Gold Souk Mall" type="text" class="form-control"></div>
-                        <div class="mb-0 col-md-12 form-group">
-                            <label class="form-label">Nickname</label>
-                            <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
-                                <label class="btn btn-outline-secondary active">
-                                    <input type="radio" name="options" id="option1" checked> Home
-                                </label>
-                                <label class="btn btn-outline-secondary">
-                                    <input type="radio" name="options" id="option2"> Work
-                                </label>
-                                <label class="btn btn-outline-secondary">
-                                    <input type="radio" name="options" id="option3"> Other
-                                </label>
+                        <div class="custom-control border-bottom px-0  custom-radio">
+                            <input type="radio" id="customRadio1f" name="location" class="custom-control-input" checked>
+                            <label class="custom-control-label py-3 w-100 px-3" for="customRadio1f">Top Rated</label>
+                        </div>
+                        <div class="custom-control border-bottom px-0  custom-radio">
+                            <input type="radio" id="customRadio2f" name="location" class="custom-control-input">
+                            <label class="custom-control-label py-3 w-100 px-3" for="customRadio2f">Nearest Me</label>
+                        </div>
+                        <div class="custom-control border-bottom px-0  custom-radio">
+                            <input type="radio" id="customRadio3f" name="location" class="custom-control-input">
+                            <label class="custom-control-label py-3 w-100 px-3" for="customRadio3f">Cost High to Low</label>
+                        </div>
+                        <div class="custom-control border-bottom px-0  custom-radio">
+                            <input type="radio" id="customRadio4f" name="location" class="custom-control-input">
+                            <label class="custom-control-label py-3 w-100 px-3" for="customRadio4f">Cost Low to High</label>
+                        </div>
+                        <div class="custom-control border-bottom px-0  custom-radio">
+                            <input type="radio" id="customRadio5f" name="location" class="custom-control-input">
+                            <label class="custom-control-label py-3 w-100 px-3" for="customRadio5f">Most Popular</label>
+                        </div>
+                        <!-- Filter -->
+                        <div class="p-3 bg-light border-bottom">
+                            <h6 class="m-0">FILTER</h6>
+                        </div>
+                        <div class="custom-control border-bottom px-0  custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="defaultCheck1" checked>
+                            <label class="custom-control-label py-3 w-100 px-3" for="defaultCheck1">Open Now</label>
+                        </div>
+                        <div class="custom-control border-bottom px-0  custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="defaultCheck2">
+                            <label class="custom-control-label py-3 w-100 px-3" for="defaultCheck2">Credit Cards</label>
+                        </div>
+                        <div class="custom-control border-bottom px-0  custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="defaultCheck3">
+                            <label class="custom-control-label py-3 w-100 px-3" for="defaultCheck3">Alcohol Served</label>
+                        </div>
+                        <!-- Filter -->
+                        <div class="p-3 bg-light border-bottom">
+                            <h6 class="m-0">ADDITIONAL FILTERS</h6>
+                        </div>
+                        <div class="px-3 pt-3">
+                            <input type="range" class="custom-range" min="0" max="100" name="minmax">
+                            <div class="form-row">
+                                <div class="form-group col-6">
+                                    <label>Min</label>
+                                    <input class="form-control" placeholder="$0" type="number">
+                                </div>
+                                <div class="form-group text-right col-6">
+                                    <label>Max</label>
+                                    <input class="form-control" placeholder="$1,0000" type="number">
+                                </div>
                             </div>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
             <div class="modal-footer p-0 border-0">
                 <div class="col-6 m-0 p-0">
                     <button type="button" class="btn border-top btn-lg btn-block" data-dismiss="modal">Close</button>
                 </div>
                 <div class="col-6 m-0 p-0">
-                    <button type="button" class="btn btn-primary btn-lg btn-block">Save changes</button>
+                    <button type="button" class="btn btn-primary btn-lg btn-block">Apply</button>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Invite Modal-->
-<div class="modal fade" id="inviteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header border-0">
-                <h5 class="modal-title font-weight-bold text-dark">Invite</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body py-0">
-                <button class="btn btn-light text-primary btn-sm"><i class="feather-plus"></i></button>
-                <span class="ml-2 smal text-primary">Send an invite to a friend</span>
-                <p class="mt-3 small">Invited friends (2)</p>
-                <div class="d-flex align-items-center mb-3">
-                    <div class="mr-3"><img alt="#" src="img/user1.jpg" class="img-fluid rounded-circle"></div>
-                    <div>
-                        <p class="small font-weight-bold text-dark mb-0">Kate Simpson</p>
-                        <P class="mb-0 small">katesimpson@outbook.com</P>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-3">
-                    <div class="mr-3"><img alt="#" src="img/user2.png" class="img-fluid rounded-circle"></div>
-                    <div>
-                        <p class="small font-weight-bold text-dark mb-0">Andrew Smith</p>
-                        <P class="mb-0 small">andrewsmith@ui8.com</P>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer border-0">
             </div>
         </div>
     </div>
 </div>
 <!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- slick Slider JS-->
-<script type="text/javascript" src="{{asset('js/slick.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('vendor/slick/slick.min.js')}}"></script>
 <!-- Sidebar JS-->
-<script type="text/javascript" src="{{asset('js/hc-offcanvas-nav.js')}}"></script>
+<script type="text/javascript" src="{{asset('vendor/sidebar/hc-offcanvas-nav.js')}}"></script>
 <!-- Custom scripts for all pages-->
 <script type="text/javascript" src="{{asset('js/osahan.js')}}"></script>
 </body>
 
 </html>
+
