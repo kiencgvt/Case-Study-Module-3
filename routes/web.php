@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,9 +22,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/', function () {
-    return view('front-end.home');
-});
+Route::get('/', [HomePageController::class,'index']);
 Route::prefix('collab')->middleware('auth.collaborator')->group(function (){
 //    return view('collaborators.layouts.master');
     Route::get('/',[FoodController::class,'index'])->name('collab.index');
