@@ -17,7 +17,7 @@
                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                                 <div class="osahan-card-body border-top p-3">
                                     <h6 class="m-0">Add new card</h6>
-                                    <p class="small">WE ACCEPT <span class="osahan-card ml-2 font-weight-bold">( Master Card / Visa Card / Rupay )</span></p>
+                                    <p class="small"><span class="osahan-card ml-2 font-weight-bold"></span></p>
                                     <form>
                                         <div class="form-row">
                                             <div class="col-md-12 form-group">
@@ -38,61 +38,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="osahan-card bg-white border-bottom overflow-hidden">
-                            <div class="osahan-card-header" id="headingTwo">
-                                <h2 class="mb-0">
-                                    <button class="d-flex p-3 align-items-center btn btn-link w-100" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        <i class="feather-globe mr-3"></i> Net Banking
-                                        <i class="feather-chevron-down ml-auto"></i>
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                                <div class="osahan-card-body border-top p-3">
-                                    <form>
-                                        <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
-                                            <label class="btn btn-outline-secondary active">
-                                                <input type="radio" name="options" id="option1" checked> HDFC
-                                            </label>
-                                            <label class="btn btn-outline-secondary">
-                                                <input type="radio" name="options" id="option2"> ICICI
-                                            </label>
-                                            <label class="btn btn-outline-secondary">
-                                                <input type="radio" name="options" id="option3"> AXIS
-                                            </label>
-                                        </div>
-                                        <hr>
-                                        <div class="form-row">
-                                            <div class="col-md-12 form-group mb-0">
-                                                <label class="form-label small font-weight-bold">Select Bank</label><br>
-                                                <select class="custom-select form-control">
-                                                    <option>Bank</option>
-                                                    <option>KOTAK</option>
-                                                    <option>SBI</option>
-                                                    <option>UCO</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="osahan-card bg-white overflow-hidden">
-                            <div class="osahan-card-header" id="headingThree">
-                                <h2 class="mb-0">
-                                    <button class="d-flex p-3 align-items-center btn btn-link w-100" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        <i class="feather-dollar-sign mr-3"></i> Cash on Delivery
-                                        <i class="feather-chevron-down ml-auto"></i>
-                                    </button>
-                                </h2>
-                            </div>
-                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                <div class="card-body border-top">
-                                    <h6 class="mb-3 mt-0 mb-3 font-weight-bold">Cash</h6>
-                                    <p class="m-0">Please keep exact change handy to help us serve you better</p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -101,8 +46,7 @@
                     <div class="d-flex border-bottom osahan-cart-item-profile bg-white p-3">
                         <img alt="osahan" src="img/starter1.jpg" class="mr-3 rounded-circle img-fluid">
                         <div class="d-flex flex-column">
-                            <h6 class="mb-1 font-weight-bold">Spice Hut Indian Restaurant</h6>
-                            <p class="mb-0 small text-muted"><i class="feather-map-pin"></i> 2036 2ND AVE, NEW YORK, NY 10029</p>
+                            <h6 class="mb-1 font-weight-bold">NAME</h6>
                         </div>
                     </div>
                     <div class="bg-white border-bottom py-2">
@@ -170,22 +114,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="bg-white p-3 py-3 border-bottom clearfix">
-                        <div class="input-group-sm mb-2 input-group">
-                            <input placeholder="Enter promo code" type="text" class="form-control">
-                            <div class="input-group-append"><button type="button" class="btn btn-primary"><i class="feather-percent"></i> APPLY</button></div>
-                        </div>
-                        <div class="mb-0 input-group">
-                            <div class="input-group-prepend"><span class="input-group-text"><i class="feather-message-square"></i></span></div>
-                            <textarea placeholder="Any suggestions? We will pass it on..." aria-label="With textarea" class="form-control"></textarea>
-                        </div>
-                    </div>
                     <div class="bg-white p-3 clearfix border-bottom">
-                        <p class="mb-1">Item Total <span class="float-right text-dark">$3140</span></p>
-                        <p class="mb-1">Restaurant Charges <span class="float-right text-dark">$62.8</span></p>
-                        <p class="mb-1">Delivery Fee<span class="text-info ml-1"><i class="feather-info"></i></span><span class="float-right text-dark">$10</span></p>
-                        <p class="mb-1 text-success">Total Discount<span class="float-right text-success">$1884</span></p>
-                        <hr>
                         <h6 class="font-weight-bold mb-0">TO PAY <span class="float-right">$1329</span></h6>
                     </div>
                     <div class="p-3">
