@@ -50,4 +50,7 @@ Route::prefix('category')->middleware('auth.admin')->group(function (){
     Route::get('/{id}/delete',[CategoryController::class,'deleteCategory'])->name('category.delete');
     Route::get('/search',[CategoryController::class,'searchCategory'])->name('category.search');
 });
+Route::get('/cart',function (){
+    return view('front-end.cart');
+});
 require __DIR__.'/auth.php';
