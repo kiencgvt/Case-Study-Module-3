@@ -19,9 +19,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('/')->group(function (){
-    Route::get('/', [HomeController::class, 'index'])->name('home.index');
-});
+
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
+
 Route::get('login', [AuthController::class, 'showFormLogin'])->name('auth.showFormLogin');
 Route::post('login', [AuthController::class, 'login'])->name('auth.login');
 
@@ -52,7 +52,6 @@ Route::middleware(['auth', 'checkAdmin'])->prefix('admin')->group(function () {
     });
 });
 
-
 Route::middleware(['auth', 'checkCollab'])->prefix('collab')->group(function () {
     Route::get('/', [FoodController::class, 'index'])->name('collab.index');
     Route::get('/create', [FoodController::class, 'create'])->name('collab.create');
@@ -67,5 +66,7 @@ Route::middleware(['auth', 'checkCustomer'])->prefix('customer')->group(function
     Route::get('/cart', [CartController::class, 'index']);
 });
 
-
+Route::get('/restau', function () {
+    return view('front-end.restau');
+});
 
