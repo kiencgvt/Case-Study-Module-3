@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,15 +19,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
-Route::get('/', function () {
-    return view('front-end.home');
-});
+
+Route::get('/', [HomePageController::class,'index']);
+
+
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
+
+
 Route::prefix('collab')->middleware('auth.collaborator')->group(function (){
-//    return view('collaborators.layouts.master');
     Route::get('/',[FoodController::class,'index'])->name('collab.index');
     Route::get('/create',[FoodController::class,'create'])->name('collab.create');
     Route::post('/create',[FoodController::class,'store'])->name('collab.store');
@@ -35,22 +37,39 @@ Route::prefix('collab')->middleware('auth.collaborator')->group(function (){
     Route::get('/search',[FoodController::class,'search'])->name('collab.search');
 });
 
-Route::prefix('user')->middleware('auth.admin')->group(function (){
-    Route::get('/',[UserController::class,'getAllUser'])->name('user.index');
-    Route::get('/search',[UserController::class,'searchUser'])->name('user.search');
-    Route::get('/{id}/delete',[UserController::class,'deleteUser'])->name('user.delete');
-});
-Route::prefix('category')->middleware('auth.admin')->group(function (){
 
-    Route::get('/',[CategoryController::class,'getAllCategory'])->name('category.list');
-    Route::get('/add',[CategoryController::class,'addCategory'])->name('category.add');
-    Route::post('/add',[CategoryController::class,'store'])->name('category.store');
-    Route::get('/{id}/edit',[CategoryController::class,'editCategory'])->name('category.edit');
-    Route::post('/{id}/edit',[CategoryController::class,'updateCategory'])->name('category.update');
-    Route::get('/{id}/delete',[CategoryController::class,'deleteCategory'])->name('category.delete');
-    Route::get('/search',[CategoryController::class,'searchCategory'])->name('category.search');
+Route::middleware(['auth', 'checkAdmin'])->prefix('admin')->group(function (){
+
+    Route::get('/dashboard', function () {
+        return view('admin.home');
+    })->name('admin.dashboard');
+
+    Route::prefix('users')->middleware('auth.admin')->group(function (){
+        Route::get('/',[UserController::class,'getAllUser'])->name('user.index');
+        Route::get('/search',[UserController::class,'searchUser'])->name('user.search');
+        Route::get('/{id}/delete',[UserController::class,'deleteUser'])->name('user.delete');
+    });
+
+    Route::prefix('categories')->middleware('auth.admin')->group(function (){
+        Route::get('/',[CategoryController::class,'getAllCategory'])->name('category.list');
+        Route::get('/add',[CategoryController::class,'addCategory'])->name('category.add');
+        Route::post('/add',[CategoryController::class,'store'])->name('category.store');
+        Route::get('/{id}/edit',[CategoryController::class,'editCategory'])->name('category.edit');
+        Route::post('/{id}/edit',[CategoryController::class,'updateCategory'])->name('category.update');
+        Route::get('/{id}/delete',[CategoryController::class,'deleteCategory'])->name('category.delete');
+        Route::get('/search',[CategoryController::class,'searchCategory'])->name('category.search');
+    });
 });
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('logout', [AuthController::class,'logout'])->name('auth.logout');
+});
+
+Route::get('login', [\App\Http\Controllers\AuthController::class,'showFormLogin'])->name('auth.shoFormLogin');
+Route::post('login', [\App\Http\Controllers\AuthController::class,'login'])->name('auth.login');
+
 Route::get('/cart',function (){
     return view('front-end.cart');
 });
-require __DIR__.'/auth.php';
+
