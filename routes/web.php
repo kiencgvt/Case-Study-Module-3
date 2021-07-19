@@ -17,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+
 
 Route::get('login', [AuthController::class, 'showFormLogin'])->name('auth.showFormLogin');
 Route::post('login', [AuthController::class, 'login'])->name('auth.login');
@@ -67,5 +67,7 @@ Route::middleware(['auth', 'checkCustomer'])->prefix('customer')->group(function
     });
 });
 
-
+Route::get('/restau', function () {
+    return view('front-end.restau');
+});
 
