@@ -34,11 +34,11 @@ Route::prefix('collab')->middleware('auth.collaborator')->group(function (){
 });
 
 
-Route::prefix('admin')->group(function (){
+Route::middleware(['auth', 'checkAdmin'])->prefix('admin')->group(function (){
 
     Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+        return view('admin.home');
+    })->name('admin.dashboard');
 
     Route::prefix('users')->middleware('auth.admin')->group(function (){
         Route::get('/',[UserController::class,'getAllUser'])->name('user.index');
