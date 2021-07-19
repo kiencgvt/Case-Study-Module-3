@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,11 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
-
-Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
-
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
 Route::prefix('collab')->middleware('auth.collaborator')->group(function (){
     Route::get('/',[FoodController::class,'index'])->name('collab.index');
@@ -32,7 +29,6 @@ Route::prefix('collab')->middleware('auth.collaborator')->group(function (){
     Route::get('/{id}/delete',[FoodController::class,'delete'])->name('collab.delete');
     Route::get('/search',[FoodController::class,'search'])->name('collab.search');
 });
-
 
 Route::middleware(['auth', 'checkAdmin'])->prefix('admin')->group(function (){
 
@@ -57,13 +53,12 @@ Route::middleware(['auth', 'checkAdmin'])->prefix('admin')->group(function (){
     });
 });
 
-
 Route::middleware(['auth'])->group(function () {
     Route::get('logout', [AuthController::class,'logout'])->name('auth.logout');
 });
 
-Route::get('login', [\App\Http\Controllers\AuthController::class,'showFormLogin'])->name('auth.shoFormLogin');
-Route::post('login', [\App\Http\Controllers\AuthController::class,'login'])->name('auth.login');
+Route::get('login', [AuthController::class,'showFormLogin'])->name('auth.shoFormLogin');
+Route::post('login', [AuthController::class,'login'])->name('auth.login');
 
 Route::get('/cart',function (){
     return view('front-end.cart');

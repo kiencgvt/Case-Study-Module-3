@@ -23,56 +23,32 @@
                 <div class="cat-slider">
                     <div class="cat-item px-1 py-3">
                         <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
-                            <img alt="#" src="img/icons/Fries.png" class="img-fluid mb-2">
-                            <p class="m-0 small"></p>
+                            <img alt="#" src="{{ asset('image/an-nhanh.png') }}" class="img-fluid mb-2">
+                            <p class="m-0 small">Đồ ăn nhanh</p>
                         </a>
                     </div>
                     <div class="cat-item px-1 py-3">
                         <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
-                            <img alt="#" src="img/icons/Pizza.png" class="img-fluid mb-2">
-                            <p class="m-0 small">Pizza</p>
+                            <img alt="#" src="{{ asset('image/an-vat.png') }}" class="img-fluid mb-2">
+                            <p class="m-0 small">Giải khát</p>
                         </a>
                     </div>
                     <div class="cat-item px-1 py-3">
                         <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
-                            <img alt="#" src="img/icons/Burger.png" class="img-fluid mb-2">
-                            <p class="m-0 small">Burger</p>
+                            <img alt="#" src="{{ asset('image/com.png') }}" class="img-fluid mb-2">
+                            <p class="m-0 small">Cơm</p>
                         </a>
                     </div>
                     <div class="cat-item px-1 py-3">
                         <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
-                            <img alt="#" src="img/icons/Sandwich.png" class="img-fluid mb-2">
-                            <p class="m-0 small">Sandwich</p>
+                            <img alt="#" src="{{ asset('image/nuoc.png') }}" class="img-fluid mb-2">
+                            <p class="m-0 small">Giải khát</p>
                         </a>
                     </div>
                     <div class="cat-item px-1 py-3">
                         <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
-                            <img alt="#" src="img/icons/Coffee.png" class="img-fluid mb-2">
-                            <p class="m-0 small">Coffee</p>
-                        </a>
-                    </div>
-                    <div class="cat-item px-1 py-3">
-                        <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
-                            <img alt="#" src="img/icons/Steak.png" class="img-fluid mb-2">
-                            <p class="m-0 small">Steak</p>
-                        </a>
-                    </div>
-                    <div class="cat-item px-1 py-3">
-                        <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
-                            <img alt="#" src="img/icons/ColaCan.png" class="img-fluid mb-2">
-                            <p class="m-0 small">ColaCan</p>
-                        </a>
-                    </div>
-                    <div class="cat-item px-1 py-3">
-                        <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
-                            <img alt="#" src="img/icons/Breakfast.png" class="img-fluid mb-2">
-                            <p class="m-0 small">Breakfast</p>
-                        </a>
-                    </div>
-                    <div class="cat-item px-1 py-3">
-                        <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
-                            <img alt="#" src="img/icons/Salad.png" class="img-fluid mb-2">
-                            <p class="m-0 small">Salad</p>
+                            <img alt="#" src="{{ asset('image/my.png') }}" class="img-fluid mb-2">
+                            <p class="m-0 small">Bún/Phở</p>
                         </a>
                     </div>
                 </div>
@@ -82,27 +58,27 @@
                     <div class="offer-slider">
                         <div class="cat-item px-1 py-3">
                             <a class="d-block text-center shadow-sm" href="trending.html">
-                                <img alt="#" src="img/pro1.jpg" class="img-fluid rounded">
+                                <img alt="#" src="{{ asset('image/com-ga.jpg') }}" class="img-fluid rounded">
                             </a>
                         </div>
                         <div class="cat-item px-1 py-3">
                             <a class="d-block text-center shadow-sm" href="trending.html">
-                                <img alt="#" src="img/pro2.jpg" class="img-fluid rounded">
+                                <img alt="#" src="{{ asset('image/nc.jpeg') }}" class="img-fluid rounded">
                             </a>
                         </div>
                         <div class="cat-item px-1 py-3">
                             <a class="d-block text-center shadow-sm" href="trending.html">
-                                <img alt="#" src="img/pro3.jpg" class="img-fluid rounded">
+                                <img alt="#" src="{{ asset('image/pho-bo.jpg') }}" class="img-fluid rounded">
                             </a>
                         </div>
                         <div class="cat-item px-1 py-3">
                             <a class="d-block text-center shadow-sm" href="trending.html">
-                                <img alt="#" src="img/pro4.jpg" class="img-fluid rounded">
+                                <img alt="#" src="{{ asset('image/bun-cha.jpg') }}" class="img-fluid rounded">
                             </a>
                         </div>
                         <div class="cat-item px-1 py-3">
                             <a class="d-block text-center shadow-sm" href="trending.html">
-                                <img alt="#" src="img/pro2.jpg" class="img-fluid rounded">
+                                <img alt="#" src="{{ asset('image/tra-dao-tuoi-giai-khat-cho-mua-he.jpg') }}" class="img-fluid rounded">
                             </a>
                         </div>
                     </div>
@@ -121,15 +97,16 @@
                                 <div class="favourite-heart text-danger position-absolute"><a href="#"><i class="feather-heart"></i></a></div>
                                 <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span></div>
                                 <a href="restaurant.html">
-                                    <img alt="#" src="img/trending1.png" class="img-fluid item-img w-100">
+                                    <img alt="#" src="{{ asset('image/nha-hang.jpg') }}" class="img-fluid item-img w-100" style="height: 250px">
                                 </a>
                             </div>
                             <div class="p-3 position-relative">
                                 <div class="list-card-body">
-                                    <h6 class="mb-1"><a href="restaurant.html" class="text-black">Famous Dave's Bar-B-Que
+                                    <h6 class="mb-1"><a href="restaurant.html" class="text-black">
+                                            Starbuck
                                   </a>
                                     </h6>
-                                    <p class="text-gray mb-3">Vegetarian • Indian • Pure veg</p>
+                                    <p class="text-gray mb-3">Hai Bà Trưng • Hà Nội • Việt Nam</p>
                                     <p class="text-gray mb-3 time"><span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="feather-clock"></i> 15–30 min</span> <span class="float-right text-black-50"> $350 FOR TWO</span></p>
                                 </div>
                                 <div class="list-card-badge">
@@ -145,13 +122,13 @@
                                 <div class="favourite-heart text-danger position-absolute"><a href="#"><i class="feather-heart"></i></a></div>
                                 <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span></div>
                                 <a href="restaurant.html">
-                                    <img alt="#" src="img/trending2.png" class="img-fluid item-img w-100">
+                                    <img alt="#" src="{{ asset('image/mc2.jpg') }}" class="img-fluid item-img w-100" style="height: 250px">
                                 </a>
                             </div>
                             <div class="p-3 position-relative">
                                 <div class="list-card-body">
-                                    <h6 class="mb-1"><a href="restaurant.html" class="text-black">Thai Famous Cuisine</a></h6>
-                                    <p class="text-gray mb-3">North Indian • Indian • Pure veg</p>
+                                    <h6 class="mb-1"><a href="restaurant.html" class="text-black">MC Donald's</a></h6>
+                                    <p class="text-gray mb-3">Hàng Bài • Hà Nội • Việt Nam</p>
                                     <p class="text-gray mb-3 time"><span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="feather-clock"></i> 30–35 min</span> <span class="float-right text-black-50"> $250 FOR TWO</span></p>
                                 </div>
                                 <div class="list-card-badge">
@@ -167,15 +144,15 @@
                                 <div class="favourite-heart text-danger position-absolute"><a href="#"><i class="feather-heart"></i></a></div>
                                 <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span></div>
                                 <a href="restaurant.html">
-                                    <img alt="#" src="img/trending3.png" class="img-fluid item-img w-100">
+                                    <img alt="#" src="{{ asset('image/highland.jpg') }}" class="img-fluid item-img w-100" style="height: 250px">
                                 </a>
                             </div>
                             <div class="p-3 position-relative">
                                 <div class="list-card-body">
-                                    <h6 class="mb-1"><a href="restaurant.html" class="text-black">The osahan Restaurant
+                                    <h6 class="mb-1"><a href="restaurant.html" class="text-black">Highland
                                   </a>
                                     </h6>
-                                    <p class="text-gray mb-3">North • Hamburgers • Pure veg</p>
+                                    <p class="text-gray mb-3">Hoàn Kiếm • Hà Nội • Việt Nam</p>
                                     <p class="text-gray mb-3 time"><span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="feather-clock"></i> 15–25 min</span> <span class="float-right text-black-50"> $500 FOR TWO</span></p>
                                 </div>
                                 <div class="list-card-badge">
@@ -191,13 +168,13 @@
                                 <div class="favourite-heart text-danger position-absolute"><a href="#"><i class="feather-heart"></i></a></div>
                                 <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span></div>
                                 <a href="restaurant.html">
-                                    <img alt="#" src="img/trending2.png" class="img-fluid item-img w-100">
+                                    <img alt="#" src="{{ asset('image/pizza.jpg') }}" class="img-fluid item-img w-100" style="height: 250px">
                                 </a>
                             </div>
                             <div class="p-3 position-relative">
                                 <div class="list-card-body">
-                                    <h6 class="mb-1"><a href="restaurant.html" class="text-black">Thai Famous Cuisine</a></h6>
-                                    <p class="text-gray mb-3">North Indian • Indian • Pure veg</p>
+                                    <h6 class="mb-1"><a href="restaurant.html" class="text-black">Pizza hut</a></h6>
+                                    <p class="text-gray mb-3">Hồ Tùng Mậu • Bắc Từ Liêm • Hà Nội</p>
                                     <p class="text-gray mb-3 time"><span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="feather-clock"></i> 30–35 min</span> <span class="float-right text-black-50"> $250 FOR TWO</span></p>
                                 </div>
                                 <div class="list-card-badge">

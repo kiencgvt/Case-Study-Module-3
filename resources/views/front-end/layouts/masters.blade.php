@@ -7,7 +7,7 @@
     <meta name="description" content="Askbootstrap">
     <meta name="author" content="Askbootstrap">
     <link rel="icon" type="image/png" href="img/fav.png">
-    <title>Swiggiweb - Online Food Ordering Website Template</title>
+    <title>ChupapiFood</title>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -122,65 +122,6 @@
             <!-- row.// -->
         </section>
         <!-- footer-top.// -->
-        <section class="footer-center border-top padding-y py-5">
-            <h6 class="title text-white">Countries</h6>
-            <div class="row">
-                <aside class="col-sm-2 col-md-2 text-white">
-                    <ul class="list-unstyled hov_footer">
-                        <li> <a href="#" class="text-muted">India</a></li>
-                        <li> <a href="#" class="text-muted">Indonesia</a></li>
-                        <li> <a href="#" class="text-muted">Ireland</a></li>
-                        <li> <a href="#" class="text-muted">Italy</a></li>
-                        <li> <a href="#" class="text-muted">Lebanon</a></li>
-                    </ul>
-                </aside>
-                <aside class="col-sm-2 col-md-2 text-white">
-                    <ul class="list-unstyled hov_footer">
-                        <li> <a href="#" class="text-muted">Malaysia</a></li>
-                        <li> <a href="#" class="text-muted">New Zealand</a></li>
-                        <li> <a href="#" class="text-muted">Philippines</a></li>
-                        <li> <a href="#" class="text-muted">Poland</a></li>
-                        <li> <a href="#" class="text-muted">Portugal</a></li>
-                    </ul>
-                </aside>
-                <aside class="col-sm-2 col-md-2 text-white">
-                    <ul class="list-unstyled hov_footer">
-                        <li> <a href="#" class="text-muted">Australia</a></li>
-                        <li> <a href="#" class="text-muted">Brasil</a></li>
-                        <li> <a href="#" class="text-muted">Canada</a></li>
-                        <li> <a href="#" class="text-muted">Chile</a></li>
-                        <li> <a href="#" class="text-muted">Czech Republic</a></li>
-                    </ul>
-                </aside>
-                <aside class="col-sm-2 col-md-2 text-white">
-                    <ul class="list-unstyled hov_footer">
-                        <li> <a href="#" class="text-muted">Turkey</a></li>
-                        <li> <a href="#" class="text-muted">UAE</a></li>
-                        <li> <a href="#" class="text-muted">United Kingdom</a></li>
-                        <li> <a href="#" class="text-muted">United States</a></li>
-                        <li> <a href="#" class="text-muted">Sri Lanka</a></li>
-                    </ul>
-                </aside>
-                <aside class="col-sm-2 col-md-2 text-white">
-                    <ul class="list-unstyled hov_footer">
-                        <li> <a href="#" class="text-muted">Qatar</a></li>
-                        <li> <a href="#" class="text-muted">Singapore</a></li>
-                        <li> <a href="#" class="text-muted">Slovakia</a></li>
-                        <li> <a href="#" class="text-muted">South Africa</a></li>
-                        <li> <a href="#" class="text-muted">Green Land</a></li>
-                    </ul>
-                </aside>
-                <aside class="col-sm-2 col-md-2 text-white">
-                    <ul class="list-unstyled hov_footer">
-                        <li> <a href="#" class="text-muted">Pakistan</a></li>
-                        <li> <a href="#" class="text-muted">Bangladesh</a></li>
-                        <li> <a href="#" class="text-muted">Bhutaan</a></li>
-                        <li> <a href="#" class="text-muted">Nepal</a></li>
-                    </ul>
-                </aside>
-            </div>
-            <!-- row.// -->
-        </section>
     </div>
     <!-- //container -->
     <section class="footer-copyright border-top py-3 bg-light">
