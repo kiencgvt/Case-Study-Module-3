@@ -49,6 +49,6 @@
 
         </tbody>
     </table>
-      
+      {{$foods->links()}}
 @endsection
 

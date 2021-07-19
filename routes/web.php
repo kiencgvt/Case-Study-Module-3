@@ -48,3 +48,6 @@ Route::prefix('category')->group(function (){
     Route::get('list',[CategoryController::class,'getAllCategory'])->name('category.list');
 
 });
+Route::get('/cart',function (){
+    return view('front-end.cart');
+});
