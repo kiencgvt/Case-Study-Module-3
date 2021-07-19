@@ -3,6 +3,8 @@
 namespace App\Http;
 
 use App\Http\Middleware\CheckAdmin;
+use App\Http\Middleware\CheckCollab;
+use App\Http\Middleware\CheckCustomer;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -55,8 +57,6 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
-        'auth.admin' => \App\Http\Middleware\AuthenticateAdmin::class,
-        'auth.collaborator' => \App\Http\Middleware\AuthenticateCollaborator::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
@@ -65,6 +65,8 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'checkAdmin' => CheckAdmin::class
+        'checkAdmin' => CheckAdmin::class,
+        'checkCollab' => CheckCollab::class,
+        'checkCustomer' => CheckCustomer::class,
     ];
 }

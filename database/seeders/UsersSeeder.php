@@ -15,7 +15,7 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        /*$admin = new User();
+        $admin = new User();
         $admin->name = 'admin';
         $admin->avatar = 'image/admin.jpg';
         $admin->email = 'admin@gmail.com';
@@ -23,7 +23,7 @@ class UsersSeeder extends Seeder
         $admin->address = 'Công ty CP Codegym Việt Nam';
         $admin->phone = '0945343658';
         $admin->role = 'admin';
-        $admin->save();*/
+        $admin->save();
 
         $collaborator = new User();
         $collaborator->name = 'Đỗ Trung Kiên';
@@ -34,5 +34,15 @@ class UsersSeeder extends Seeder
         $collaborator->phone = '0945343658';
         $collaborator->role = 'collaborator';
         $collaborator->save();
+
+        $customer = new User();
+        $customer->name = 'Đỗ Trung Kiên';
+        $customer->avatar = 'image/admin.jpg';
+        $customer->email = 'now@gmail.com';
+        $customer->password = Hash::make('12345678');
+        $customer->address = 'Công ty CP Codegym Việt Nam';
+        $customer->phone = '0945343658';
+        $customer->role = 'customer';
+        $customer->save();
     }
 }
