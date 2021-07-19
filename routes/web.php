@@ -19,9 +19,9 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', function () {
-    return view('front-end.home');
-});
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home.index');
+
+
 Route::prefix('collab')->middleware('auth.collaborator')->group(function (){
     Route::get('/',[FoodController::class,'index'])->name('collab.index');
     Route::get('/create',[FoodController::class,'create'])->name('collab.create');
@@ -57,6 +57,7 @@ Route::prefix('admin')->group(function (){
 });
 
 Route::get('login', [\App\Http\Controllers\AuthController::class,'showFormLogin'])->name('auth.shoFormLogin');
+Route::post('login', [\App\Http\Controllers\AuthController::class,'login'])->name('auth.login');
 
 Route::get('/cart',function (){
     return view('front-end.cart');
