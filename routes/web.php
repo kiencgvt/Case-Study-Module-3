@@ -24,7 +24,7 @@ Route::get('/dashboard', function () {
 Route::get('/', function () {
     return view('front-end.home');
 });
-Route::prefix('/collab')->group(function (){
+Route::prefix('collab')->middleware('auth.collaborator')->group(function (){
 //    return view('collaborators.layouts.master');
     Route::get('/',[FoodController::class,'index'])->name('collab.index');
     Route::get('/create',[FoodController::class,'create'])->name('collab.create');
@@ -35,12 +35,12 @@ Route::prefix('/collab')->group(function (){
     Route::get('/search',[FoodController::class,'search'])->name('collab.search');
 });
 
-Route::prefix('user')->middleware('auth')->group(function (){
+Route::prefix('user')->middleware('auth.admin')->group(function (){
     Route::get('/',[UserController::class,'getAllUser'])->name('user.index');
     Route::get('/search',[UserController::class,'searchUser'])->name('user.search');
     Route::get('/{id}/delete',[UserController::class,'deleteUser'])->name('user.delete');
 });
-Route::prefix('category')->middleware('auth')->group(function (){
+Route::prefix('category')->middleware('auth.admin')->group(function (){
 
     Route::get('/',[CategoryController::class,'getAllCategory'])->name('category.list');
     Route::get('/add',[CategoryController::class,'addCategory'])->name('category.add');

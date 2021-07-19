@@ -12,7 +12,7 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('login') }}">
+        @yield('form')
             @csrf
 
             <!-- Email Address -->
@@ -31,7 +31,7 @@
                                 name="password"
                                 required autocomplete="current-password" />
             </div>
-
+                @yield('role')
             <!-- Remember Me -->
             <div class="block mt-4">
                 <label for="remember_me" class="inline-flex items-center">
