@@ -92,12 +92,11 @@
                                 <img alt="#" src="{{asset('image/1.jpg')}}" class="img-fluid rounded-circle header-user mr-2 header-user"> {{ auth()->user()->name }}
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="profile.html">My account</a>
-                                <a class="dropdown-item" href="faq.html">Delivery support</a>
-                                <a class="dropdown-item" href="contact-us.html">Contant us</a>
-                                <a class="dropdown-item" href="terms.html">Term of use</a>
-                                <a class="dropdown-item" href="privacy.html">Privacy policy</a>
-                                <a class="dropdown-item" href="login.html">Logout</a>
+                                <a class="dropdown-item" href="profile.html">Tai khoan</a>
+                                <a class="dropdown-item" href="faq.html">Danh cho quan tri vien</a>
+                                <a class="dropdown-item" href="contact-us.html">Cua hang cua toi</a>
+                                <a class="dropdown-item" href="terms.html">Doi mat khau</a>
+                                <a class="dropdown-item" href="{{ route('auth.logout') }}">Dang xuat</a>
                             </div>
                         </div>
                         @endif
