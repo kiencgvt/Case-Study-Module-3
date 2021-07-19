@@ -29,16 +29,6 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth', 'checkAdmin'])->prefix('admin')->group(function () {
 
-    Route::prefix('collab')->middleware('auth.collaborator')->group(function () {
-        Route::get('/', [FoodController::class, 'index'])->name('collab.index');
-        Route::get('/create', [FoodController::class, 'create'])->name('collab.create');
-        Route::post('/create', [FoodController::class, 'store'])->name('collab.store');
-        Route::get('/{id}/edit', [FoodController::class, 'edit'])->name('collab.edit');
-        Route::post('/{id}/edit', [FoodController::class, 'update'])->name('collab.update');
-        Route::get('/{id}/delete', [FoodController::class, 'delete'])->name('collab.delete');
-        Route::get('/search', [FoodController::class, 'search'])->name('collab.search');
-    });
-
     Route::get('/dashboard', function () {
         return view('admin.home');
     })->name('admin.dashboard');
@@ -76,6 +66,3 @@ Route::middleware(['auth', 'checkCustomer'])->prefix('customer')->group(function
         return view('front-end.cart');
     });
 });
-
-
-
