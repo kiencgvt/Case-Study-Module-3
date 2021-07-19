@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\UserController;
@@ -54,6 +55,11 @@ Route::prefix('admin')->group(function (){
         Route::get('/{id}/delete',[CategoryController::class,'deleteCategory'])->name('category.delete');
         Route::get('/search',[CategoryController::class,'searchCategory'])->name('category.search');
     });
+});
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('logout', [AuthController::class,'logout'])->name('auth.logout');
 });
 
 Route::get('login', [\App\Http\Controllers\AuthController::class,'showFormLogin'])->name('auth.shoFormLogin');
