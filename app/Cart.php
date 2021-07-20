@@ -19,43 +19,43 @@ class Cart
         }
     }
 
-    function add($product)
+    function add($food)
     {
 
-        $storeProduct = [
-            "item" => $product,
+        $storeFood = [
+            "item" => $food,
             "price" => 0,
             "quantity" => 0
         ];
 
         //kiem tra san pham ton tai trong gio hang chua
-        if (array_key_exists($product->id, $this->items)) {
-            $storeProduct = $this->items[$product->id];
+        if (array_key_exists($food->id, $this->items)) {
+            $storeProduct = $this->items[$food->id];
         }
 
         //tang san pham len 1 don vi
-        $storeProduct['quantity']++;
-        $storeProduct['price'] += $product->price;
+        $storeFood['quantity']++;
+        $storeFood['price'] += $food->price;
 
-        $this->items[$product->id] = $storeProduct;
+        $this->items[$food->id] = $storeFood;
 
         //tang so luong sp trong gio hang
         $this->totalQuantity++;
-        $this->totalPrice += $product->price;
+        $this->totalPrice += $food->price;
 
     }
 
-    function delete($product)
+    function delete($food)
     {
         //kiem tra san pham ton tai trong gio hang chua
-        if (array_key_exists($product->id, $this->items)) {
-            $storeProductDelete = $this->items[$product->id];
+        if (array_key_exists($food->id, $this->items)) {
+            $storeFoodDelete = $this->items[$food->id];
             //giam tien
-            $this->totalPrice -= $storeProductDelete['price'];
+            $this->totalPrice -= $storeFoodDelete['price'];
             //giam so luong
-            $this->totalQuantity -= $storeProductDelete['quantity'];
+            $this->totalQuantity -= $storeFoodDelete['quantity'];
             // xoa phan tu o vi tri $product->id
-            unset($this->items[$product->id]);
+            unset($this->items[$food->id]);
         }
     }
 
