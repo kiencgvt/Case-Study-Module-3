@@ -22,40 +22,59 @@
 </head>
 
 <body>
-<div class="login-page vh-100">
+<div class="osahan-signup login-page">
     <video loop autoplay muted id="vid">
         <source src="{{ asset('image/bg.mp4') }}" type="video/mp4">
         <source src="{{ asset('image/bg.mp4') }}" type="video/ogg">
         Your browser does not support the video tag.
     </video>
-    <div class="d-flex align-items-center justify-content-center vh-100">
+    <div class="d-flex align-items-center justify-content-center flex-column vh-100">
         <div class="px-5 col-md-6 ml-auto">
             <div class="px-5 col-10 mx-auto">
-                <h2 class="text-dark my-0">Welcome Back</h2>
-                <p class="text-50">Sign in to continue</p>
-                <form class="mt-5 mb-4" method="post" action="{{ route('auth.login') }}">
+                <h2 class="text-dark my-0">Hello There.</h2>
+                <p class="text-50">Sign up to continue</p>
+                <form enctype="multipart/form-data" class="mt-5 mb-4" action="{{ route('auth.register') }}" method="post">
                     @csrf
                     <div class="form-group">
-                        <label for="exampleInputEmail1" class="text-dark">Email</label>
-                        <input type="email" name="email" placeholder="Enter Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <label class="text-dark">Name</label>
+                        <input type="text" placeholder="Enter Name" class="form-control" name="name">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1" class="text-dark">Password</label>
-                        <input type="password" name="password" placeholder="Enter Password" class="form-control" id="exampleInputPassword1">
+                        <label class="text-dark">Avatar</label>
+                        <input type="file" class="form-control" name="image">
                     </div>
-                    <button class="btn btn-primary btn-lg btn-block" type="submit">SIGN IN</button>
-                    <div class="py-2">
-                        <button class="btn btn-lg btn-facebook btn-block"><i class="feather-facebook"></i> Connect with Facebook</button>
+                    <div class="form-group">
+                        <label class="text-dark">Email</label>
+                        <input type="text" placeholder="Enter Email" class="form-control" name="email">
                     </div>
+                    <div class="form-group">
+                        <label class="text-dark">Password</label>
+                        <input type="password" placeholder="Enter Password" class="form-control" name="password">
+                    </div>
+                    <div class="form-group">
+                        <label class="text-dark">Address</label>
+                        <input type="text" placeholder="Enter Address" class="form-control" name="address">
+                    </div>
+                    <div class="form-group">
+                        <label class="text-dark">Phone Number</label>
+                        <input type="number" placeholder="Enter Mobile" class="form-control" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <p>Role</p>
+                        <input type="radio" name="role" value="customer">
+                        <label class="text-dark">Customer</label>
+                        <input type="radio" name="role" value="collaborator">
+                        <label class="text-dark">Collaborator</label>
+                    </div>
+                    <button class="btn btn-primary btn-lg btn-block">
+                        SIGN UP
+                    </button>
                 </form>
-                <a href="forgot_password.html" class="text-decoration-none">
-                    <p class="text-center">Forgot your password?</p>
+            </div>
+            <div class="new-acc d-flex align-items-center justify-content-center">
+                <a href="{{ route('auth.showFormLogin') }}">
+                    <p class="text-center m-0">Already an account? Sign in</p>
                 </a>
-                <div class="d-flex align-items-center justify-content-center">
-                    <a href="signup.html">
-                        <p class="text-center m-0">Don't have an account? Sign up</p>
-                    </a>
-                </div>
             </div>
         </div>
     </div>
@@ -159,7 +178,7 @@
     </ul>
 </nav>
 <!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- slick Slider JS-->
 <script type="text/javascript" src="{{ asset('vendor/slick/slick.min.js') }}"></script>
