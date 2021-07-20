@@ -89,7 +89,7 @@ class FoodController extends Controller
         if (!$keyword) {
             return redirect()->route('collab.index');
         }
-        $foods = Food ::where('name', 'LIKE', '%' . $keyword . '%')->paginate(3);
+        $foods = Food::where('name', 'LIKE', '%' . $keyword . '%')->paginate(3);
         return view('collaborators.foods.home', compact('foods'));
     }
 }
