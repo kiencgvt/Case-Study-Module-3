@@ -86,7 +86,7 @@
             <div class="col-md-8 mb-3">
                 <h1>Danh sách cửa hàng</h1>
 
-                <a href="{{route('collab.create')}}">Thêm mới cửa hàng </a>
+                <a href="{{ route('shop.create') }}">Thêm mới cửa hàng </a>
 
                 <nav class="navbar navbar-light bg-light">
                     <form class="form-inline" action="{{route('collab.search')}}" method="get">
