@@ -37,28 +37,46 @@
                     @csrf
                     <div class="form-group">
                         <label class="text-dark">Name</label>
-                        <input type="text" placeholder="Enter Name" class="form-control" name="name">
+                        <input type="text" placeholder="Enter Name" class="form-control" name="name" value="{{ old('name') }}">
                     </div>
+                    @error('name')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                     <div class="form-group">
                         <label class="text-dark">Avatar</label>
                         <input type="file" class="form-control" name="image">
                     </div>
+                    @error('image')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                     <div class="form-group">
                         <label class="text-dark">Email</label>
-                        <input type="text" placeholder="Enter Email" class="form-control" name="email">
+                        <input type="text" placeholder="Enter Email" class="form-control" name="email" value="{{ old('email') }}">
                     </div>
+                    @error('email')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                     <div class="form-group">
                         <label class="text-dark">Password</label>
                         <input type="password" placeholder="Enter Password" class="form-control" name="password">
                     </div>
+                    @error('password')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                     <div class="form-group">
                         <label class="text-dark">Address</label>
-                        <input type="text" placeholder="Enter Address" class="form-control" name="address">
+                        <input type="text" placeholder="Enter Address" class="form-control" name="address" value="{{ old('address') }}">
                     </div>
+                    @error('address')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                     <div class="form-group">
                         <label class="text-dark">Phone Number</label>
-                        <input type="number" placeholder="Enter Mobile" class="form-control" name="phone">
+                        <input type="number" placeholder="Enter Mobile" class="form-control" name="phone" value="{{ old('phone') }}">
                     </div>
+                    @error('phone')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                     <div class="form-group">
                         <p>Role</p>
                         <input type="radio" name="role" value="customer">
@@ -66,6 +84,9 @@
                         <input type="radio" name="role" value="collaborator">
                         <label class="text-dark">Collaborator</label>
                     </div>
+                    @error('role')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                     <button class="btn btn-primary btn-lg btn-block">
                         SIGN UP
                     </button>
