@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,7 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('register', [AuthController::class, 'showFormRegister'])->name('auth.showFormRegister');
 Route::post('register', [AuthController::class, 'register'])->name('auth.register');
+
 Route::middleware(['auth', 'checkAdmin'])->prefix('admin')->group(function () {
 
     Route::get('/dashboard', function () {
@@ -72,6 +74,4 @@ Route::middleware(['auth', 'checkCustomer'])->prefix('customer')->group(function
 
 Route::get('/restaurants/{id}/detail', [RestaurantController::class,'detail'])->name('restau.detail');
 
-Route::get('/search', function () {
-    return view('front-end.search');
-});
+Route::get('/search', [SearchController::class, 'showDetail'])->name('search');
