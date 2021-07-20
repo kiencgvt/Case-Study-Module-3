@@ -10,10 +10,12 @@ use Illuminate\Support\Facades\Auth;
 
 class RestaurantController extends Controller
 {
-    function detail($id) {
+    function detail($id)
+    {
         $restaurantCurrent = Shop::findOrFail($id);
         $foods = Food::where('shop_id',$id)->get();
         $categories = Category::all();
         return view('front-end.restaurants.detail', compact('restaurantCurrent','foods','categories'));
     }
+
 }
