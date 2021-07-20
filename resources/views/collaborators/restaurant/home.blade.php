@@ -85,13 +85,20 @@
             </div>
             <div class="col-md-8 mb-3">
                 <h1>Danh sách cửa hàng</h1>
+
                 <a href="{{route('collab.create')}}">Thêm mới cửa hàng </a>
+
                 <nav class="navbar navbar-light bg-light">
                     <form class="form-inline" action="{{route('collab.search')}}" method="get">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
                                name="search">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
+
+                    @if(\Illuminate\Support\Facades\Session::has('success'))
+                        <div class="alert-success">{{\Illuminate\Support\Facades\Session::get('success')}}</div>
+                    @endif
+
                 </nav>
                 <table class="table table-striped">
                     <thead>
