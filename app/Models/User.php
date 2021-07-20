@@ -27,4 +27,9 @@ class User extends Authenticatable
     public function isAdmin() {
         return $this->role == RoleConstant::ADMIN;
     }
+
+    public function isCollab()
+    {
+        return $this->role == RoleConstant::COLLABORATOR;
+    }
 }

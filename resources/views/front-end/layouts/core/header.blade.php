@@ -45,8 +45,9 @@
                                     @if(\Illuminate\Support\Facades\Auth::user()->isAdmin())
                                         <a class="dropdown-item" href="{{ route('admin.dashboard') }}">Quản trị viên</a>
                                     @endif
-
+                                    @if(\Illuminate\Support\Facades\Auth::user()->isCollab())
                                     <a class="dropdown-item" href="contact-us.html">Nhà hàng</a>
+                                    @endif
                                     <a class="dropdown-item" href="terms.html">Đổi mật khẩu</a>
                                     <a class="dropdown-item" href="{{ route('auth.logout') }}">Đăng xuất</a>
                                 </div>
