@@ -37,7 +37,7 @@ class FormStoreShopController extends FormRequest
             'address.required'=>'Địa chỉ không được bỏ trống',
             'address.min'=>'Độ dài ít nhất:2 ký tự ',
             'address.max'=>'Không nhập quá 255 ký tự',
-            'name.reqired'=> 'Tên cửa hàng không được bỏ trống',
+            'name.required'=> 'Tên cửa hàng không được bỏ trống',
             'name.min'=>'Tên cửa hàng chứa ít nhất 2 ký tự',
             'name.max'=> 'Tên cửa hàng không được vượt quá 255 ký tự'
         ];
