@@ -25,36 +25,14 @@
         <div class="container">
 
             <div class="cat-slider">
+                @foreach($categories as $category)
                 <div class="cat-item px-1 py-3">
                     <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
                         <img alt="#" src="{{ asset('image/an-nhanh.png') }}" class="img-fluid mb-2">
-                        <p class="m-0 small">Đồ ăn nhanh</p>
+                        <p class="m-0 small">{{ $category->name }}</p>
                     </a>
                 </div>
-                <div class="cat-item px-1 py-3">
-                    <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
-                        <img alt="#" src="{{ asset('image/an-vat.png') }}" class="img-fluid mb-2">
-                        <p class="m-0 small">Đồ ăn vặt</p>
-                    </a>
-                </div>
-                <div class="cat-item px-1 py-3">
-                    <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
-                        <img alt="#" src="{{ asset('image/com.png') }}" class="img-fluid mb-2">
-                        <p class="m-0 small">Cơm</p>
-                    </a>
-                </div>
-                <div class="cat-item px-1 py-3">
-                    <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
-                        <img alt="#" src="{{ asset('image/nuoc.png') }}" class="img-fluid mb-2">
-                        <p class="m-0 small">Giải khát</p>
-                    </a>
-                </div>
-                <div class="cat-item px-1 py-3">
-                    <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
-                        <img alt="#" src="{{ asset('image/my.png') }}" class="img-fluid mb-2">
-                        <p class="m-0 small">Bún/Phở</p>
-                    </a>
-                </div>
+                @endforeach
             </div>
         </div>
         <div class="bg-white">
