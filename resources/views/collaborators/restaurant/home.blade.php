@@ -116,6 +116,7 @@
                             <td>{{$shop->name}}</td>
                             <td>
                                     <a href="{{route('shop.edit',$shop->id)}}"><i class="feather-edit"></i></a>
+                                <a href="{{route('shop.delete',$shop->id)}}" onclick="return confirm('Xóa cửa hàng này?')"><i class="feather-trash"></i></a>
                             </td>
                         </tr>
                     @endforeach
