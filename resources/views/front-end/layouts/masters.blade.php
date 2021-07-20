@@ -95,7 +95,7 @@
                     <h6 class="title">Services</h6>
                     <ul class="list-unstyled hov_footer">
                         <li> <a href="faq.html" class="text-muted">Delivery Support</a></li>
-                        <li> <a href="contact-us.html" class="text-muted">Contact Us</a></li>
+                        <li> <a href="{{route('shop.index')}}" class="text-muted">Contact Us</a></li>
                         <li> <a href="terms.html" class="text-muted">Terms of use</a></li>
                         <li> <a href="privacy.html" class="text-muted">Privacy policy</a></li>
                     </ul>
