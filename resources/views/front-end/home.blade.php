@@ -34,7 +34,7 @@
                 <div class="cat-item px-1 py-3">
                     <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
                         <img alt="#" src="{{ asset('image/an-vat.png') }}" class="img-fluid mb-2">
-                        <p class="m-0 small">Giải khát</p>
+                        <p class="m-0 small">Đồ ăn vặt</p>
                     </a>
                 </div>
                 <div class="cat-item px-1 py-3">
