@@ -1,4 +1,4 @@
-@extends('collaborators.layouts.master')
+@extends('front-end.layouts.masters')
 @section('content')
     <div class="container position-relative">
         <div class="py-5 osahan-profile row">
@@ -24,16 +24,7 @@
                                 <h6 class="font-weight-bold mb-1 text-dark">Địa chỉ</h6>
 
                             </div>
-{{--                            <div class="right ml-auto">--}}
-{{--                                <h6 class="font-weight-bold m-0"><i class="feather-chevron-right"></i></h6>--}}
-{{--                            </div>--}}
-{{--                        </a>--}}
-{{--                        <a data-toggle="modal" data-target="#exampleModal"--}}
-{{--                           class="d-flex w-100 align-items-center border-bottom p-3">--}}
-{{--                            <div class="left mr-3">--}}
-{{--                                <h6 class="font-weight-bold mb-1 text-dark">Thanh toán </h6>--}}
 
-{{--                            </div>--}}
                             <div class="right ml-auto">
                                 <h6 class="font-weight-bold m-0"><i class="feather-chevron-right"></i></h6>
                             </div>
@@ -142,5 +133,7 @@
                     </table>
                     {{$foods->links()}}
             </div>
+        </div>
+    </div>
 @endsection
 

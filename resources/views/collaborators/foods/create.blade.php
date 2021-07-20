@@ -1,5 +1,4 @@
-@extends('collaborators.layouts.master')
-
+@extends('front-end.layouts.masters')
 @section('content')
     <div class="container position-relative">
         <div class="py-5 osahan-profile row">
