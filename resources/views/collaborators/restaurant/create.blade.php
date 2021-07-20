@@ -106,7 +106,7 @@
                                     <label for="exampleInputName1">Tên cửa hàng</label>
                                     <input type="text" value="{{old('name')}}" class="form-control" name="name" placeholder="Enter name">
                                     @error('name')
-                                    <div class="alert alert-danger"{{$message}}></div>
+                                    <div class="alert alert-danger">{{$message}}</div>
                                     @enderror
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
