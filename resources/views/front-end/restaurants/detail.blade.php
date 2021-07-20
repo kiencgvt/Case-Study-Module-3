@@ -54,8 +54,9 @@
                         <p class="font-weight-bold h6 p-3 border-bottom mb-0 w-100">Menu</p>
                         <!-- <a class="small text-primary font-weight-bold ml-auto" href="#">View all <i class="feather-chevrons-right"></i></a> -->
                     </div>
-                    @foreach($foods as $key=> $food)
+
                     <div class="row m-0">
+                        @foreach($foods as $key=> $food)
                         <h6 class="p-3 m-0 bg-light w-100">{{\App\Models\Category::find($food->category_id)->name}}</h6>
 
                         <div class="col-md-12 px-0 border-top">
@@ -63,7 +64,7 @@
                                 <div class="p-3 border-bottom menu-list">
                                     <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#extras">ADD</a></span>
                                     <div class="media">
-                                        <img alt="#" src="{{$food['image'] }}" alt="askbootstrap" class="mr-3 rounded-pill ">
+                                        <img alt="#" src="{{asset('storage/'.$food['image']) }}" alt="askbootstrap" class="mr-3 rounded-pill ">
                                         <div class="media-body">
                                             <h6 class="mb-1">{{$food['name']}}</h6>
                                             <p class="text-muted mb-0">{{$food['price']}}</p>
@@ -73,10 +74,11 @@
                                 </div>
                             </div>
                         </div>
-
+                        @endforeach
                     </div>
+
                 </div>
-                @endforeach
+
                 <div class="mb-3">
                     <div id="ratings-and-reviews" class="bg-white shadow-sm d-flex align-items-center rounded p-3 mb-3 clearfix restaurant-detailed-star-rating">
                         <h6 class="mb-0">Rate this Place</h6>
