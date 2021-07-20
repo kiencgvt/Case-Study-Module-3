@@ -104,6 +104,7 @@
                         <th scope="col">Image</th>
                         <th scope="col">Address</th>
                         <th scope="col">Name</th>
+                        <th scope="col">Actions</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -113,7 +114,9 @@
                             <td><img style="width: 40px;" src="{{asset('storage/'.$shop->image)}}" alt=""></td>
                             <td>{{$shop->address}}</td>
                             <td>{{$shop->name}}</td>
-                            <td></td>
+                            <td>
+                                    <a href="{{route('shop.edit',$shop->id)}}"><i class="feather-edit"></i></a>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>

@@ -33,6 +33,26 @@ class ShopController extends Controller
         $shop->name = $request->input('name');
         $shop->user_id = auth()->id();
         $shop->save();
-        return redirect()->route('shop.index')->with('success','Tạo cửa hàng thành công');
+        return redirect()->route('shop.index')->with('success', 'Tạo cửa hàng thành công');
+    }
+
+    public function edit($id)
+    {
+        $shop = Shop::findOrFail($id);
+        return view('collaborators.restaurant.edit', compact('shop'));
+    }
+
+    public function update(FormStoreShopController $request, $id)
+    {
+        $shop = Shop::findOrFail($id);
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('image', 'public');
+            $shop->image = $path;
+        }
+        $shop->address = $request->input('address');
+        $shop->name = $request->input('name');
+        $shop->user_id = auth()->id();
+        $shop->save();
+        return redirect()->route('shop.index');
     }
 }
