@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\HomeController;
@@ -73,6 +74,8 @@ Route::get('/restau', function () {
     return view('front-end.restau');
 });
 
+
 Route::get('/search', function () {
     return view('front-end.search');
 });
+
