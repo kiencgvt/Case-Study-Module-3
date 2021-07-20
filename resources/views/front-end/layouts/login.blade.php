@@ -37,12 +37,18 @@
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputEmail1" class="text-dark">Email</label>
-                        <input type="email" name="email" placeholder="Enter Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="email" name="email" placeholder="Enter Email" class="form-control">
                     </div>
+                    @error('email')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                     <div class="form-group">
                         <label for="exampleInputPassword1" class="text-dark">Password</label>
-                        <input type="password" name="password" placeholder="Enter Password" class="form-control" id="exampleInputPassword1">
+                        <input type="password" name="password" placeholder="Enter Password" class="form-control">
                     </div>
+                    @error('password')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                     <button class="btn btn-primary btn-lg btn-block" type="submit">SIGN IN</button>
                 </form>
                 <a href="forgot_password.html" class="text-decoration-none">
@@ -53,6 +59,9 @@
                         <p class="text-center m-0">Don't have an account? Sign up</p>
                     </a>
                 </div>
+                @if(session()->has('error-login'))
+                    <div class="alert alert-danger">{{ session()->get('error-login') }}</div>
+                @endif
             </div>
         </div>
     </div>

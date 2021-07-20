@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Login;
 use App\Http\Requests\Register;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -15,7 +16,7 @@ class AuthController extends Controller
         return view('front-end.layouts.login');
     }
 
-    function login(Request $request) {
+    function login(Login $request) {
         $data = $request->only('email','password');
         if (Auth::attempt($data)){
             return redirect()->route('home.index');
