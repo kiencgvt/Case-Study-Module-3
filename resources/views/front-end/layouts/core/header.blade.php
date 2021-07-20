@@ -20,14 +20,13 @@
                         </a>
                         <!-- offers -->
                         @if(!\Illuminate\Support\Facades\Auth::check())
-                            <a href="offers.html" class="widget-header mr-4 text-white btn bg-primary m-none">
+                            <a href="{{ route('auth.showFormRegister') }}"
+                               class="widget-header mr-4 text-white btn bg-primary m-none">
                                 <div class="icon d-flex align-items-center">
                                     <i class="feather-disc h6 mr-2 mb-0"></i> <span>Đăng kí</span>
                                 </div>
                             </a>
-                        @endif
-                        @if(!\Illuminate\Support\Facades\Auth::check())
-                        <!-- signin -->
+                            <!-- signin -->
                             <a href="{{ route('auth.login') }}" class="widget-header mr-4 text-dark m-none">
                                 <div class="icon d-flex align-items-center">
                                     <i class="feather-user h6 mr-2 mb-0"></i> <span>Sign in</span>
@@ -39,7 +38,7 @@
                             <div class="dropdown mr-4 m-none">
                                 <a href="#" class="dropdown-toggle text-dark py-3 d-block" id="dropdownMenuButton"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img alt="#" src="{{asset('image/1.jpg')}}"
+                                    <img alt="" src="{{ auth()->user()->avatar }}"
                                          class="img-fluid rounded-circle header-user mr-2 header-user"> {{ auth()->user()->name }}
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
@@ -48,7 +47,7 @@
                                         <a class="dropdown-item" href="{{ route('admin.dashboard') }}">Quản trị viên</a>
                                     @endif
                                     @if(\Illuminate\Support\Facades\Auth::user()->isCollab())
-                                        <a class="dropdown-item" href="contact-us.html">Nhà hàng</a>
+                                        <a class="dropdown-item" href="{{ route('collab.index') }}">Nhà hàng</a>
                                     @endif
                                     <a class="dropdown-item" href="terms.html">Đổi mật khẩu</a>
                                     <a class="dropdown-item" href="{{ route('auth.logout') }}">Đăng xuất</a>
