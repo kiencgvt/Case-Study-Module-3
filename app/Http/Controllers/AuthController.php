@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Register;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -40,7 +41,7 @@ class AuthController extends Controller
         return view('front-end.layouts.register');
     }
 
-    public function register(Request $request)
+    public function register(Register $request)
     {
         $user = new User();
         $user->name = $request->name;
