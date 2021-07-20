@@ -98,8 +98,8 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Image</th>
+                        <th scope="col">Address</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Price</th>
                     </tr>
                     </thead>
                     <tbody>
