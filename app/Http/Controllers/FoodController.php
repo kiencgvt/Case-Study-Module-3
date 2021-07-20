@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\FormFoodRequest;
 use App\Models\Category;
 use App\Models\Food;
-use App\Models\Shop;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
@@ -15,14 +15,12 @@ class FoodController extends Controller
     public function index()
     {
         $foods = Food::paginate(3);
-        $shops = Shop::all();
-        $categories = Category::all();
-        return view('collaborators.foods.home',compact('foods','shops','categories'));
+        return view('collaborators.foods.home',compact('foods'));
     }
 
     public function create()
     {
-        $shops = Shop::all();
+        $shops = Auth::user()->shops;
         $categories = Category::all();
         return view('collaborators.foods.create',compact('shops','categories'));
     }
@@ -50,7 +48,7 @@ class FoodController extends Controller
     public function edit($id)
     {
         $food = Food::find($id);
-        $shops = Shop::all();
+        $shops = Auth::user()->shops;
         $categories = Category::all();
         return view('collaborators.foods.edit',compact('food','shops','categories'));
     }
