@@ -84,7 +84,7 @@
             </div>
             <div class="col-md-8 mb-3">
                 <div class="rounded shadow-sm p-4 bg-white">
-                    <h5 class="mb-4">Chỉnh sửa món ăn</h5>
+                    <h5 class="mb-4">Chỉnh sửa cửa hàng</h5>
                     <div id="edit_profile">
                         <div>
                             <form method="post" action="{{ route('shop.update',$shop->id) }}"
