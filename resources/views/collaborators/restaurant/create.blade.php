@@ -90,21 +90,21 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="exampleInputName1">Ảnh</label>
-                                    <input type="file" class="form-control" name="image" placeholder="Enter image">
+                                    <input type="file" class="form-control" name="image" value="{{old('image')}}" placeholder="Enter image">
                                     @error('image')
                                     <div class="alert alert-danger">{{$message}}</div>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName1">Địa chỉ</label>
-                                    <input type="text" class="form-control" name="address" placeholder="Enter name">
+                                    <input type="text" class="form-control" value="{{old('address')}}" name="address" placeholder="Enter name">
                                     @error('address')
                                     <div class="alert alert-danger">{{$message}}</div>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName1">Tên cửa hàng</label>
-                                    <input type="text" class="form-control" name="name" placeholder="Enter name">
+                                    <input type="text" value="{{old('name')}}" class="form-control" name="name" placeholder="Enter name">
                                     @error('name')
                                     <div class="alert alert-danger"{{$message}}></div>
                                     @enderror
