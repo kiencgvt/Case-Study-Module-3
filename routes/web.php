@@ -73,3 +73,6 @@ Route::get('/restau', function () {
     return view('front-end.restau');
 });
 
+Route::get('/search', function () {
+    return view('front-end.search');
+});
