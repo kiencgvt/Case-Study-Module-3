@@ -5,6 +5,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,8 +20,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+
 
 Route::get('login', [AuthController::class, 'showFormLogin'])->name('auth.showFormLogin');
 Route::post('login', [AuthController::class, 'login'])->name('auth.login');
@@ -53,17 +54,27 @@ Route::middleware(['auth', 'checkAdmin'])->prefix('admin')->group(function () {
 });
 
 Route::middleware(['auth', 'checkCollab'])->prefix('collab')->group(function () {
-    Route::get('/', [FoodController::class, 'index'])->name('collab.index');
-    Route::get('/create', [FoodController::class, 'create'])->name('collab.create');
-    Route::post('/create', [FoodController::class, 'store'])->name('collab.store');
-    Route::get('/{id}/edit', [FoodController::class, 'edit'])->name('collab.edit');
-    Route::post('/{id}/edit', [FoodController::class, 'update'])->name('collab.update');
-    Route::get('/{id}/delete', [FoodController::class, 'delete'])->name('collab.delete');
-    Route::get('/search', [FoodController::class, 'search'])->name('collab.search');
+    Route::prefix('food')->group(function (){
+        Route::get('/', [FoodController::class, 'index'])->name('collab.index');
+        Route::get('/create', [FoodController::class, 'create'])->name('collab.create');
+        Route::post('/create', [FoodController::class, 'store'])->name('collab.store');
+        Route::get('/{id}/edit', [FoodController::class, 'edit'])->name('collab.edit');
+        Route::post('/{id}/edit', [FoodController::class, 'update'])->name('collab.update');
+        Route::get('/{id}/delete', [FoodController::class, 'delete'])->name('collab.delete');
+        Route::get('/search', [FoodController::class, 'search'])->name('collab.search');
+    });
+
+    Route::prefix('shop')->group(function () {
+        Route::get('/', [ShopController::class, 'index'])->name('shop.index');
+        Route::get('/create', [ShopController::class, 'createShop'])->name('shop.create');
+        Route::post('/create', [ShopController::class, 'store'])->name('shop.store');
+        Route::get('/{id}/delete', [ShopController::class, 'deleteStore'])->name('shop.delete');
+        Route::get('/{id}/edit', [ShopController::class, 'edit'])->name('shop.edit');
+    });
 });
 
 Route::middleware(['auth', 'checkCustomer'])->prefix('customer')->group(function () {
-    Route::get('/cart', [CartController::class, 'index']);
+    Route::get('/cart', [CartController::class, 'index'])->name('customer.cart');
 });
 
 Route::get('/restau', function () {

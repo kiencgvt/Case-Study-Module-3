@@ -224,6 +224,7 @@
 
             <div class="most_popular">
                 <div class="row">
+                    @foreach($shops as $shop)
                     <div class="col-md-3 pb-3">
                         <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                             <div class="list-card-image">
@@ -234,12 +235,12 @@
                                 <div class="member-plan position-absolute"><span
                                         class="badge badge-dark">Promoted</span></div>
                                 <a href="restaurant.html">
-                                    <img alt="#" src="img/popular1.png" class="img-fluid item-img w-100">
+                                    <img alt="#" src="{{asset('storage/'.$shop->image)}}" class="img-fluid item-img w-100">
                                 </a>
                             </div>
                             <div class="p-3 position-relative">
                                 <div class="list-card-body">
-                                    <h6 class="mb-1"><a href="restaurant.html" class="text-black">The osahan Restaurant
+                                    <h6 class="mb-1"><a href="restaurant.html" class="text-black">{{$shop->name}}
                                         </a>
                                     </h6>
                                     <p class="text-gray mb-1 small">• North • Hamburgers</p>
@@ -262,6 +263,7 @@
                             </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
 

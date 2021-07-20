@@ -15,7 +15,7 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        $admin = new User();
+       /* $admin = new User();
         $admin->name = 'admin';
         $admin->avatar = 'image/admin.jpg';
         $admin->email = 'admin@gmail.com';
@@ -33,7 +33,7 @@ class UsersSeeder extends Seeder
         $collaborator->address = 'Công ty CP Codegym Việt Nam';
         $collaborator->phone = '0945343658';
         $collaborator->role = 'collaborator';
-        $collaborator->save();
+        $collaborator->save();*/
 
         $customer = new User();
         $customer->name = 'Đỗ Trung Kiên';

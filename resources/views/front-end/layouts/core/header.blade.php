@@ -46,14 +46,14 @@
                                         <a class="dropdown-item" href="{{ route('admin.dashboard') }}">Quản trị viên</a>
                                     @endif
 
-                                    <a class="dropdown-item" href="contact-us.html">Nhà hàng</a>
+                                    <a class="dropdown-item" href="{{route('shop.index')}}">Nhà hàng</a>
                                     <a class="dropdown-item" href="terms.html">Đổi mật khẩu</a>
                                     <a class="dropdown-item" href="{{ route('auth.logout') }}">Đăng xuất</a>
                                 </div>
                             </div>
                     @endif
                     <!-- signin -->
-                        <a href="checkout.html" class="widget-header mr-4 text-dark">
+                        <a href="{{route('customer.cart')}}" class="widget-header mr-4 text-dark">
                             <div class="icon d-flex align-items-center">
                                 <i class="feather-shopping-cart h6 mr-2 mb-0"></i> <span>Giỏ hàng</span>
                             </div>
