@@ -1,5 +1,8 @@
 @extends('front-end.layouts.masters')
 @section('content')
+    @if(\Illuminate\Support\Facades\Session::has('success'))
+        <div class="alert-success">{{\Illuminate\Support\Facades\Session::get('success')}}</div>
+    @endif
     <div class="container position-relative">
         <div class="py-5 osahan-profile row">
             <div class="col-md-4 mb-3">
@@ -85,7 +88,7 @@
             </div>
             <div class="col-md-8 mb-3">
                 <h1>Danh sách cửa hàng</h1>
-                <a href="{{route('collab.create')}}">Thêm mới cửa hàng </a>
+                <a href="{{route('shop.create')}}">Thêm mới cửa hàng </a>
                 <nav class="navbar navbar-light bg-light">
                     <form class="form-inline" action="{{route('collab.search')}}" method="get">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"

@@ -66,6 +66,8 @@ Route::middleware(['auth', 'checkCollab'])->prefix('collab')->group(function () 
 
     Route::prefix('/shop')->group(function (){
         Route::get('/',[ShopController::class,'index'])->name('shop.index');
+        Route::get('/create',[ShopController::class,'create'])->name('shop.create');
+        Route::post('/create',[ShopController::class,'store'])->name('shop.store');
     });
 });
 
