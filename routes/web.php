@@ -70,6 +70,7 @@ Route::middleware(['auth', 'checkCollab'])->prefix('collab')->group(function () 
         Route::post('/create',[ShopController::class,'store'])->name('shop.store');
         Route::get('/{id}/edit',[ShopController::class,'edit'])->name('shop.edit');
         Route::post('/{id}/edit',[ShopController::class,'update'])->name('shop.update');
+        Route::get('/{id}/delete',[ShopController::class,'delete'])->name('shop.delete');
     });
 });
 

@@ -55,4 +55,11 @@ class ShopController extends Controller
         $shop->save();
         return redirect()->route('shop.index');
     }
+
+    public function delete($id)
+    {
+        $shop = Shop::findOrFail($id);
+        $shop->delete();
+        return redirect()->route('shop.index')->with('success','Đã xóa 1 cửa hàng!');
+    }
 }
