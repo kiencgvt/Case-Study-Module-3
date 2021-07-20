@@ -15,4 +15,5 @@ class HomeController extends Controller
         $restaurants = Shop::all();
         return view('front-end.home', compact('foods', 'categories', 'restaurants'));
     }
+
 }
