@@ -20,7 +20,7 @@ class FoodsSeeder extends Seeder
         $food->price = 30000;
         $food->promotion_price = 10000;
         $food->service_charge = 5000;
-        $food->shop_id = 2;
+        $food->shop_id = 1;
         $food->category_id = 2;
         $food->preparation_time = 13;
         $food->tag = "mon ngon";
