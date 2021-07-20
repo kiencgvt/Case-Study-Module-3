@@ -62,27 +62,27 @@
                 <div class="offer-slider">
                     <div class="cat-item px-1 py-3">
                         <a class="d-block text-center shadow-sm" href="trending.html">
-                            <img alt="#" src="{{ asset('image/com-ga.jpg') }}" class="img-fluid rounded">
+                            <img alt="#" src="{{ asset('image/bun-hai-san.jpg') }}" class="img-fluid rounded">
                         </a>
                     </div>
                     <div class="cat-item px-1 py-3">
                         <a class="d-block text-center shadow-sm" href="trending.html">
-                            <img alt="#" src="{{ asset('image/nc.jpeg') }}" class="img-fluid rounded">
+                            <img alt="#" src="{{ asset('image/shushi.jpg') }}" class="img-fluid rounded">
                         </a>
                     </div>
                     <div class="cat-item px-1 py-3">
                         <a class="d-block text-center shadow-sm" href="trending.html">
-                            <img alt="#" src="{{ asset('image/pho-bo.jpg') }}" class="img-fluid rounded">
+                            <img alt="#" src="{{ asset('image/bami.jpg') }}" class="img-fluid rounded">
                         </a>
                     </div>
                     <div class="cat-item px-1 py-3">
                         <a class="d-block text-center shadow-sm" href="trending.html">
-                            <img alt="#" src="{{ asset('image/bun-cha.jpg') }}" class="img-fluid rounded">
+                            <img alt="#" src="{{ asset('image/the-alley.jpg') }}" class="img-fluid rounded">
                         </a>
                     </div>
                     <div class="cat-item px-1 py-3">
                         <a class="d-block text-center shadow-sm" href="trending.html">
-                            <img alt="#" src="{{ asset('image/tra-dao-tuoi-giai-khat-cho-mua-he.jpg') }}"
+                            <img alt="#" src="{{ asset('image/mcdonald.jpeg') }}"
                                  class="img-fluid rounded">
                         </a>
                     </div>
@@ -113,7 +113,7 @@
                                 <h6 class="mb-1"><a href="restaurant.html" class="text-black">Highland
                                     </a>
                                 </h6>
-                                <p class="text-gray mb-3">Hoàn Kiếm • Hà Nội • Việt Nam</p>
+                                <p class="text-gray mb-3"> 5 Đinh Tiên Hoàng - Hàng Trống - Hoàn Kiếm - Hà Nội</p>
                                 <p class="text-gray mb-3 time"><span
                                         class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
                                             class="feather-clock"></i> 15–30 min</span> <span
@@ -142,7 +142,7 @@
                             <div class="list-card-body">
                                 <h6 class="mb-1"><a href="restaurant.html" class="text-black">Pizza Hut</a>
                                 </h6>
-                                <p class="text-gray mb-3">Trung Hóa• Indian • Pure veg</p>
+                                <p class="text-gray mb-3">146 Trung Hòa - Yên Hoà - Cầu Giấy - Hà Nội</p>
                                 <p class="text-gray mb-3 time"><span
                                         class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
                                             class="feather-clock"></i> 30–35 min</span> <span
@@ -172,7 +172,7 @@
                                 <h6 class="mb-1"><a href="restaurant.html" class="text-black">MC Donald's
                                     </a>
                                 </h6>
-                                <p class="text-gray mb-3">North • Hamburgers • Pure veg</p>
+                                <p class="text-gray mb-3">1 Thái Hà - Trung Liệt - Đống Đa - Hà Nội</p>
                                 <p class="text-gray mb-3 time"><span
                                         class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
                                             class="feather-clock"></i> 15–25 min</span> <span
@@ -201,7 +201,7 @@
                             <div class="list-card-body">
                                 <h6 class="mb-1"><a href="restaurant.html" class="text-black">Starbuck</a>
                                 </h6>
-                                <p class="text-gray mb-3">North Indian • Indian • Pure veg</p>
+                                <p class="text-gray mb-3">314 Bà Triệu - Lê Đại Hành - Hai Bà Trưng - Hà Nội</p>
                                 <p class="text-gray mb-3 time"><span
                                         class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
                                             class="feather-clock"></i> 30–35 min</span> <span
@@ -220,7 +220,7 @@
                         class="feather-chevrons-right"></i></a>
             </div>
 
-            {{-------------------------------------------------------------------------------------------------------------------------------}}
+            {{----------------------------------- chuyển db vào đây ----------------------------------------}}
 
             <div class="most_popular">
                 <div class="row">
@@ -239,10 +239,10 @@
                             </div>
                             <div class="p-3 position-relative">
                                 <div class="list-card-body">
-                                    <h6 class="mb-1"><a href="restaurant.html" class="text-black">The osahan Restaurant
+                                    <h6 class="mb-1"><a href="restaurant.html" class="text-black">Ten nha hang
                                         </a>
                                     </h6>
-                                    <p class="text-gray mb-1 small">• North • Hamburgers</p>
+                                    <p class="text-gray mb-1 small">Dia chi </p>
                                     <p class="text-gray mb-1 rating">
                                     </p>
                                     <ul class="rating-stars list-unstyled">
@@ -265,7 +265,7 @@
                 </div>
             </div>
 
-            {{--------------------------------------------------------------------------------------------------------------------------------}}
+            {{---------------------------------------------------- Hết -------------------------------------------------------}}
 
             <div class="pt-2 pb-3 title d-flex align-items-center">
                 <h5 class="m-0">Most sales</h5>
@@ -293,7 +293,7 @@
 
                                         </a>
                                     </h6>
-                                    <p class="text-gray mb-3">Yên Hòa • Cầu Giấy • Hà Nội</p>
+                                    <p class="text-gray mb-3">Yên Hòa - Cầu Giấy - Hà Nội</p>
                                     <p class="text-gray mb-3 time"><span
                                             class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
                                                 class="feather-clock"></i> 15–25 min</span> <span
@@ -322,7 +322,7 @@
                             <div class="p-3 position-relative">
                                 <div class="list-card-body">
                                     <h6 class="mb-1"><a href="restaurant.html" class="text-black">Long Thủy - Bún Thái Hải Sản - Nguyễn Ngọc Vũ</a></h6>
-                                    <p class="text-gray mb-3">Nguyễn Ngọc Vũ • Cầu Giấy • Hà Nội</p>
+                                    <p class="text-gray mb-3">Nguyễn Ngọc Vũ - Cầu Giấy - Hà Nội</p>
                                     <p class="text-gray mb-3 time"><span
                                             class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
                                                 class="feather-clock"></i> 30–35 min</span> <span
@@ -353,7 +353,7 @@
                                     <h6 class="mb-1"><a href="restaurant.html" class="text-black">Trà Sữa La Tea - Phạm Văn Đồng
                                         </a>
                                     </h6>
-                                    <p class="text-gray mb-3">Phạm Văn Đồng • Bắc Từ Liêm • Hà Nội</p>
+                                    <p class="text-gray mb-3">Phạm Văn Đồng - Bắc Từ Liêm - Hà Nội</p>
                                     <p class="text-gray mb-3 time"><span
                                             class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
                                                 class="feather-clock"></i> 15–25 min</span> <span
