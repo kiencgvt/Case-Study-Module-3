@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-1">
-                    <a href="" class="brand-wrap mb-0">
+                    <a href="{{ route('home.index') }}" class="brand-wrap mb-0">
                         <img alt="#" class="img-fluid" src="{{ asset('image/logo_web.png') }}">
                     </a>
                     <!-- brand-wrap.// -->

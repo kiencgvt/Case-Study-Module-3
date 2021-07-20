@@ -52,7 +52,7 @@
                     <p class="text-center">Forgot your password?</p>
                 </a>
                 <div class="d-flex align-items-center justify-content-center">
-                    <a href="signup.html">
+                    <a href="{{ route('auth.showFormRegister') }}">
                         <p class="text-center m-0">Don't have an account? Sign up</p>
                     </a>
                 </div>
