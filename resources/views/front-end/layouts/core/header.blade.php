@@ -47,7 +47,8 @@
                                         <a class="dropdown-item" href="{{ route('admin.dashboard') }}">Quản trị viên</a>
                                     @endif
                                     @if(\Illuminate\Support\Facades\Auth::user()->isCollab())
-                                        <a class="dropdown-item" href="{{ route('collab.index') }}">Nhà hàng</a>
+                                        <a class="dropdown-item" href="{{route('shop.index')}}">Nhà hàng</a>
+                                        <a class="dropdown-item" href="{{ route('collab.index') }}">Món ăn</a>
                                     @endif
                                     <a class="dropdown-item" href="terms.html">Đổi mật khẩu</a>
                                     <a class="dropdown-item" href="{{ route('auth.logout') }}">Đăng xuất</a>
