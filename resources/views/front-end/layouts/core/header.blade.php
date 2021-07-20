@@ -4,7 +4,7 @@
             <div class="row align-items-center">
                 <div class="col-1">
                     <a href="" class="brand-wrap mb-0">
-                        <img alt="#" class="img-fluid" src="{{asset('image/logo_web.png')}}">
+                        <img alt="#" class="img-fluid" src="{{ asset('image/logo_web.png') }}">
                     </a>
                     <!-- brand-wrap.// -->
                 </div>
@@ -19,16 +19,16 @@
                             </div>
                         </a>
                         <!-- offers -->
-                        <a href="offers.html" class="widget-header mr-4 text-white btn bg-primary m-none">
+                        <a href="{{ route('auth.showFormRegister') }}" class="widget-header mr-4 text-white btn bg-primary m-none">
                             <div class="icon d-flex align-items-center">
                                 <i class="feather-disc h6 mr-2 mb-0"></i> <span>Đăng kí</span>
                             </div>
                         </a>
                     @if(!\Illuminate\Support\Facades\Auth::check())
                         <!-- signin -->
-                            <a href="{{ route('auth.login') }}" class="widget-header mr-4 text-dark m-none">
+                            <a href="{{ route('auth.showFormLogin') }}" class="widget-header mr-4 text-dark m-none">
                                 <div class="icon d-flex align-items-center">
-                                    <i class="feather-user h6 mr-2 mb-0"></i> <span>Sign in</span>
+                                    <i class="feather-user h6 mr-2 mb-0"></i> <span>Đăng nhập</span>
                                 </div>
                             </a>
                     @endif
@@ -45,8 +45,9 @@
                                     @if(\Illuminate\Support\Facades\Auth::user()->isAdmin())
                                         <a class="dropdown-item" href="{{ route('admin.dashboard') }}">Quản trị viên</a>
                                     @endif
-
+                                    @if(\Illuminate\Support\Facades\Auth::user()->isCollab())
                                     <a class="dropdown-item" href="contact-us.html">Nhà hàng</a>
+                                    @endif
                                     <a class="dropdown-item" href="terms.html">Đổi mật khẩu</a>
                                     <a class="dropdown-item" href="{{ route('auth.logout') }}">Đăng xuất</a>
                                 </div>
