@@ -2,7 +2,7 @@
 @section('content')
     <div class="offer-section py-4">
         <div class="container position-relative">
-            <img alt="#" src="{{ asset('image/'.$restaurantCurrent->image) }}" class="restaurant-pic">
+            <img alt="#" src="{{ asset($restaurantCurrent->getImage()) }}" class="restaurant-pic">
             <div class="pt-3 text-white">
                 <h2 class="font-weight-bold">{{ $restaurantCurrent->name }}</h2>
                 <p class="text-white m-0">{{ $restaurantCurrent->address }}</p>

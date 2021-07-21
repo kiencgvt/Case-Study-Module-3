@@ -19,4 +19,8 @@ class Shop extends Model
     {
         $this->hasMany(Food::class);
     }
+
+    public function getImage() {
+        return ($this->image) ? 'storage/' . $this->image : 'restaurant-default-image.jpg';
+    }
 }

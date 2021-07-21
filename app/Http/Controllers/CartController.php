@@ -14,20 +14,24 @@ class CartController extends Controller
         $oldCart = session()->get('cart');
         $cart = new Cart($oldCart);
         $cart->add($food);
-        session()->put('cart',$cart);
+        session()->put('cart', $cart);
         return back();
     }
-    function index(){
+
+    function index()
+    {
         $cart = session()->get('cart');
         $food = $cart->items;
-        return view('front-end.restaurants.detail',compact('cart','food'));
+        return view('front-end.restaurants.detail', compact('cart', 'food'));
     }
-    function delete($idFood){
+
+    function delete($idFood)
+    {
         $food = Food::find($idFood);
         $oldCart = session()->get('cart');
         $cart = new Cart($oldCart);
         $cart->delete($food);
-        session()->put('cart',$cart);
+        session()->put('cart', $cart);
         return back();
     }
 }

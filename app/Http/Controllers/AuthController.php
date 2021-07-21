@@ -16,7 +16,7 @@ class AuthController extends Controller
         return view('front-end.layouts.login');
     }
 
-    function login(Login $request) {
+    function login(Request $request) {
         $data = $request->only('email','password');
         if (Auth::attempt($data)){
             return redirect()->route('home.index');
