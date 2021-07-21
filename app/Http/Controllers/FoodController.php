@@ -14,7 +14,7 @@ class FoodController extends Controller
 {
     public function index()
     {
-        $foods = Food::paginate(3);
+        $foods = Auth::user()->foods()->paginate(3);
         return view('collaborators.foods.home',compact('foods'));
     }
 
