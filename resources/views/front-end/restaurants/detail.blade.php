@@ -2,7 +2,7 @@
 @section('content')
     <div class="offer-section py-4">
         <div class="container position-relative">
-            <img alt="#" src="{{ asset('image/'.$restaurantCurrent->image) }}" class="restaurant-pic">
+            <img alt="#" src="{{ asset($restaurantCurrent->getImage()) }}" class="restaurant-pic">
             <div class="pt-3 text-white">
                 <h2 class="font-weight-bold">{{ $restaurantCurrent->name }}</h2>
                 <p class="text-white m-0">{{ $restaurantCurrent->address }}</p>
@@ -67,7 +67,7 @@
                                     <div class="p-3 border-bottom menu-list">
                                         <span class="float-right"><a href="{{route('cart.addToCart', $food->id)}}" class="btn btn-outline-secondary btn-sm">ADD</a></span>
                                         <div class="media">
-                                            <img alt="#" src="{{ asset($restaurant->getImage()) }}" alt="askbootstrap"
+                                            <img alt="#" src="{{asset('storage/'.$food->image) }}" alt="askbootstrap"
                                                  class="mr-3 rounded-pill ">
                                             <div class="media-body">
                                                 <h6 class="mb-1">{{$food->name}}</h6>
