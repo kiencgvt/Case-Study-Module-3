@@ -2,7 +2,7 @@
 @section('content')
     <div class="offer-section py-4">
         <div class="container position-relative">
-            <img alt="#" src="{{ asset('image/'.$restaurantCurrent->image) }}" class="restaurant-pic">
+            <img alt="#" src="{{ asset($restaurantCurrent->getImage()) }}" class="restaurant-pic">
             <div class="pt-3 text-white">
                 <h2 class="font-weight-bold">{{ $restaurantCurrent->name }}</h2>
                 <p class="text-white m-0">{{ $restaurantCurrent->address }}</p>
@@ -211,8 +211,11 @@
                                         <p class="text-muted small">Tue, 20 Mar 2020</p>
                                     </div>
                                     <div class="reviews-members-body">
-                                        <p>It is a long established fact that a reader will be distracted by the
-                                            readable content of a page when looking at its layout.</p>
+                                        <p>Em có sai với ai đi nữa, có làm cái gì đi nữa. Nếu có phải trả giá thì em cũng xin chấp nhận.
+                                            Bởi vì anh biết đấy. Ra xã hội làm ăn bươn chải, liều thì ăn nhiều, không liều thì ăn ít.
+                                            Muốn thành công thì phải chấp nhận trải qua đắng cay ngọt bùi. Làm ăn muốn kiếm được tiền
+                                            thì phải chấp nhận mạo hiểm, nguy hiểm một tí nhưng trong tầm kiểm soát.
+                                            Xã hội này, chỉ có làm, chịu khó cần cù thì bù siêng năng..</p>
                                     </div>
                                     <div class="reviews-members-footer">
                                             <a class="total-like btn btn-sm btn-outline-primary" href="#">
