@@ -65,7 +65,8 @@
                             <div class="col-md-12 px-0 border-top">
                                 <div class="">
                                     <div class="p-3 border-bottom menu-list">
-                                        <span class="float-right"><a href="{{route('cart.addToCart', $food->id)}}" class="btn btn-outline-secondary btn-sm">ADD</a></span>
+                                        <span class="float-right"><a href="{{route('cart.addToCart', $food->id)}}"
+                                                                     class="btn btn-outline-secondary btn-sm">ADD</a></span>
                                         <div class="media">
                                             <img alt="#" src="{{asset('storage/'.$food->image) }}" alt="askbootstrap"
                                                  class="mr-3 rounded-pill ">
@@ -161,7 +162,9 @@
                         <h6 class="mb-1">All Ratings and Reviews</h6>
                         <div class="reviews-members py-3">
                             <div class="media">
-                                <a href="#"><img alt="#" src="{{ asset('image/Donald_Trump_official_portrait.jpg') }}" class="mr-3 rounded-pill" style="max-width: 50px; max-height: 50px" ></a>
+                                <a href="#"><img alt="#" src="{{ asset('image/Donald_Trump_official_portrait.jpg') }}"
+                                                 class="mr-3 rounded-pill"
+                                                 style="max-width: 50px; max-height: 50px"></a>
                                 <div class="media-body">
                                     <div class="reviews-members-header">
                                         <div class="star-rating float-right">
@@ -195,7 +198,9 @@
                         <hr>
                         <div class="reviews-members py-3">
                             <div class="media">
-                                <a href="#"><img alt="#" src="{{ asset('image/huan-rose.jpg') }}" class="mr-3 rounded-pill" style="max-width: 50px; max-height: 50px"></a>
+                                <a href="#"><img alt="#" src="{{ asset('image/huan-rose.jpg') }}"
+                                                 class="mr-3 rounded-pill"
+                                                 style="max-width: 50px; max-height: 50px"></a>
                                 <div class="media-body">
                                     <div class="reviews-members-header">
                                         <div class="star-rating float-right">
@@ -211,16 +216,19 @@
                                         <p class="text-muted small">Tue, 20 Mar 2020</p>
                                     </div>
                                     <div class="reviews-members-body">
-                                        <p>Em có sai với ai đi nữa, có làm cái gì đi nữa. Nếu có phải trả giá thì em cũng xin chấp nhận.
-                                            Bởi vì anh biết đấy. Ra xã hội làm ăn bươn chải, liều thì ăn nhiều, không liều thì ăn ít.
-                                            Muốn thành công thì phải chấp nhận trải qua đắng cay ngọt bùi. Làm ăn muốn kiếm được tiền
+                                        <p>Em có sai với ai đi nữa, có làm cái gì đi nữa. Nếu có phải trả giá thì em
+                                            cũng xin chấp nhận.
+                                            Bởi vì anh biết đấy. Ra xã hội làm ăn bươn chải, liều thì ăn nhiều, không
+                                            liều thì ăn ít.
+                                            Muốn thành công thì phải chấp nhận trải qua đắng cay ngọt bùi. Làm ăn muốn
+                                            kiếm được tiền
                                             thì phải chấp nhận mạo hiểm, nguy hiểm một tí nhưng trong tầm kiểm soát.
                                             Xã hội này, chỉ có làm, chịu khó cần cù thì bù siêng năng..</p>
                                     </div>
                                     <div class="reviews-members-footer">
-                                            <a class="total-like btn btn-sm btn-outline-primary" href="#">
+                                        <a class="total-like btn btn-sm btn-outline-primary" href="#">
                                             <i class="feather-thumbs-up"></i> 88K</a>
-                                            <a class="total-like btn btn-sm btn-outline-primary" href="#">
+                                        <a class="total-like btn btn-sm btn-outline-primary" href="#">
                                             <i class="feather-thumbs-down"></i> 1K</a>
                                     </div>
                                 </div>
@@ -264,26 +272,26 @@
                         </div>
                     @endif
                     <div class="bg-white border-bottom py-2">
-                        <div
-                            class="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
-                            <div class="media align-items-center">
-                                <div class="mr-2 text-danger">&middot;</div>
-                                <div class="media-body">
-                                    <p class="m-0">Chicken Tikka Sub</p>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center">
+                        @if(\Illuminate\Support\Facades\Session::has('cart'))
+                            @foreach(\Illuminate\Support\Facades\Session::get('cart')->items as $key =>$value)
+                                <div
+                                    class="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
+                                    <div class="media align-items-center">
+                                        <div class="mr-2 text-danger">&middot;</div>
+                                        <div class="media-body">
+                                            <p class="m-0">{{$value['item']->name}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center">
                                 <span class="count-number float-right"><button type="button"
                                                                                class="btn-sm left dec btn btn-outline-secondary"> <i
-                                            class="feather-minus"></i> </button><input class="count-number-input"
-                                                                                       type="text" readonly=""
-                                                                                       value="2"><button type="button"
-                                                                                                         class="btn-sm right inc btn btn-outline-secondary"> <i
+                                            class="feather-minus"></i> </button><input class="count-number-input" type="text" readonly="" value="{{$value['quantity']}}"><button type="button" class="btn-sm right inc btn btn-outline-secondary"> <i
                                             class="feather-plus"></i> </button></span>
-                                <p class="text-gray mb-0 float-right ml-2 text-muted small">$628</p>
-                            </div>
-                        </div>
+                                        <p class="text-gray mb-0 float-right ml-2 text-muted small">{{$value['price']}}</p>
+                                    </div>
+                                </div>
                     </div>
+                    @endforeach
                     <div class="bg-white p-3 clearfix border-bottom">
                         <h6 class="font-weight-bold mb-0">TO PAY <span class="float-right">$1329</span></h6>
                     </div>
@@ -291,8 +299,13 @@
                         <a class="btn btn-success btn-block btn-lg" href="successful.html">PAY $1329<i
                                 class="feather-arrow-right"></i></a>
                     </div>
+                    @endif
+
                 </div>
             </div>
         </div>
     </div>
+    <script>
+
+    </script>
 @endsection
