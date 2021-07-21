@@ -14,7 +14,7 @@ class FoodsSeeder extends Seeder
      */
     public function run()
     {
-        $food = new Food();
+        /*$food = new Food();
         $food->image = "image/banh_mi.jpg";
         $food->name = "banh mi";
         $food->price = 30000;
@@ -24,6 +24,6 @@ class FoodsSeeder extends Seeder
         $food->category_id = 2;
         $food->preparation_time = 13;
         $food->tag = "mon ngon";
-        $food->save();
+        $food->save();*/
     }
 }
