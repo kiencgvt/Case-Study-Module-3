@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\HomeController;
@@ -81,9 +82,12 @@ Route::middleware(['auth', 'checkCollab'])->prefix('collab')->group(function () 
 });
 
 Route::middleware(['auth', 'checkCustomer'])->prefix('customer')->group(function () {
-    Route::get('/cart', function () {
-        return view('front-end.cart');
-    });
+//    Route::get('/cart', function () {
+//        return view('front-end.cart');
+//    });
+    Route::get('/',[CartController::class,'index'])->name('cart.index');
+    Route::get('/{idFood}/addToCart',[CartController::class,'addToCart'])->name('cart.addToCart');
+    Route::get('/{idFood}/delete',[CartController::class,'delete'])->name('cart.delete');
 });
 
 Route::get('/restaurants/{id}/detail', [RestaurantController::class,'detail'])->name('restau.detail');

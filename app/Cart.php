@@ -6,8 +6,8 @@ namespace App;
 
 class Cart
 {
-    public $item = [];
-    public $totalQuantity = [];
+    public $items = [];
+    public $totalQuantity = 0;
     public $totalPrice = 0;
 
     public function __construct($oldCart)
