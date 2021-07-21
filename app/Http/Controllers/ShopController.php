@@ -16,7 +16,7 @@ class ShopController extends Controller
     {
         $shops = Auth::user()->shops;
 
-        return view('collaborators.restaurant.home',compact('shops'));
+        return view('collaborators.restaurant.home', compact('shops'));
 
     }
 
@@ -37,7 +37,7 @@ class ShopController extends Controller
         $shop->user_id = auth()->id();
         $shop->save();
 
-        return redirect()->route('shop.index')->with('success','Tạo cửa hàng thành công');
+        return redirect()->route('shop.index')->with('success', 'Tạo cửa hàng thành công');
     }
 
     public function edit($id)
@@ -64,6 +64,17 @@ class ShopController extends Controller
     {
         $shop = Shop::findOrFail($id);
         $shop->delete();
-        return redirect()->route('shop.index')->with('success','Đã xóa 1 cửa hàng!');
+        return redirect()->route('shop.index')->with('success', 'Đã xóa 1 cửa hàng!');
     }
+
+    public function search(Request $request)
+    {
+        $keyword = $request->input('search');
+        if (!$keyword) {
+            return redirect()->route('shop.index');
+        }
+        $shops = Auth::user()->shops()->where('name', 'LIKE', '%' . $keyword . '%')->get();
+        return view('collaborators.restaurant.home', compact('shops'));
+    }
+
 }
