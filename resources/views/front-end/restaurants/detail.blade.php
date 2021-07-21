@@ -59,21 +59,19 @@
                     </div>
 
                     <div class="row m-0">
-                        @foreach($foods as $key=> $food)
+                        @foreach($foods as $key => $food)
                             <h6 class="p-3 m-0 bg-light w-100">{{\App\Models\Category::find($food->category_id)->name}}</h6>
 
                             <div class="col-md-12 px-0 border-top">
                                 <div class="">
                                     <div class="p-3 border-bottom menu-list">
-                                        <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
-                                                                     data-toggle="modal"
-                                                                     data-target="#extras">ADD</a></span>
+                                        <span class="float-right"><a href="{{route('cart.addToCart', $food->id)}}" class="btn btn-outline-secondary btn-sm">ADD</a></span>
                                         <div class="media">
-                                            <img alt="#" src="{{asset('storage/'.$food['image']) }}" alt="askbootstrap"
+                                            <img alt="#" src="{{asset('storage/'.$food->image) }}" alt="askbootstrap"
                                                  class="mr-3 rounded-pill ">
                                             <div class="media-body">
-                                                <h6 class="mb-1">{{$food['name']}}</h6>
-                                                <p class="text-muted mb-0">{{$food['price']}}</p>
+                                                <h6 class="mb-1">{{$food->name}}</h6>
+                                                <p class="text-muted mb-0">{{$food->price}}</p>
                                             </div>
                                         </div>
 

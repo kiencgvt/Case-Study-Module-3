@@ -20,7 +20,7 @@ class CartController extends Controller
     function index(){
         $cart = session()->get('cart');
         $food = $cart->items;
-        return view('');
+        return view('front-end.restaurants.detail',compact('cart','food'));
     }
     function delete($idFood){
         $food = Food::find($idFood);

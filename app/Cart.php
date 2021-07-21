@@ -6,8 +6,8 @@ namespace App;
 
 class Cart
 {
-    public $item = [];
-    public $totalQuantity = [];
+    public $items = [];
+    public $totalQuantity = 0;
     public $totalPrice = 0;
 
     public function __construct($oldCart)
@@ -30,7 +30,7 @@ class Cart
 
         //kiem tra san pham ton tai trong gio hang chua
         if (array_key_exists($food->id, $this->items)) {
-            $storeProduct = $this->items[$food->id];
+            $storeFood = $this->items[$food->id];
         }
 
         //tang san pham len 1 don vi
