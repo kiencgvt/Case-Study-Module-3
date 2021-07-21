@@ -24,6 +24,10 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $category = new Category();
+        if($request->hasFile('image')){
+            $path = $request->file('image')->store('image','public');
+            $category->image = $path;
+        }
         $category->name = $request->input('name');
         $category->save();
         $message = "Add new category success";

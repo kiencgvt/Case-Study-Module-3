@@ -255,6 +255,7 @@
                         <tr>
                             <th>#</th>
                             <th>Name</th>
+                            <th>Image</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -263,7 +264,7 @@
                             <tr>
                                 <td>{{$key+1}}</td>
                                 <td>{{$category->name}}</td>
-
+                                <td><img style="width: 50px;" src="{{asset('storage/'.$category->image)}}" alt=""></td>
                                 <td><a href="{{route('category.edit',$category->id)}}"><i class="fas fa-edit"></i></a>
                                     <a href="{{route('category.delete',$category->id)}}"
                                        onclick="return confirm('Delete this category?')"><i
