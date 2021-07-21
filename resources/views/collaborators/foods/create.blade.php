@@ -116,28 +116,28 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName1">Tên món ăn</label>
-                                    <input type="text" class="form-control" name="name" placeholder="Enter name">
+                                    <input type="text" class="form-control" name="name" value="{{old('name')}}" placeholder="Enter name">
                                     @error('name')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputNumber1">Gía món ăn</label>
-                                    <input type="text" class="form-control" name="price" placeholder="Enter price">
+                                    <input type="number" class="form-control" name="price" value="{{old('price')}}" placeholder="Enter price">
                                     @error('price')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Gía khuyến mãi</label>
-                                    <input type="text" class="form-control" name="promotion_price" placeholder="Enter promotion_price">
+                                    <input type="number" class="form-control" name="promotion_price" value="{{old('promotion_price')}}" placeholder="Enter promotion_price">
                                     @error('promotion_price')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Phí dịch vụ</label>
-                                    <input type="text" class="form-control" name="service_charge" placeholder="Enter service_charge">
+                                    <input type="number" class="form-control" name="service_charge" value="{{old('service_charge')}}" placeholder="Enter service_charge">
                                     @error('service_charge')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
@@ -179,7 +179,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Thẻ</label>
-                                    <input type="text" class="form-control" name="tag" placeholder="Enter tag">
+                                    <input type="text" class="form-control" name="tag" value="{{old('tag')}}" placeholder="Enter tag">
                                     @error('tag')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
