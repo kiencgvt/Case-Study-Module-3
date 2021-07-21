@@ -13,7 +13,7 @@
                 <div class="col-8">
                     <div class="d-flex align-items-center justify-content-end pr-5">
                         <!-- search -->
-                        <a href="search.html" class="widget-header mr-4 text-dark">
+                        <a href="{{ route('search') }}" class="widget-header mr-4 text-dark">
                             <div class="icon d-flex align-items-center">
                                 <i class="feather-search h6 mr-2 mb-0"></i> <span>Tìm kiếm</span>
                             </div>
