@@ -37,9 +37,12 @@
         <div class="p-3 bg-primary bg-primary mt-n3 rounded position-relative">
             <div class="d-flex align-items-center">
                 <div class="feather_icon">
-                    <a href="#ratings-and-reviews" class="text-decoration-none text-dark"><i class="p-2 bg-light rounded-circle font-weight-bold  feather-upload"></i></a>
-                    <a href="#ratings-and-reviews" class="text-decoration-none text-dark mx-2"><i class="p-2 bg-light rounded-circle font-weight-bold  feather-star"></i></a>
-                    <a href="#ratings-and-reviews" class="text-decoration-none text-dark"><i class="p-2 bg-light rounded-circle font-weight-bold feather-map-pin"></i></a>
+                    <a href="#ratings-and-reviews" class="text-decoration-none text-dark"><i
+                            class="p-2 bg-light rounded-circle font-weight-bold  feather-upload"></i></a>
+                    <a href="#ratings-and-reviews" class="text-decoration-none text-dark mx-2"><i
+                            class="p-2 bg-light rounded-circle font-weight-bold  feather-star"></i></a>
+                    <a href="#ratings-and-reviews" class="text-decoration-none text-dark"><i
+                            class="p-2 bg-light rounded-circle font-weight-bold feather-map-pin"></i></a>
                 </div>
                 <a href="contact-us.html" class="btn btn-sm btn-outline-light ml-auto">Contact</a>
             </div>
@@ -57,30 +60,34 @@
 
                     <div class="row m-0">
                         @foreach($foods as $key=> $food)
-                        <h6 class="p-3 m-0 bg-light w-100">{{\App\Models\Category::find($food->category_id)->name}}</h6>
+                            <h6 class="p-3 m-0 bg-light w-100">{{\App\Models\Category::find($food->category_id)->name}}</h6>
 
-                        <div class="col-md-12 px-0 border-top">
-                            <div class="">
-                                <div class="p-3 border-bottom menu-list">
-                                    <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#extras">ADD</a></span>
-                                    <div class="media">
-                                        <img alt="#" src="{{asset('storage/'.$food['image']) }}" alt="askbootstrap" class="mr-3 rounded-pill ">
-                                        <div class="media-body">
-                                            <h6 class="mb-1">{{$food['name']}}</h6>
-                                            <p class="text-muted mb-0">{{$food['price']}}</p>
+                            <div class="col-md-12 px-0 border-top">
+                                <div class="">
+                                    <div class="p-3 border-bottom menu-list">
+                                        <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
+                                                                     data-toggle="modal"
+                                                                     data-target="#extras">ADD</a></span>
+                                        <div class="media">
+                                            <img alt="#" src="{{asset('storage/'.$food['image']) }}" alt="askbootstrap"
+                                                 class="mr-3 rounded-pill ">
+                                            <div class="media-body">
+                                                <h6 class="mb-1">{{$food['name']}}</h6>
+                                                <p class="text-muted mb-0">{{$food['price']}}</p>
+                                            </div>
                                         </div>
-                                    </div>
 
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         @endforeach
                     </div>
 
                 </div>
 
                 <div class="mb-3">
-                    <div id="ratings-and-reviews" class="bg-white shadow-sm d-flex align-items-center rounded p-3 mb-3 clearfix restaurant-detailed-star-rating">
+                    <div id="ratings-and-reviews"
+                         class="bg-white shadow-sm d-flex align-items-center rounded p-3 mb-3 clearfix restaurant-detailed-star-rating">
                         <h6 class="mb-0">Rate this Place</h6>
                         <div class="star-rating ml-auto">
                             <div class="d-inline-block h6 m-0"><i class="feather-star text-warning"></i>
@@ -100,7 +107,8 @@
                                 <div class="rating-list-left font-weight-bold small">5 Star</div>
                                 <div class="rating-list-center">
                                     <div class="progress">
-                                        <div role="progressbar" class="progress-bar bg-info" aria-valuenow="56" aria-valuemin="0" aria-valuemax="100" style="width: 56%;"></div>
+                                        <div role="progressbar" class="progress-bar bg-info" aria-valuenow="56"
+                                             aria-valuemin="0" aria-valuemax="100" style="width: 56%;"></div>
                                     </div>
                                 </div>
                                 <div class="rating-list-right font-weight-bold small">56 %</div>
@@ -109,7 +117,8 @@
                                 <div class="rating-list-left font-weight-bold small">4 Star</div>
                                 <div class="rating-list-center">
                                     <div class="progress">
-                                        <div role="progressbar" class="progress-bar bg-info" aria-valuenow="23" aria-valuemin="0" aria-valuemax="100" style="width: 23%;"></div>
+                                        <div role="progressbar" class="progress-bar bg-info" aria-valuenow="23"
+                                             aria-valuemin="0" aria-valuemax="100" style="width: 23%;"></div>
                                     </div>
                                 </div>
                                 <div class="rating-list-right font-weight-bold small">23 %</div>
@@ -118,7 +127,8 @@
                                 <div class="rating-list-left font-weight-bold small">3 Star</div>
                                 <div class="rating-list-center">
                                     <div class="progress">
-                                        <div role="progressbar" class="progress-bar bg-info" aria-valuenow="11" aria-valuemin="0" aria-valuemax="100" style="width: 11%;"></div>
+                                        <div role="progressbar" class="progress-bar bg-info" aria-valuenow="11"
+                                             aria-valuemin="0" aria-valuemax="100" style="width: 11%;"></div>
                                     </div>
                                 </div>
                                 <div class="rating-list-right font-weight-bold small">11 %</div>
@@ -127,7 +137,8 @@
                                 <div class="rating-list-left font-weight-bold small">2 Star</div>
                                 <div class="rating-list-center">
                                     <div class="progress">
-                                        <div role="progressbar" class="progress-bar bg-info" aria-valuenow="6" aria-valuemin="0" aria-valuemax="100" style="width: 6%;"></div>
+                                        <div role="progressbar" class="progress-bar bg-info" aria-valuenow="6"
+                                             aria-valuemin="0" aria-valuemax="100" style="width: 6%;"></div>
                                     </div>
                                 </div>
                                 <div class="rating-list-right font-weight-bold small">6 %</div>
@@ -136,42 +147,48 @@
                                 <div class="rating-list-left font-weight-bold small">1 Star</div>
                                 <div class="rating-list-center">
                                     <div class="progress">
-                                        <div role="progressbar" class="progress-bar bg-info" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100" style="width: 4%;"></div>
+                                        <div role="progressbar" class="progress-bar bg-info" aria-valuenow="4"
+                                             aria-valuemin="0" aria-valuemax="100" style="width: 4%;"></div>
                                     </div>
                                 </div>
                                 <div class="rating-list-right font-weight-bold small">4 %</div>
                             </div>
                         </div>
-                        <div class="graph-star-rating-footer text-center mt-3"><button type="button" class="btn btn-primary btn-block btn-sm">Rate and Review</button></div>
+                        <div class="graph-star-rating-footer text-center mt-3">
+                            <button type="button" class="btn btn-primary btn-block btn-sm">Rate and Review</button>
+                        </div>
                     </div>
                     <div class="bg-white p-3 mb-3 restaurant-detailed-ratings-and-reviews shadow-sm rounded">
                         <a class="text-primary float-right" href="#">Top Rated</a>
                         <h6 class="mb-1">All Ratings and Reviews</h6>
                         <div class="reviews-members py-3">
                             <div class="media">
-                                <a href="#"><img alt="#" src="img/reviewer1.png" class="mr-3 rounded-pill"></a>
+                                <a href="#"><img alt="#" src="{{ asset('image/Donald_Trump_official_portrait.jpg') }}" class="mr-3 rounded-pill" style="max-width: 50px; max-height: 50px" ></a>
                                 <div class="media-body">
                                     <div class="reviews-members-header">
                                         <div class="star-rating float-right">
-                                            <div class="d-inline-block" style="font-size: 14px;"><i class="feather-star text-warning"></i>
+                                            <div class="d-inline-block" style="font-size: 14px;"><i
+                                                    class="feather-star text-warning"></i>
                                                 <i class="feather-star text-warning"></i>
                                                 <i class="feather-star text-warning"></i>
                                                 <i class="feather-star text-warning"></i>
                                                 <i class="feather-star"></i>
                                             </div>
                                         </div>
-                                        <h6 class="mb-0"><a class="text-dark" href="#">Trump</a></h6>
+                                        <h6 class="mb-0"><a class="text-dark" href="#">Đỗ Trung Nam</a></h6>
                                         <p class="text-muted small">Tue, 20 Mar 2020</p>
                                     </div>
                                     <div class="reviews-members-body">
-                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classNameical Latin literature from 45 BC, making it over 2000 years old.</p>
+                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has
+                                            roots in a piece of classNameical Latin literature from 45 BC, making it
+                                            over 2000 years old.</p>
                                     </div>
-                                    <div class="reviews-members-footer"><a class="total-like btn btn-sm btn-outline-primary" href="#"><i class="feather-thumbs-up"></i> 856M</a> <a class="total-like btn btn-sm btn-outline-primary" href="#"><i class="feather-thumbs-down"></i> 158K</a>
+                                    <div class="reviews-members-footer"><a
+                                            class="total-like btn btn-sm btn-outline-primary" href="#"><i
+                                                class="feather-thumbs-up"></i> 856M</a> <a
+                                            class="total-like btn btn-sm btn-outline-primary" href="#"><i
+                                                class="feather-thumbs-down"></i> 158K</a>
                                         <span class="total-like-user-main ml-2" dir="rtl">
-                                 <a href="#" aria-describedby="tooltip-top0"><img alt="#"src="img/reviewer3.png" class="total-like-user rounded-pill"></a>
-                                 <a href="#" aria-describedby="tooltip-top1"><img alt="#"src="img/reviewer4.png" class="total-like-user rounded-pill"></a>
-                                 <a href="#"><img alt="#"src="img/reviewer5.png" class="total-like-user rounded-pill"></a>
-                                 <a href="#" aria-describedby="tooltip-top3"><img alt="#"src="img/reviewer6.png" class="total-like-user rounded-pill"></a>
                                  </span>
                                     </div>
                                 </div>
@@ -180,25 +197,31 @@
                         <hr>
                         <div class="reviews-members py-3">
                             <div class="media">
-                                <a href="#"><img alt="#" src="img/reviewer2.png" class="mr-3 rounded-pill"></a>
+                                <a href="#"><img alt="#" src="{{ asset('image/huan-rose.jpg') }}" class="mr-3 rounded-pill" style="max-width: 50px; max-height: 50px"></a>
                                 <div class="media-body">
                                     <div class="reviews-members-header">
                                         <div class="star-rating float-right">
-                                            <div class="d-inline-block" style="font-size: 14px;"><i class="feather-star text-warning"></i>
+                                            <div class="d-inline-block" style="font-size: 14px;"><i
+                                                    class="feather-star text-warning"></i>
                                                 <i class="feather-star text-warning"></i>
                                                 <i class="feather-star text-warning"></i>
                                                 <i class="feather-star text-warning"></i>
                                                 <i class="feather-star"></i>
                                             </div>
                                         </div>
-                                        <h6 class="mb-0"><a class="text-dark" href="#">Jhon Smith</a></h6>
+                                        <h6 class="mb-0"><a class="text-dark" href="#">Huấn Rose</a></h6>
                                         <p class="text-muted small">Tue, 20 Mar 2020</p>
                                     </div>
                                     <div class="reviews-members-body">
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                                        <p>It is a long established fact that a reader will be distracted by the
+                                            readable content of a page when looking at its layout.</p>
                                     </div>
-                                    <div class="reviews-members-footer"><a class="total-like btn btn-sm btn-outline-primary" href="#"><i class="feather-thumbs-up"></i> 88K</a> <a class="total-like btn btn-sm btn-outline-primary" href="#"><i class="feather-thumbs-down"></i> 1K</a><span class="total-like-user-main ml-2"
-                                                                                                                                                                                                                                                                                              dir="rtl"><a href="#"><img alt="#"src="img/reviewer3.png" class="total-like-user rounded-pill"></a><a href="#"><img alt="#"src="img/reviewer4.png" class="total-like-user rounded-pill"></a><a href="#"><img alt="#"src="img/reviewer5.png" class="total-like-user rounded-pill"></a><a href="#"><img alt="#"src="img/reviewer6.png" class="total-like-user rounded-pill"></a></span></div>
+                                    <div class="reviews-members-footer">
+                                            <a class="total-like btn btn-sm btn-outline-primary" href="#">
+                                            <i class="feather-thumbs-up"></i> 88K</a>
+                                            <a class="total-like btn btn-sm btn-outline-primary" href="#">
+                                            <i class="feather-thumbs-down"></i> 1K</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -219,22 +242,29 @@
                             </div>
                         </div>
                         <form>
-                            <div class="form-group"><label class="form-label small">Your Comment</label><textarea class="form-control"></textarea></div>
-                            <div class="form-group mb-0"><button type="button" class="btn btn-primary btn-block"> Submit Comment </button></div>
+                            <div class="form-group"><label class="form-label small">Your Comment</label><textarea
+                                    class="form-control"></textarea></div>
+                            <div class="form-group mb-0">
+                                <button type="button" class="btn btn-primary btn-block"> Submit Comment</button>
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="osahan-cart-item rounded rounded shadow-sm overflow-hidden bg-white sticky_sidebar">
-                    <div class="d-flex border-bottom osahan-cart-item-profile bg-white p-3">
-                        <img alt="" src="{{ auth()->user()->avatar }}" class="mr-3 rounded-circle img-fluid">
-                        <div class="d-flex flex-column">
-                            <h6 class="mb-1 font-weight-bold">{{ auth()->user()->name }}</h6>
+                    @if(\Illuminate\Support\Facades\Auth::check())
+                        <div class="d-flex border-bottom osahan-cart-item-profile bg-white p-3">
+                            <img alt="" src="{{ auth()->user()->avatar}}"
+                                 class="mr-3 rounded-circle img-fluid">
+                            <div class="d-flex flex-column">
+                                <h6 class="mb-1 font-weight-bold">{{ auth()->user()->name }}</h6>
+                            </div>
                         </div>
-                    </div>
+                    @endif
                     <div class="bg-white border-bottom py-2">
-                        <div class="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
+                        <div
+                            class="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
                             <div class="media align-items-center">
                                 <div class="mr-2 text-danger">&middot;</div>
                                 <div class="media-body">
@@ -242,7 +272,13 @@
                                 </div>
                             </div>
                             <div class="d-flex align-items-center">
-                                <span class="count-number float-right"><button type="button" class="btn-sm left dec btn btn-outline-secondary"> <i class="feather-minus"></i> </button><input class="count-number-input" type="text" readonly="" value="2"><button type="button" class="btn-sm right inc btn btn-outline-secondary"> <i class="feather-plus"></i> </button></span>
+                                <span class="count-number float-right"><button type="button"
+                                                                               class="btn-sm left dec btn btn-outline-secondary"> <i
+                                            class="feather-minus"></i> </button><input class="count-number-input"
+                                                                                       type="text" readonly=""
+                                                                                       value="2"><button type="button"
+                                                                                                         class="btn-sm right inc btn btn-outline-secondary"> <i
+                                            class="feather-plus"></i> </button></span>
                                 <p class="text-gray mb-0 float-right ml-2 text-muted small">$628</p>
                             </div>
                         </div>
@@ -251,7 +287,8 @@
                         <h6 class="font-weight-bold mb-0">TO PAY <span class="float-right">$1329</span></h6>
                     </div>
                     <div class="p-3">
-                        <a class="btn btn-success btn-block btn-lg" href="successful.html">PAY $1329<i class="feather-arrow-right"></i></a>
+                        <a class="btn btn-success btn-block btn-lg" href="successful.html">PAY $1329<i
+                                class="feather-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
