@@ -90,4 +90,11 @@ class FoodController extends Controller
         $foods = Food::where('name', 'LIKE', '%' . $keyword . '%')->paginate(3);
         return view('collaborators.foods.home', compact('foods'));
     }
+
+    public function list($id)
+    {
+        $categorycurrent = Category::findOrFail($id);
+        $foods = Food::where('category_id',$id)->get();
+        return view('front-end.trend',compact('categorycurrent','foods'));
+    }
 }
