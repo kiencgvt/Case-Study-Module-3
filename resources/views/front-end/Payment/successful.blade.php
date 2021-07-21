@@ -3,7 +3,7 @@
     <div class="py-5 osahan-coming-soon d-flex justify-content-center align-items-center">
         <div class="col-md-6">
             <div class="text-center pb-3">
-                <h1 class="font-weight-bold">{{ auth()->user()->name }}, Đơn hàng của bạn đã thanh toán thành
+                <h1 class="font-weight-bold">{{ auth()->user()->name }}, đơn hàng của bạn đã thanh toán thành
                     công!!!</h1>
             </div>
             <!-- continue -->

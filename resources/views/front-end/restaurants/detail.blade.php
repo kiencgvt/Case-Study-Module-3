@@ -60,8 +60,11 @@
 
                     <div class="row m-0">
                         @foreach($foods as $key => $food)
-                            <h6 class="p-3 m-0 bg-light w-100">{{\App\Models\Category::find($food->category_id)->name}}</h6>
-
+                            @if($key > 0 && ($foods[$key]->category_id != $foods[$key - 1]->category_id))
+                                <h6 class="p-3 m-0 bg-light w-100">{{\App\Models\Category::find($food->category_id)->name}}</h6>
+                            @elseif($key == 0)
+                                <h6 class="p-3 m-0 bg-light w-100">{{\App\Models\Category::find($food->category_id)->name}}</h6>
+                            @endif
                             <div class="col-md-12 px-0 border-top">
                                 <div class="">
                                     <div class="p-3 border-bottom menu-list">
@@ -72,7 +75,7 @@
                                                  class="mr-3 rounded-pill ">
                                             <div class="media-body">
                                                 <h6 class="mb-1">{{$food->name}}</h6>
-                                                <p class="text-muted mb-0">{{number_format($food->price)}}</p>
+                                                <p class="text-muted mb-0">{{number_format($food->price)}} đ</p>
                                             </div>
                                         </div>
 
@@ -271,9 +274,9 @@
                             </div>
                         </div>
                     @endif
-                    <div class="bg-white border-bottom py-2">
                         @if(\Illuminate\Support\Facades\Session::has('cart'))
                             @foreach(\Illuminate\Support\Facades\Session::get('cart')->items as $key =>$value)
+                            <div class="bg-white border-bottom py-2">
                                 <div
                                     class="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
                                     <div class="media align-items-center">
@@ -283,21 +286,20 @@
                                         </div>
                                     </div>
                                     <div class="d-flex align-items-center">
-                                <span class="count-number float-right"><button type="button"
-                                                                               class="btn-sm left dec btn btn-outline-secondary"> <i
+                                        <span class="count-number float-right"><button type="button" class="btn-sm left dec btn btn-outline-secondary"> <i
                                             class="feather-minus"></i> </button><input class="count-number-input" type="text" readonly="" value="{{$value['quantity']}}"><button type="button" class="btn-sm right inc btn btn-outline-secondary"> <i
-                                            class="feather-plus"></i> </button></span>
-                                        <p class="text-gray mb-0 float-right ml-2 text-muted small">{{$value['price']}}</p>
+                                            class="feather-plus"></i> </button>
+                                        </span>
+                                        <p class="text-gray mb-0 float-right ml-2 text-muted small">{{number_format($value['price'])}} đ</p>
                                     </div>
                                 </div>
-                    </div>
-                    @endforeach
+                            </div>
+                            @endforeach
                     <div class="bg-white p-3 clearfix border-bottom">
-                        <h6 class="font-weight-bold mb-0">TO PAY <span class="float-right">$1329</span></h6>
+                        <h6 class="font-weight-bold mb-0">TO PAY <span class="float-right">{{ number_format(session('cart')->totalPrice) }} đ</span></h6>
                     </div>
                     <div class="p-3">
-                        <a class="btn btn-success btn-block btn-lg" href="successful.html">PAY $1329<i
-                                class="feather-arrow-right"></i></a>
+                        <a class="btn btn-success btn-block btn-lg" href="{{ route('paymentSuccessful') }}">PAY</a>
                     </div>
                     @endif
 
