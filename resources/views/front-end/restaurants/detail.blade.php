@@ -71,7 +71,7 @@
                                                  class="mr-3 rounded-pill ">
                                             <div class="media-body">
                                                 <h6 class="mb-1">{{$food->name}}</h6>
-                                                <p class="text-muted mb-0">{{$food->price}}</p>
+                                                <p class="text-muted mb-0">{{number_format($food->price)}}</p>
                                             </div>
                                         </div>
 

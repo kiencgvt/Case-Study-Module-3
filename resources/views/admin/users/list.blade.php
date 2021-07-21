@@ -243,7 +243,7 @@
                         <td>{{$key+1}}</td>
                         <td>{{$user->name}}</td>
                         <td>
-                            <a href="#"><img style="max-width: 80px" src="{{ asset($user->avatar)}}" alt="Avatar"></a>
+                            <a href="#"><img style="max-width: 80px" src="{{ asset('storage/' . $user->avatar)}}" alt="Avatar"></a>
                         </td>
                         <td>{{$user->email}}</td>
                         <td>{{$user->address}}</td>

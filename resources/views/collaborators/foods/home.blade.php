@@ -132,9 +132,9 @@
                             <th scope="row">{{$key+1}}</th>
                             <td><img src="{{asset('storage/'.$food->image)}}" alt="" width="70px"></td>
                             <td>{{$food->name}}</td>
-                            <td>{{$food->price}}</td>
-                            <td>{{$food->promotion_price}}</td>
-                            <td>{{$food->service_charge}}</td>
+                            <td>{{number_format($food->price)}}</td>
+                            <td>{{number_format($food->promotion_price)}}</td>
+                            <td>{{number_format($food->service_charge)}}</td>
                             <td>{{\App\Models\Shop::find($food->shop_id)->name}}</td>
                             <td>{{\App\Models\Category::find($food->category_id)->name}}</td>
                             <td>{{$food->preparation_time}}</td>
