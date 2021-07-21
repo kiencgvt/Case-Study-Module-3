@@ -24,6 +24,8 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
+Route::get('/showrestaurant', [SearchController::class, 'showDetail'])->name('search');
+Route::get('/search', [SearchController::class, 'search'])->name('restaurant.search');
 
 Route::get('login', [AuthController::class, 'showFormLogin'])->name('auth.showFormLogin');
 Route::post('login', [AuthController::class, 'login'])->name('auth.login');
@@ -88,4 +90,4 @@ Route::middleware(['auth', 'checkCustomer'])->prefix('customer')->group(function
 
 Route::get('/restaurants/{id}/detail', [RestaurantController::class,'detail'])->name('restau.detail');
 
-Route::get('/search', [SearchController::class, 'showDetail'])->name('search');
+

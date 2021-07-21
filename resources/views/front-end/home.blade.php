@@ -83,7 +83,7 @@
                             <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span>
                             </div>
                             <a href="{{ route('restau.detail', $restaurant->id) }}">
-                                <img alt="#" src="{{ asset('storage/'.$restaurant->image) }}" class="img-fluid item-img w-100" style="height: 250px">
+                                <img alt="" src="{{ asset('storage/'.$restaurant->image) }}" class="img-fluid item-img w-100" style="height: 250px">
                             </a>
                         </div>
                         <div class="p-3 position-relative">
