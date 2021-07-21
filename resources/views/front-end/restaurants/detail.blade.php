@@ -67,7 +67,7 @@
                                     <div class="p-3 border-bottom menu-list">
                                         <span class="float-right"><a href="{{route('cart.addToCart', $food->id)}}" class="btn btn-outline-secondary btn-sm">ADD</a></span>
                                         <div class="media">
-                                            <img alt="#" src="{{asset('storage/'.$food->image) }}" alt="askbootstrap"
+                                            <img alt="#" src="{{ asset($restaurant->getImage()) }}" alt="askbootstrap"
                                                  class="mr-3 rounded-pill ">
                                             <div class="media-body">
                                                 <h6 class="mb-1">{{$food->name}}</h6>

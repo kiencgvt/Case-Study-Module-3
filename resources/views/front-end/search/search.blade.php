@@ -40,7 +40,7 @@
                                                         class="badge badge-dark">Promoted</span>
                                                 </div>
                                                 <a href="{{ route('restau.detail', $restaurant->id) }}">
-                                                    <img alt="" src="{{ asset('storage/'.$restaurant->image) }}"
+                                                    <img alt="" src="{{ asset($restaurant->getImage()) }}"
                                                          class="img-fluid item-img w-100">
                                                 </a>
                                             </div>
