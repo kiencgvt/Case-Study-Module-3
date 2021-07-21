@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 
 class CategoryController extends Controller
@@ -24,6 +25,10 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $category = new Category();
+        if($request->hasFile('image')){
+            $path = $request->file('image')->store('image','public');
+            $category->image = $path;
+        }
         $category->name = $request->input('name');
         $category->save();
         $message = "Add new category success";
@@ -39,6 +44,10 @@ class CategoryController extends Controller
     public function updateCategory(Request $request, $id)
     {
         $category = Category::findOrFail($id);
+        if($request->hasFile('image')){
+            $path = $request->file('image')->store('image','public');
+            $category->image = $path;
+        }
         $category->name = $request->input('name');
         $category->save();
         return redirect()->route('category.list')->with('success', 'Update Category Success');
@@ -47,6 +56,7 @@ class CategoryController extends Controller
     public function deleteCategory($id)
     {
         $category = Category::findOrFail($id);
+        Storage::disk('public')->delete($category->image);
         $category->delete();
         return redirect()->route('category.list');
     }
