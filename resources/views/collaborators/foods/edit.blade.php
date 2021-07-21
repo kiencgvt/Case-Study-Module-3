@@ -4,15 +4,25 @@
         <div class="py-5 osahan-profile row">
             <div class="col-md-4 mb-3">
                 <div class="bg-white rounded shadow-sm sticky_sidebar overflow-hidden">
-                    <a href="profile.html" class="">
+                    <a href="{{route('home.index')}}" class="">
                         <div class="d-flex align-items-center p-3">
                             <div class="left mr-3">
                                 <img alt="#" src="img/user1.jpg" class="rounded-circle">
                             </div>
                             <div class="right">
-                                <h6 class="mb-1 font-weight-bold">Cửa hàng<i
+                                <h6 class="mb-1 font-weight-bold">Trang chủ<i
                                         class="feather-check-circle text-success"></i></h6>
-                                <p class="text-muted m-0 small">collaborator@gmail.com</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="{{route('collab.index')}}" class="">
+                        <div class="d-flex align-items-center p-3">
+                            <div class="left mr-3">
+                                <img alt="#" src="img/user1.jpg" class="rounded-circle">
+                            </div>
+                            <div class="right">
+                                <h6 class="mb-1 font-weight-bold">Danh sách món ăn<i
+                                        class="feather-check-circle text-success"></i></h6>
                             </div>
                         </div>
                     </a>
@@ -91,7 +101,7 @@
                                   enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="exampleInputName1">Anh</label>
+                                    <label for="exampleInputName1">Ảnh</label>
                                     <input type="file" class="form-control" name="image" placeholder="Enter image"
                                            value="{{asset('storage/'.$food->image)}}">
                                     @error('image')
@@ -154,12 +164,16 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Thời gian chuẩn bị</label>
-                                    <input type="text" class="form-control" name="preparation_time"
-                                           placeholder="Enter preparation_time" value="{{$food->preparation_time}}">
+                                    <select class="form-control" name="preparation_time" >
+                                        <option value="10">10 phút</option>
+                                        <option value="15">15 phút</option>
+                                        <option value="20">20 phút</option>
+                                        <option value="25">25 phút</option>
+                                        <option value="30">30 phút</option>
+                                    </select>
                                     @error('preparation_time')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
-
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Thẻ</label>

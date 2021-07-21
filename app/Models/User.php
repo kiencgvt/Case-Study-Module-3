@@ -32,4 +32,9 @@ class User extends Authenticatable
     {
         return $this->role == RoleConstant::COLLABORATOR;
     }
+
+    public function foods()
+    {
+        return $this->hasManyThrough(Food::class, Shop::class, 'user_id', 'shop_id');
+    }
 }

@@ -4,13 +4,25 @@
         <div class="py-5 osahan-profile row">
             <div class="col-md-4 mb-3">
                 <div class="bg-white rounded shadow-sm sticky_sidebar overflow-hidden">
-                    <a href="profile.html" class="">
+                    <a href="{{route('home.index')}}" class="">
                         <div class="d-flex align-items-center p-3">
                             <div class="left mr-3">
                                 <img alt="#" src="img/user1.jpg" class="rounded-circle">
                             </div>
                             <div class="right">
-                                <h6 class="mb-1 font-weight-bold">Cửa hàng<i
+                                <h6 class="mb-1 font-weight-bold">Trang chủ<i
+                                        class="feather-check-circle text-success"></i></h6>
+                                <p class="text-muted m-0 small">collaborator@gmail.com</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="{{route('collab.index')}}" class="">
+                        <div class="d-flex align-items-center p-3">
+                            <div class="left mr-3">
+                                <img alt="#" src="img/user1.jpg" class="rounded-circle">
+                            </div>
+                            <div class="right">
+                                <h6 class="mb-1 font-weight-bold">Danh sách món ăn<i
                                         class="feather-check-circle text-success"></i></h6>
                                 <p class="text-muted m-0 small">collaborator@gmail.com</p>
                             </div>
@@ -89,7 +101,7 @@
                 <a href="{{ route('shop.create') }}">Thêm mới cửa hàng </a>
 
                 <nav class="navbar navbar-light bg-light">
-                    <form class="form-inline" action="{{route('collab.search')}}" method="get">
+                    <form class="form-inline" action="{{route('shop.search')}}" method="get">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
                                name="search">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -118,7 +130,7 @@
                             <td>{{$shop->address}}</td>
                             <td>{{$shop->name}}</td>
                             <td>
-                                    <a href="{{route('shop.edit',$shop->id)}}"><i class="feather-edit"></i></a>
+                                <a href="{{route('shop.edit',$shop->id)}}"><i class="feather-edit"></i></a>
                                 <a href="{{route('shop.delete',$shop->id)}}" onclick="return confirm('Xóa cửa hàng này?')"><i class="feather-trash"></i></a>
                             </td>
                         </tr>
@@ -130,3 +142,4 @@
     </div>
 
 @endsection
+
