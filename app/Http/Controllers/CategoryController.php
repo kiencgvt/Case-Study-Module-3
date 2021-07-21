@@ -44,6 +44,10 @@ class CategoryController extends Controller
     public function updateCategory(Request $request, $id)
     {
         $category = Category::findOrFail($id);
+        if($request->hasFile('image')){
+            $path = $request->file('image')->store('image','public');
+            $category->image = $path;
+        }
         $category->name = $request->input('name');
         $category->save();
         return redirect()->route('category.list')->with('success', 'Update Category Success');
