@@ -4,15 +4,25 @@
         <div class="py-5 osahan-profile row">
             <div class="col-md-4 mb-3">
                 <div class="bg-white rounded shadow-sm sticky_sidebar overflow-hidden">
-                    <a href="profile.html" class="">
+                    <a href="{{route('home.index')}}" class="">
                         <div class="d-flex align-items-center p-3">
                             <div class="left mr-3">
                                 <img alt="#" src="img/user1.jpg" class="rounded-circle">
                             </div>
                             <div class="right">
-                                <h6 class="mb-1 font-weight-bold">Cửa hàng<i
+                                <h6 class="mb-1 font-weight-bold">Trang chủ<i
                                         class="feather-check-circle text-success"></i></h6>
-                                <p class="text-muted m-0 small">collaborator@gmail.com</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="{{route('shop.index')}}" class="">
+                        <div class="d-flex align-items-center p-3">
+                            <div class="left mr-3">
+                                <img alt="#" src="img/user1.jpg" class="rounded-circle">
+                            </div>
+                            <div class="right">
+                                <h6 class="mb-1 font-weight-bold">Danh sách cửa hàng<i
+                                        class="feather-check-circle text-success"></i></h6>
                             </div>
                         </div>
                     </a>
@@ -83,13 +93,21 @@
             </div>
             <div class="col-md-8 mb-3">
                     <h1>Danh sách món ăn</h1>
-                    <a href="{{route('collab.create')}}">Thêm mới món ăn</a>
+
+                <button type="button"  class="btn btn-warning"><a href="{{route('collab.create')}}">Thêm mới món ăn</a></button>
                 <nav class="navbar navbar-light bg-light">
                     <form class="form-inline" action="{{route('collab.search')}}" method="get">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
                 </nav>
+                <div class="col-12">
+                    @if (Session::has('success'))
+                        <p class="text-success">
+                            <i class="fa fa-check" aria-hidden="true"></i>{{ Session::get('success') }}
+                        </p>
+                    @endif
+                </div>
                     <table class="table table-striped">
                         <thead>
                         <tr>

@@ -25,4 +25,5 @@ class Food extends Model
     {
         $this->belongsTo(Shop::class);
     }
+
 }
