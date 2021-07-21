@@ -101,7 +101,7 @@
                 <a href="{{ route('shop.create') }}">Thêm mới cửa hàng </a>
 
                 <nav class="navbar navbar-light bg-light">
-                    <form class="form-inline" action="{{route('collab.search')}}" method="get">
+                    <form class="form-inline" action="{{route('shop.search')}}" method="get">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
                                name="search">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
