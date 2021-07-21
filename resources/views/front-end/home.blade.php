@@ -27,7 +27,7 @@
             <div class="cat-slider">
                 @foreach($categories as $category)
                 <div class="cat-item px-1 py-3">
-                    <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
+                    <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="{{route('category.trend',$category->id)}}">
                         <img alt="#" src="{{ asset('storage/'.$category->image) }}" class="img-fluid mb-2">
                         <p class="m-0 small">{{ $category->name }}</p>
                     </a>
