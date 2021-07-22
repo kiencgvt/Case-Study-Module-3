@@ -13,17 +13,17 @@ class Food extends Model
 
     public function order_details()
     {
-        $this->hasMany(Order_detail::class);
+        return $this->hasMany(Order_detail::class);
     }
 
     public function category()
     {
-        $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class);
     }
 
     public function shop()
     {
-        $this->belongsTo(Shop::class);
+        return $this->belongsTo(Shop::class);
     }
 
 }

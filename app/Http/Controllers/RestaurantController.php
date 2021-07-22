@@ -13,9 +13,8 @@ class RestaurantController extends Controller
     function detail($id)
     {
         $restaurantCurrent = Shop::findOrFail($id);
-        $foods = Food::where('shop_id',$id)->orderBy('category_id')->get();
-        $categories = Category::all();
-        return view('front-end.restaurants.detail', compact('restaurantCurrent','foods','categories'));
+        $categoriesOfShop = $restaurantCurrent->categories->unique();
+        return view('front-end.restaurants.detail', compact('restaurantCurrent','categoriesOfShop'));
     }
 
 }
