@@ -10,7 +10,7 @@
                 <div class="col-lg-4 mb-3">
                     <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm grid-card">
                         <div class="list-card-image">
-                            <div class="star position-absolute"><a href=""> <span class="badge badge-success"><i class="feather-star"></i> Add to cart</span></a></div>
+                            <div class="star position-absolute"><a href=""> <span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span></a></div>
                             <div class="favourite-heart text-danger position-absolute"><i class="feather-heart"></i></div>
                              <a><img alt="#" src="{{asset('storage/'.$food->image)}}" class="img-fluid item-img w-100"></a>
                         </div>
