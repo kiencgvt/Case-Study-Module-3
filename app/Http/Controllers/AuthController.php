@@ -9,9 +9,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\URL;
 
 class AuthController extends Controller
 {
+    public function __construct()
+    {
+    }
+
     function showFormLogin() {
         return view('front-end.layouts.login');
     }

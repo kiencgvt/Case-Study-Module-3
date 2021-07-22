@@ -8,19 +8,26 @@ use Illuminate\Database\Eloquent\Model;
 class Shop extends Model
 {
     use HasFactory;
+
     protected $table = 'shops';
 
     public function User()
     {
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function foods()
     {
-        $this->hasMany(Food::class);
+        return $this->hasMany(Food::class);
     }
 
-    public function getImage() {
+    public function getImage()
+    {
         return ($this->image) ? 'storage/' . $this->image : 'restaurant-default-image.jpg';
+    }
+
+    function categories()
+    {
+        return $this->belongsToMany(Category::class, 'foods', 'shop_id', 'category_id');
     }
 }
