@@ -1,32 +1,43 @@
 @extends('front-end.layouts.masters')
 @section('content')
     <div class="container">
-        <div class="most_popular py-5">
-            <div class="d-flex align-items-center mb-4">
-                <h3 class="font-weight-bold text-dark mb-0">Thể loại: {{$categorycurrent->name}}</h3>
-            </div>
-            <div class="row">
-                @foreach($foods as $key => $food)
-                <div class="col-lg-4 mb-3">
-                    <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm grid-card">
+        <div class="pt-4 pb-2 title d-flex align-items-center">
+            <h5 class="m-0">{{$categorycurrent->name}}</h5>
+        </div>
+        <div class="trending-slider">
+            @foreach($shopOfCategories as $restaurant)
+                <div class="osahan-slider-item">
+                    <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                         <div class="list-card-image">
-                            <div class="star position-absolute"><a href=""> <span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span></a></div>
-                            <div class="favourite-heart text-danger position-absolute"><i class="feather-heart"></i></div>
-                             <a><img alt="#" src="{{asset('storage/'.$food->image)}}" class="img-fluid item-img w-100"></a>
+                            <div class="star position-absolute"><span class="badge badge-success"><i
+                                        class="feather-star"></i> 3.1 (300+)</span></div>
+                            <div class="favourite-heart text-danger position-absolute"><a href="#"><i
+                                        class="feather-heart"></i></a></div>
+                            <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span>
+                            </div>
+                            <a href="{{ route('restau.detail-category', [$restaurant->id, $category_id])}}">
+                                <img alt="" src="{{ asset($restaurant->getImage()) }}" class="img-fluid item-img w-100" style="height: 250px">
+                            </a>
                         </div>
                         <div class="p-3 position-relative">
                             <div class="list-card-body">
-                                <h4 class="mb-1"> {{$food->name}}</h4>
-                                <h6 class="text-gray mb-3">-Gía: {{number_format($food->price)}} vnđ</h6>
-                                <h6 class="text-gray mb-3">-Cửa hàng:</h6>
-                                <p class="text-gray mb-3"> {{\App\Models\Shop::find($food->shop_id)->name}}</p>
-                                <p class="text-gray mb-3 time"><span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="feather-clock"></i>Thời gian chuẩn bị:  {{$food->preparation_time}} phút</span> <span class="float-right text-black-50"> $500 FOR TWO</span></p>
+                                <h6 class="mb-1"><a href="{{ route('restau.detail-category', [$restaurant->id, $category_id])}}" class="text-black">{{ $restaurant->name }}
+                                    </a>
+                                </h6>
+                                <p class="text-gray mb-3">{{ $restaurant->address }}</p>
+                                <p class="text-gray mb-3 time"><span
+                                        class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
+                                            class="feather-clock"></i> 15–30 min</span> <span
+                                        class="float-right text-black-50"> $350 FOR TWO</span></p>
+                            </div>
+                            <div class="list-card-badge">
+                                <span class="badge badge-danger">OFFER</span> <small> Use Coupon OSAHAN50</small>
                             </div>
                         </div>
                     </div>
                 </div>
-                @endforeach
-            </div>
+            @endforeach
+
         </div>
     </div>
 @endsection
