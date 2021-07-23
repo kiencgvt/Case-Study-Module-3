@@ -7,24 +7,29 @@
                     <a href="{{route('home.index')}}" class="">
                         <div class="d-flex align-items-center p-3">
                             <div class="left mr-3">
-                                <img alt="#" src="img/user1.jpg" class="rounded-circle">
+                                <img style="width: 30px" src="{{asset('/image/Home-icon.png')}}" alt="">
+
                             </div>
                             <div class="right">
                                 <h6 class="mb-1 font-weight-bold">Trang chủ<i
                                         class="feather-check-circle text-success"></i></h6>
+{{--
                                 <p class="text-muted m-0 small">collaborator@gmail.com</p>
+--}}
                             </div>
                         </div>
                     </a>
                     <a href="{{route('collab.index')}}" class="">
                         <div class="d-flex align-items-center p-3">
                             <div class="left mr-3">
-                                <img alt="#" src="img/user1.jpg" class="rounded-circle">
+                                <img style="width: 30px" src="{{asset('image/iconFood.png')}}" alt="">
                             </div>
                             <div class="right">
                                 <h6 class="mb-1 font-weight-bold">Danh sách món ăn<i
                                         class="feather-check-circle text-success"></i></h6>
+{{--
                                 <p class="text-muted m-0 small">collaborator@gmail.com</p>
+--}}
                             </div>
                         </div>
                     </a>
