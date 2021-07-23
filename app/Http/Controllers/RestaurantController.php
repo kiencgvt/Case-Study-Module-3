@@ -20,4 +20,14 @@ class RestaurantController extends Controller
         return view('front-end.restaurants.detail', compact('restaurantCurrent','foods'));
     }
 
+    public function listFoods($restaurant_id, $category_id)
+    {
+        $category_name = Category::find($category_id)->name;
+        $restaurantCurrent = Shop::findOrFail($restaurant_id);
+        $foods_category = Food::where([
+            ['shop_id', $restaurant_id],
+            ['category_id', $category_id]
+        ])->get();
+        return view('front-end.restaurants.detail', compact('restaurantCurrent','foods_category', 'category_id','category_name'));
+    }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\FormFoodRequest;
 use App\Models\Category;
 use App\Models\Food;
+use App\Models\Shop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -93,8 +94,11 @@ class FoodController extends Controller
 
     public function list($id)
     {
+        $category_id = $id;
         $categorycurrent = Category::findOrFail($id);
-        $foods = Food::where('category_id',$id)->get();
-        return view('front-end.trend',compact('categorycurrent','foods'));
+//        $foods = Food::where('category_id',$id)->get();
+        $shopOfCategories = $categorycurrent->shops->unique();
+        return view('front-end.trend',compact('categorycurrent','shopOfCategories', 'category_id'));
     }
+
 }
