@@ -59,28 +59,52 @@
                     </div>
 
                     <div class="row m-0">
-                        @foreach($categoriesOfShop as $key => $category)
-                            <h6 class="p-3 m-0 bg-light w-100">{{$category->name}}</h6>
-                            @foreach($category->foods as $food)
-                                <div class="col-md-12 px-0 border-top">
-                                    <div class="">
-                                        <div class="p-3 border-bottom menu-list">
+{{--                        @foreach($categoriesOfShop as $key => $category)--}}
+{{--                            <h6 class="p-3 m-0 bg-light w-100">{{$category->name}}</h6>--}}
+{{--                            @foreach($category->foods as $food)--}}
+{{--                                <div class="col-md-12 px-0 border-top">--}}
+{{--                                    <div class="">--}}
+{{--                                        <div class="p-3 border-bottom menu-list">--}}
+{{--                                        <span class="float-right"><a href="{{route('cart.addToCart', $food->id)}}"--}}
+{{--                                                                     class="btn btn-outline-secondary btn-sm">ADD</a></span>--}}
+{{--                                            <div class="media">--}}
+{{--                                                <img alt="#" src="{{asset('storage/'.$food->image) }}"--}}
+{{--                                                     alt="askbootstrap"--}}
+{{--                                                     class="mr-3 rounded-pill ">--}}
+{{--                                                <div class="media-body">--}}
+{{--                                                    <h6 class="mb-1">{{$food->name}}</h6>--}}
+{{--                                                    <p class="text-muted mb-0">{{number_format($food->price)}} đ</p>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            @endforeach--}}
+{{--                        @endforeach--}}
+                        @foreach($foods as $key => $food)
+                            @if($key > 0 && ($foods[$key]->category_id != $foods[$key - 1]->category_id))
+                                <h6 class="p-3 m-0 bg-light w-100">{{\App\Models\Category::find($food->category_id)->name}}</h6>
+                            @elseif($key == 0)
+                                <h6 class="p-3 m-0 bg-light w-100">{{\App\Models\Category::find($food->category_id)->name}}</h6>
+                            @endif
+                            <div class="col-md-12 px-0 border-top">
+                                <div class="">
+                                    <div class="p-3 border-bottom menu-list">
                                         <span class="float-right"><a href="{{route('cart.addToCart', $food->id)}}"
                                                                      class="btn btn-outline-secondary btn-sm">ADD</a></span>
-                                            <div class="media">
-                                                <img alt="#" src="{{asset('storage/'.$food->image) }}"
-                                                     alt="askbootstrap"
-                                                     class="mr-3 rounded-pill ">
-                                                <div class="media-body">
-                                                    <h6 class="mb-1">{{$food->name}}</h6>
-                                                    <p class="text-muted mb-0">{{number_format($food->price)}} đ</p>
-                                                </div>
+                                        <div class="media">
+                                            <img alt="#" src="{{asset('storage/'.$food->image) }}" alt="askbootstrap"
+                                                 class="mr-3 rounded-pill ">
+                                            <div class="media-body">
+                                                <h6 class="mb-1">{{$food->name}}</h6>
+                                                <p class="text-muted mb-0">{{number_format($food->price)}} đ</p>
                                             </div>
-
                                         </div>
+
                                     </div>
                                 </div>
-                            @endforeach
+                            </div>
                         @endforeach
                     </div>
 

@@ -26,8 +26,8 @@ class Shop extends Model
         return ($this->image) ? 'storage/' . $this->image : 'restaurant-default-image.jpg';
     }
 
-    function categories()
+    /*function categories()
     {
         return $this->belongsToMany(Category::class, 'foods', 'shop_id', 'category_id');
-    }
+    }*/
 }
