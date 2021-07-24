@@ -1,40 +1,7 @@
 @extends('front-end.layouts.masters')
 @section('content')
-    <div class="offer-section py-4">
-        <div class="container position-relative">
-            <img alt="#" src="{{ asset($restaurantCurrent->getImage()) }}" class="restaurant-pic">
-            <div class="pt-3 text-white">
-                <h2 class="font-weight-bold">{{ $restaurantCurrent->name }}</h2>
-                <p class="text-white m-0">{{ $restaurantCurrent->address }}</p>
-                <div class="rating-wrap d-flex align-items-center mt-2">
-                    <ul class="rating-stars list-unstyled">
-                        <li>
-                            <i class="feather-star text-warning"></i>
-                            <i class="feather-star text-warning"></i>
-                            <i class="feather-star text-warning"></i>
-                            <i class="feather-star text-warning"></i>
-                            <i class="feather-star"></i>
-                        </li>
-                    </ul>
-                    <p class="label-rating text-white ml-2 small"> (245 Reviews)</p>
-                </div>
-            </div>
-            <div class="pb-4">
-                <div class="row">
-                    <div class="col-6 col-md-2">
-                        <p class="text-white-50 font-weight-bold m-0 small">Vận chuyển</p>
-                        <p class="text-white m-0">Free</p>
-                    </div>
-                    <div class="col-6 col-md-2">
-                        <p class="text-white-50 font-weight-bold m-0 small">Open time</p>
-                        <p class="text-white m-0">0:00 - 14:00 | 16:45 - 20:45</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="container">
-        <div class="p-3 bg-primary bg-primary mt-n3 rounded position-relative">
+        <div class="p-1 bg-primary bg-primary mt-n1 rounded position-relative">
             <div class="d-flex align-items-center">
                 <div class="feather_icon">
                     <a href="#ratings-and-reviews" class="text-decoration-none text-dark"><i
@@ -53,82 +20,47 @@
         <div class="row">
             <div class="col-md-8 pt-3">
                 <div class="shadow-sm rounded bg-white mb-3 overflow-hidden">
-                    <div class="d-flex item-aligns-center">
-                        <p class="font-weight-bold h6 p-3 border-bottom mb-0 w-100">Menu</p>
-                        <!-- <a class="small text-primary font-weight-bold ml-auto" href="#">View all <i class="feather-chevrons-right"></i></a> -->
-                    </div>
+                {{--                    <div class="d-flex item-aligns-center">--}}
+                {{--                        <p class="font-weight-bold h6 p-3 border-bottom mb-0 w-100">Menu</p>--}}
+                <!-- <a class="small text-primary font-weight-bold ml-auto" href="#">View all <i class="feather-chevrons-right"></i></a> -->
+                    {{--                    </div>--}}
 
                     <div class="row m-0">
-{{--                        @foreach($categoriesOfShop as $key => $category)--}}
-{{--                            <h6 class="p-3 m-0 bg-light w-100">{{$category->name}}</h6>--}}
-{{--                            @foreach($category->foods as $food)--}}
-{{--                                <div class="col-md-12 px-0 border-top">--}}
-{{--                                    <div class="">--}}
-{{--                                        <div class="p-3 border-bottom menu-list">--}}
-{{--                                        <span class="float-right"><a href="{{route('cart.addToCart', $food->id)}}"--}}
-{{--                                                                     class="btn btn-outline-secondary btn-sm">ADD</a></span>--}}
-{{--                                            <div class="media">--}}
-{{--                                                <img alt="#" src="{{asset('storage/'.$food->image) }}"--}}
-{{--                                                     alt="askbootstrap"--}}
-{{--                                                     class="mr-3 rounded-pill ">--}}
-{{--                                                <div class="media-body">--}}
-{{--                                                    <h6 class="mb-1">{{$food->name}}</h6>--}}
-{{--                                                    <p class="text-muted mb-0">{{number_format($food->price)}} đ</p>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
+                        <div class="col-md-12 px-0 border-top">
+                            <div>
 
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            @endforeach--}}
-{{--                        @endforeach--}}
-                        @if(isset($foods))
-                            @foreach($foods as $key => $food)
-                                @if($key > 0 && ($foods[$key]->category_id != $foods[$key - 1]->category_id))
-                                    <h6 class="p-3 m-0 bg-light w-100">{{\App\Models\Category::find($food->category_id)->name}}</h6>
-                                @elseif($key == 0)
-                                    <h6 class="p-3 m-0 bg-light w-100">{{\App\Models\Category::find($food->category_id)->name}}</h6>
-                                @endif
-                                <div class="col-md-12 px-0 border-top">
-                                    <div class="">
-                                        <div class="p-3 border-bottom menu-list">
-                                        <span class="float-right"><a href="{{route('cart.addToCart', $food->id)}}"
-                                                                     class="btn btn-outline-secondary btn-sm">ADD</a></span>
-                                            <div class="media"><a href="{{route('restau.show-food',$food->id)}}">
-                                                <img alt="#" src="{{asset('storage/'.$food->image) }}" alt="askbootstrap"
-                                                     class="mr-3 rounded-pill "></a>
-                                                <div class="media-body">
-                                                    <a href="{{route('restau.show-food',$food->id)}}"><h6 class="mb-1">{{$food->name}}</h6></a>
-                                                    <p class="text-muted mb-0">{{number_format($food->price)}} đ</p>
-                                                </div>
-                                            </div>
-
+                                <div class="media">
+                                    <div class="col-md-6">
+                                        <img width="100%" alt="#" src="{{ asset('storage/'.$food->image) }}">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h4 class="mb-1">{{$food->name}}</h4>
+                                        <p class="text-muted mb-0">Giá: {{number_format($food->price)}} đ</p>
+                                        <p class="text-muted mb-0">Giá khuyến
+                                            mãi: {{number_format($food->promotion_price)}} đ</p>
+                                        <p class="text-muted mb-0">Phí dịch
+                                            vụ: {{number_format($food->service_charge)}} đ</p>
+                                        <p class="text-muted mb-0">Cửa
+                                            hàng: {{\App\Models\Shop::find($food->shop_id)->name}} </p>
+                                        <a href="#">Top Star: </a>
+                                        <div class="d-inline-block" style="font-size: 14px;"><i
+                                                class="feather-star text-warning"></i>
+                                            <i class="feather-star text-warning"></i>
+                                            <i class="feather-star text-warning"></i>
+                                            <i class="feather-star text-warning"></i>
+                                            <i class="feather-star"></i>
                                         </div>
+                                        <p class="text-muted mb-0">Thể
+                                            loại: {{\App\Models\Category::find($food->category_id)->name}} </p>
+                                        <p class="text-muted mb-0">Thời gian chuẩn bị: {{$food->preparation_time}}
+                                            phút</p>
+                                        <p class="text-muted mb-0">Thẻ: {{$food->tag}} </p>
+                                        <span><a href="{{route('cart.addToCart', $food->id)}}"
+                                                 class="btn btn-success">Add To Cart</a></span>
                                     </div>
                                 </div>
-                            @endforeach
-                        @elseif(isset($foods_category))
-                            <h6 class="p-3 m-0 bg-light w-100">{{$category_name}}</h6>
-                            @foreach($foods_category as $food)
-                                <div class="col-md-12 px-0 border-top">
-                                    <div class="">
-                                        <div class="p-3 border-bottom menu-list">
-                                        <span class="float-right"><a href="{{route('cart.addToCart', $food->id)}}"
-                                                                     class="btn btn-outline-secondary btn-sm">ADD</a></span>
-                                            <div class="media"><a href="{{route('restau.show-food',$food->id)}}">
-                                                <img alt="#" src="{{asset('storage/'.$food->image) }}" alt="askbootstrap"
-                                                     class="mr-3 rounded-pill "></a>
-                                                <div class="media-body">
-                                                    <a href="{{route('restau.show-food',$food->id)}}"><h6 class="mb-1">{{$food->name}}</h6></a>
-                                                    <p class="text-muted mb-0">{{number_format($food->price)}} đ</p>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        @endif
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -359,7 +291,5 @@
             </div>
         </div>
     </div>
-    <script>
-
-    </script>
 @endsection
+
