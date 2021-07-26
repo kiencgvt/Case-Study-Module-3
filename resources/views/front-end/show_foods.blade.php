@@ -41,7 +41,7 @@
                                         <p class="text-muted mb-0">Phí dịch
                                             vụ: {{number_format($food->service_charge)}} đ</p>
                                         <p class="text-muted mb-0">Cửa
-                                            hàng: {{\App\Models\Shop::find($food->shop_id)->name}} </p>
+                                            hàng: {{$shop->name}} </p>
                                         <a href="#">Top Star: </a>
                                         <div class="d-inline-block" style="font-size: 14px;"><i
                                                 class="feather-star text-warning"></i>
@@ -51,7 +51,7 @@
                                             <i class="feather-star"></i>
                                         </div>
                                         <p class="text-muted mb-0">Thể
-                                            loại: {{\App\Models\Category::find($food->category_id)->name}} </p>
+                                            loại: {{$category->name}} </p>
                                         <p class="text-muted mb-0">Thời gian chuẩn bị: {{$food->preparation_time}}
                                             phút</p>
                                         <p class="text-muted mb-0">Thẻ: {{$food->tag}} </p>

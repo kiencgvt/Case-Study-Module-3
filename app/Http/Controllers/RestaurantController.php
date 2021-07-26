@@ -34,6 +34,8 @@ class RestaurantController extends Controller
     public function showFoods($idfood)
     {
         $food = Food::find($idfood);
-        return view('front-end.show_foods',compact('food'));
+        $shop = Shop::find($food->shop_id);
+        $category = Category::find($food->category_id);
+        return view('front-end.show_foods',compact('food','shop','category'));
     }
 }
