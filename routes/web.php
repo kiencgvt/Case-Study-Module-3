@@ -92,11 +92,11 @@ Route::middleware(['auth', 'checkCustomer'])->prefix('customer')->group(function
 });
 
 Route::get('/restaurants/{id}/detail', [RestaurantController::class,'detail'])->name('restau.detail');
-Route::get('/restaurants/{restaurant_id}/{category_id}/detail', [RestaurantController::class,'listFoods'])->name('restau.detail-category');
-Route::get('/{id}/food', [RestaurantController::class,'showFoods'])->name('restau.show-food');
+Route::get('/categories/{category_id}/restaurants/{restaurant_id}/food', [RestaurantController::class,'listFoods'])->name('restau.detail-category');
+Route::get('/food/{id}/detail', [RestaurantController::class,'showFoods'])->name('restau.show-food');
 
 Route::get('/paymentSuccessful', [CheckoutController::class, 'index'])->name('paymentSuccessful');
 Route::get('/category/{id}/trend',[FoodController::class,'list'])->name('category.trend');
-
+Route::get('/foods/discount',[FoodController::class,'showDiscountFood'])->name('discountFood');
 
 

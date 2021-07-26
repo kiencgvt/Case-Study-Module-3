@@ -131,9 +131,6 @@
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Gía khuyến mãi</label>
                                     <input type="number" class="form-control" name="promotion_price" value="{{old('promotion_price')}}" placeholder="Enter promotion_price">
-                                    @error('promotion_price')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Phí dịch vụ</label>
