@@ -111,7 +111,7 @@
             {{---------------------------------------------------- Hết -------------------------------------------------------}}
 
             <div class="pt-2 pb-3 title d-flex align-items-center">
-                <h5 class="m-0">Most sales</h5>
+                <a href="{{route('discountFood')}}"><h5 class="m-0">Most sales</h5></a>
                 <a class="font-weight-bold ml-auto" href="#">26 places <i class="feather-chevrons-right"></i></a>
             </div>
             <div class="most_sale">

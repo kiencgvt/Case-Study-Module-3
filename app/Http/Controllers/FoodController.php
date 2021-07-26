@@ -101,4 +101,10 @@ class FoodController extends Controller
         return view('front-end.trend',compact('categorycurrent','shopOfCategories', 'category_id'));
     }
 
+    public function showDiscountFood()
+    {
+        $foodDiscount = Food::where('promotion_price','<>','NULL')->paginate(9);
+        return view('front-end.show_food_discount',compact('foodDiscount'));
+    }
+
 }
