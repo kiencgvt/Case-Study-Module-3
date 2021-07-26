@@ -14,7 +14,7 @@ class ChangeDataTyeFoodsTable extends Migration
     public function up()
     {
         Schema::table('foods', function (Blueprint $table) {
-            $table->string('promotion_price',999)->nullable()->change();
+            $table->string('promotion_price',50)->nullable()->change();
         });
     }
 
