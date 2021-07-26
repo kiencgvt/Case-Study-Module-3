@@ -30,4 +30,12 @@ class RestaurantController extends Controller
         ])->get();
         return view('front-end.restaurants.detail', compact('restaurantCurrent','foods_category', 'category_id','category_name'));
     }
+
+    public function showFoods($idfood)
+    {
+        $food = Food::find($idfood);
+        $shop = Shop::find($food->shop_id);
+        $category = Category::find($food->category_id);
+        return view('front-end.show_foods',compact('food','shop','category'));
+    }
 }
