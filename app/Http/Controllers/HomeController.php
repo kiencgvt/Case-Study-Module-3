@@ -13,7 +13,8 @@ class HomeController extends Controller
         $foods = Food::all();
         $categories = Category::all();
         $restaurants = Shop::all();
-        return view('front-end.home', compact('foods', 'categories', 'restaurants'));
+        $discountedFoods = Food::where('promotion_price', '<>', 'NULL')->orderBy('promotion_price')->take(3)->get();
+        return view('front-end.home', compact('foods', 'categories', 'restaurants', 'discountedFoods'));
     }
 
 }
