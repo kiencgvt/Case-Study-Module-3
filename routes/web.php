@@ -101,4 +101,4 @@ Route::get('/category/{id}/trend',[FoodController::class,'list'])->name('categor
 Route::get('/foods/discount',[FoodController::class,'showDiscountFood'])->name('discountFood');
 
 Route::get('/{idUser}/profile', [ProfileController::class, 'index'])->name('profile.index');
-
+Route::post('/{idUser}/profile', [ProfileController::class, 'update'])->name('profile.update');

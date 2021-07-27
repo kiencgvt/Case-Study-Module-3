@@ -86,24 +86,30 @@
             <div class="col-md-8 mb-3">
                 <div class="rounded shadow-sm p-4 bg-white">
                     <h5 class="mb-4">My account</h5>
+                    @if(session()->has('update-success'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session()->get('update-success') }}
+                    </div>
+                    @endif
                     <div id="edit_profile">
                         <div>
-                            <form action="my_account.html">
+                            <form method="post" action="{{ route('profile.update', $user->id) }}">
+                                @csrf
                                 <div class="form-group">
                                     <label>Tên</label>
-                                    <input type="text" class="form-control" value="{{ $user->name }}">
+                                    <input type="text" class="form-control" value="{{ $user->name }}" name="name">
                                 </div>
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input type="email" class="form-control" value="{{ $user->email }}">
+                                    <input type="email" class="form-control" value="{{ $user->email }}" name="email">
                                 </div>
                                 <div class="form-group">
                                     <label>Địa chỉ</label>
-                                    <input type="text" class="form-control" value="{{ $user->address }}">
+                                    <input type="text" class="form-control" value="{{ $user->address }}" name="address">
                                 </div>
                                 <div class="form-group">
                                     <label>Điện thoại</label>
-                                    <input type="text" class="form-control" value="{{ $user->phone }}">
+                                    <input type="text" class="form-control" value="{{ $user->phone }}" name="phone">
                                 </div>
                                 <div class="form-group">
                                     <label>Vai trò</label>
