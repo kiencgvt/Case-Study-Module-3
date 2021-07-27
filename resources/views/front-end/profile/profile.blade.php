@@ -7,11 +7,11 @@
                     <a href="profile.html" class="">
                         <div class="d-flex align-items-center p-3">
                             <div class="left mr-3">
-                                <img alt="#" src="{{ asset($user->avatar) }}" class="rounded-circle" width="60">
+                                <img alt="#" src="{{ asset(auth()->user()->avatar) }}" class="rounded-circle" width="60">
                             </div>
                             <div class="right">
-                                <h6 class="mb-1 font-weight-bold">{{ $user->name }} <i class="feather-check-circle text-success"></i></h6>
-                                <p class="text-muted m-0 small">{{ $user->email }}</p>
+                                <h6 class="mb-1 font-weight-bold">{{ auth()->user()->name }} <i class="feather-check-circle text-success"></i></h6>
+                                <p class="text-muted m-0 small">{{ auth()->user()->email }}</p>
                             </div>
                         </div>
                     </a>
@@ -91,29 +91,36 @@
                         {{ session()->get('update-success') }}
                     </div>
                     @endif
+
+                    @if(session()->has('success-change'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session()->get('success-change') }}
+                        </div>
+                    @endif
+
                     <div id="edit_profile">
                         <div>
-                            <form method="post" action="{{ route('profile.update', $user->id) }}">
+                            <form method="post" action="{{ route('profile.update') }}">
                                 @csrf
                                 <div class="form-group">
                                     <label>Tên</label>
-                                    <input type="text" class="form-control" value="{{ $user->name }}" name="name">
+                                    <input type="text" class="form-control" value="{{ auth()->user()->name }}" name="name">
                                 </div>
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input type="email" class="form-control" value="{{ $user->email }}" name="email">
+                                    <input type="email" class="form-control" value="{{ auth()->user()->email }}" name="email">
                                 </div>
                                 <div class="form-group">
                                     <label>Địa chỉ</label>
-                                    <input type="text" class="form-control" value="{{ $user->address }}" name="address">
+                                    <input type="text" class="form-control" value="{{ auth()->user()->address }}" name="address">
                                 </div>
                                 <div class="form-group">
                                     <label>Điện thoại</label>
-                                    <input type="text" class="form-control" value="{{ $user->phone }}" name="phone">
+                                    <input type="text" class="form-control" value="{{ auth()->user()->phone }}" name="phone">
                                 </div>
                                 <div class="form-group">
                                     <label>Vai trò</label>
-                                    <p class="form-control">{{ $user->role }}</p>
+                                    <p class="form-control">{{ auth()->user()->role }}</p>
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary btn-block">Lưu thay đổi</button>
@@ -122,7 +129,7 @@
                         </div>
                         <div class="additional">
                             <div class="change_password my-3">
-                                <a href="forgot_password.html" class="p-3 border rounded bg-white btn d-flex align-items-center">Đổi mật khẩu
+                                <a href="{{ route('profile.showViewChangePassword') }}" class="p-3 border rounded bg-white btn d-flex align-items-center">Đổi mật khẩu
                                     <i class="feather-arrow-right ml-auto"></i></a>
                             </div>
                         </div>
