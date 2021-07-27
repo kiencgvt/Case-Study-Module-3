@@ -42,7 +42,7 @@
                                          class="img-fluid rounded-circle header-user mr-2 header-user"> {{ auth()->user()->name }}
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="profile.html">Tài khoản</a>
+                                    <a class="dropdown-item" href="{{ route('profile.index', auth()->user()->id) }}">Tài khoản</a>
                                     @if(\Illuminate\Support\Facades\Auth::user()->isAdmin())
                                         <a class="dropdown-item" href="{{ route('admin.dashboard') }}">Quản trị viên</a>
                                     @endif

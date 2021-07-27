@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ShopController;
@@ -99,4 +100,5 @@ Route::get('/paymentSuccessful', [CheckoutController::class, 'index'])->name('pa
 Route::get('/category/{id}/trend',[FoodController::class,'list'])->name('category.trend');
 Route::get('/foods/discount',[FoodController::class,'showDiscountFood'])->name('discountFood');
 
+Route::get('/{idUser}/profile', [ProfileController::class, 'index'])->name('profile.index');
 
