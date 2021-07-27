@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             $table->date('require_date');
             $table->string('status');
             $table->unsignedInteger('user_id');
-            $table->string('comment');
+            $table->string('comment')->nullable();
             $table->unsignedInteger('total_price');
             $table->timestamps();
         });
