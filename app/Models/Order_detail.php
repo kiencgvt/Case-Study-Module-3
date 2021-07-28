@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Order_detail extends Model
 {
     use HasFactory;
-    protected $table = 'order_details';
+
+    protected $fillable = ['order_id','food_id','quantity','price_each','created_at','updated_at'];
 
     public function order()
     {

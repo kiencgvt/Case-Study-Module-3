@@ -79,6 +79,8 @@ Route::middleware(['auth', 'checkCollab'])->prefix('collab')->group(function () 
         Route::post('/{id}/edit',[ShopController::class,'update'])->name('shop.update');
         Route::get('/{id}/delete',[ShopController::class,'delete'])->name('shop.delete');
         Route::get('/search',[ShopController::class,'search'])->name('shop.search');
+        Route::get('/{idShop}/order',[ShopController::class,'orders'])->name('shop.order');
+        Route::get('/{idShop}/orderDetail/{idOrder}',[ShopController::class,'orderDetails'])->name('shop.orderDetail');
 
     });
 });
