@@ -102,5 +102,7 @@ Route::get('/paymentSuccessful', [CheckoutController::class, 'index'])->name('pa
 Route::get('/category/{id}/trend',[FoodController::class,'list'])->name('category.trend');
 Route::get('/foods/discount',[FoodController::class,'showDiscountFood'])->name('discountFood');
 
-Route::get('/{idUser}/profile', [ProfileController::class, 'index'])->name('profile.index');
-Route::post('/{idUser}/profile', [ProfileController::class, 'update'])->name('profile.update');
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
+Route::get('/change-password', [ProfileController::class, 'showViewChangePassword'])->name('profile.showViewChangePassword');
+Route::post('/change-password', [ProfileController::class, 'changePassword'])->name('profile.changePassword');
