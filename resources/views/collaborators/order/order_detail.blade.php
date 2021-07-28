@@ -101,18 +101,27 @@
                         <th scope="col">Name_food</th>
                         <th scope="col">Quantity </th>
                         <th scope="col">Price_each </th>
+                        <th scope="col">Price </th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($orderDetails as $key=>$orderDetail)
+                    @foreach($orderDetails as $key => $orderDetail)
                         <tr>
-                            <th scope="row">{{$key+1}}</th>
-                            <td>{{$orderDetail->food->name}}</td>
-                            <td>{{$orderDetail->quantity}}</td>
-                            <td>{{$orderDetail->price_each}}</td>
+                            <th scope="row">{{ $key+1 }}</th>
+                            <td>{{ $orderDetail->food->name }}</td>
+                            <td>{{ $orderDetail->quantity }}</td>
+                            <td>{{ $orderDetail->price_each }}</td>
+                            <td>{{ $orderDetail->quantity * $orderDetail->price_each }}</td>
 
                         </tr>
                     @endforeach
+                    <tr>
+                        <td><strong>Tổng</strong></td>
+                        <td></td>
+                        <td><strong>{{ $totalQuantity }}</strong></td>
+                        <td></td>
+                        <td><strong>{{ $orderDetail->order->total_price }}</strong></td>
+                    </tr>
 
                     </tbody>
                 </table>

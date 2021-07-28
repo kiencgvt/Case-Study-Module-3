@@ -135,7 +135,7 @@
                             <td><img style="width: 40px;" src="{{asset('storage/'.$shop->image)}}" alt=""></td>
                             <td>{{$shop->address}}</td>
                             <td>{{$shop->name}}</td>
-                            <td><a href="{{route('shop.order',$shop->id)}}"><button type="button" class="btn btn-success">xem</button></a></td>
+                            <td><a href="{{route('shop.order',$shop->id)}}"><button type="button" class="btn btn-success">Xem</button></a></td>
                             <td>
                                 <a href="{{route('shop.edit',$shop->id)}}"><i class="feather-edit"></i></a>
                                 <a href="{{route('shop.delete',$shop->id)}}" onclick="return confirm('Xóa cửa hàng này?')"><i class="feather-trash"></i></a>

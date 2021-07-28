@@ -83,8 +83,8 @@ class ShopController extends Controller
     public function orders($idShop)
     {
         $shop = Shop::findOrFail($idShop);
-        $orderDetails = $shop->order_details->unique('order_id');
-        return view('collaborators.order.list_order',compact('orderDetails','idShop'));
+        $orders = $shop->order_details->unique('order_id');
+        return view('collaborators.order.list_order',compact('orders','idShop'));
     }
 
     public function orderDetails($idShop,$idOrder)
@@ -92,7 +92,8 @@ class ShopController extends Controller
 
         $shop = Shop::findOrFail($idShop);
         $orderDetails = $shop->order_details()->where('order_id',$idOrder)->get();
-        return view('collaborators.order.order_detail',compact('orderDetails'));
+        $totalQuantity = $shop->order_details()->where('order_id',$idOrder)->sum('quantity');
+        return view('collaborators.order.order_detail',compact('orderDetails','totalQuantity'));
     }
 
 }

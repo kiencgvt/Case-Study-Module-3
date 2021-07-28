@@ -107,15 +107,15 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($orderDetails as $key=>$orderDetail)
+                    @foreach( $orders as $key => $order )
                         <tr>
-                            <th scope="row">{{$orderDetail->order_id}}</th>
-                            <td>{{$orderDetail->order->order_date}}</td>
-                            <td>{{$orderDetail->order->require_date}}</td>
-                            <td>{{$orderDetail->order->status}}</td>
-                            <td>{{$orderDetail->order->user->name}}</td>
-                            <td>{{$orderDetail->order->total_price}}</td>
-                            <td><a href="{{route('shop.orderDetail',[$idShop,$orderDetail->order->id])}}"><button type="button" class="btn btn-success">xem</button></a></td>
+                            <th scope="row">{{ $key+1 }}</th>
+                            <td>{{ $order->order->order_date }}</td>
+                            <td>{{ $order->order->require_date }}</td>
+                            <td>{{ $order->order->status }}</td>
+                            <td>{{ $order->order->user->name }}</td>
+                            <td>{{ $order->order->total_price }}</td>
+                            <td><a href="{{route('shop.orderDetail',[$idShop,$order->order->id])}}"><button type="button" class="btn btn-success">Xem</button></a></td>
 
                         </tr>
                     @endforeach
