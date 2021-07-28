@@ -135,8 +135,8 @@
                             <td>{{number_format($food->price)}}</td>
                             <td>{{number_format($food->promotion_price)}}</td>
                             <td>{{number_format($food->service_charge)}}</td>
-                            <td>{{\App\Models\Shop::find($food->shop_id)->name}}</td>
-                            <td>{{\App\Models\Category::find($food->category_id)->name}}</td>
+                            <td>{{$food->shop->name}}</td>
+                            <td>{{$food->category->name}}</td>
                             <td>{{$food->preparation_time}}</td>
                             <td>{{$food->tag}}</td>
                             <td><a href="{{ route('collab.edit',$food->id) }}" class="btn btn-success">Update</a>
