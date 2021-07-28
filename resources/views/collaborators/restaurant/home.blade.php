@@ -103,7 +103,7 @@
             <div class="col-md-8 mb-3">
                 <h1>Danh sách cửa hàng</h1>
 
-                <a href="{{ route('shop.create') }}">Thêm mới cửa hàng </a>
+                <button type="button" class="btn btn-warning"><a href="{{ route('shop.create') }}">Thêm mới cửa hàng </a></button>
 
                 <nav class="navbar navbar-light bg-light">
                     <form class="form-inline" action="{{route('shop.search')}}" method="get">
@@ -124,6 +124,7 @@
                         <th scope="col">Image</th>
                         <th scope="col">Address</th>
                         <th scope="col">Name</th>
+                        <th scope="col">OrderList</th>
                         <th scope="col">Actions</th>
                     </tr>
                     </thead>
@@ -134,6 +135,7 @@
                             <td><img style="width: 40px;" src="{{asset('storage/'.$shop->image)}}" alt=""></td>
                             <td>{{$shop->address}}</td>
                             <td>{{$shop->name}}</td>
+                            <td><a href="{{route('shop.order',$shop->id)}}"><button type="button" class="btn btn-success">Xem</button></a></td>
                             <td>
                                 <a href="{{route('shop.edit',$shop->id)}}"><i class="feather-edit"></i></a>
                                 <a href="{{route('shop.delete',$shop->id)}}" onclick="return confirm('Xóa cửa hàng này?')"><i class="feather-trash"></i></a>

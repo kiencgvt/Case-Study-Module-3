@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Food;
+use App\Models\Order;
+use App\Models\Order_detail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -75,6 +78,22 @@ class ShopController extends Controller
         }
         $shops = Auth::user()->shops()->where('name', 'LIKE', '%' . $keyword . '%')->get();
         return view('collaborators.restaurant.home', compact('shops'));
+    }
+
+    public function orders($idShop)
+    {
+        $shop = Shop::findOrFail($idShop);
+        $orders = $shop->order_details->unique('order_id');
+        return view('collaborators.order.list_order',compact('orders','idShop'));
+    }
+
+    public function orderDetails($idShop,$idOrder)
+    {
+
+        $shop = Shop::findOrFail($idShop);
+        $orderDetails = $shop->order_details()->where('order_id',$idOrder)->get();
+        $totalQuantity = $shop->order_details()->where('order_id',$idOrder)->sum('quantity');
+        return view('collaborators.order.order_detail',compact('orderDetails','totalQuantity'));
     }
 
 }

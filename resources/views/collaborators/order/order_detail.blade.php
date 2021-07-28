@@ -92,64 +92,39 @@
                 </div>
             </div>
             <div class="col-md-8 mb-3">
-                    <h1>Danh sách món ăn</h1>
+                <h1>Chi tiết đơn hàng </h1>
 
-                <button type="button" class="btn btn-warning"><a href="{{route('collab.create')}}">Thêm mới món ăn</a></button>
-                <nav class="navbar navbar-light bg-light">
-                    <form class="form-inline" action="{{route('collab.search')}}" method="get">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                </nav>
-                <div class="col-12">
-                    @if (Session::has('success'))
-                        <p class="text-success">
-                            <i class="fa fa-check" aria-hidden="true"></i>{{ Session::get('success') }}
-                        </p>
-                    @endif
-                </div>
                 <table class="table table-striped">
                     <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Image</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Promotion_price</th>
-                        <th scope="col">Service_charge</th>
-                        <th scope="col">Shop</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Preparation_time</th>
-                        <th scope="col">Tag</th>
-                        <th scope="col">Update</th>
-                        <th scope="col">Delete</th>
-
+                        <th scope="col">Name_food</th>
+                        <th scope="col">Quantity </th>
+                        <th scope="col">Price_each </th>
+                        <th scope="col">Price </th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($foods as $key=>$food)
+                    @foreach($orderDetails as $key => $orderDetail)
                         <tr>
-                            <th scope="row">{{$key+1}}</th>
-                            <td><img src="{{asset('storage/'.$food->image)}}" alt="" width="70px"></td>
-                            <td>{{$food->name}}</td>
-                            <td>{{number_format($food->price)}}</td>
-                            <td>{{number_format($food->promotion_price)}}</td>
-                            <td>{{number_format($food->service_charge)}}</td>
-                            <td>{{$food->shop->name}}</td>
-                            <td>{{$food->category->name}}</td>
-                            <td>{{$food->preparation_time}}</td>
-                            <td>{{$food->tag}}</td>
-                            <td><a href="{{ route('collab.edit',$food->id) }}" class="btn btn-success">Update</a>
-                            </td>
-                            <td><a href="{{ route('collab.delete',$food->id) }}" class="btn btn-danger">Delete</a>
-                            </td>
+                            <th scope="row">{{ $key+1 }}</th>
+                            <td>{{ $orderDetail->food->name }}</td>
+                            <td>{{ $orderDetail->quantity }}</td>
+                            <td>{{ $orderDetail->price_each }}</td>
+                            <td>{{ $orderDetail->quantity * $orderDetail->price_each }}</td>
 
                         </tr>
                     @endforeach
+                    <tr>
+                        <td><strong>Tổng</strong></td>
+                        <td></td>
+                        <td><strong>{{ $totalQuantity }}</strong></td>
+                        <td></td>
+                        <td><strong>{{ $orderDetail->order->total_price }}</strong></td>
+                    </tr>
 
                     </tbody>
                 </table>
-                {{$foods->links()}}
             </div>
         </div>
     </div>
