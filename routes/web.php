@@ -89,9 +89,11 @@ Route::middleware(['auth', 'checkCustomer'])->prefix('customer')->group(function
 //    Route::get('/cart', function () {
 //        return view('front-end.cart');
 //    });
+
     Route::get('/',[CartController::class,'index'])->name('cart.index');
     Route::get('/{idFood}/addToCart',[CartController::class,'addToCart'])->name('cart.addToCart');
     Route::get('/{idFood}/delete',[CartController::class,'delete'])->name('cart.delete');
+    Route::post('{idFood}/update-to-cart', [CartController::class, 'updateToCart'])->name('cart.updateToCart');
 });
 
 Route::get('/restaurants/{id}/detail', [RestaurantController::class,'detail'])->name('restau.detail');
