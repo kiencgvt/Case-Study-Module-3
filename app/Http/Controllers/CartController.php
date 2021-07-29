@@ -34,4 +34,18 @@ class CartController extends Controller
         session()->put('cart', $cart);
         return back();
     }
+    function updateToCart(Request $request, $idFood) {
+        $food = Food::find($idFood);
+        $oldCart = session()->get('cart');
+        $cart = new Cart($oldCart);
+        $cart->update($food, $request->newQuantity);
+        session()->put('cart', $cart);
+
+        $data = [
+            'foodUpdate' => session()->get('cart')->items[$idFood],
+            'totalPriceCart' => session()->get('cart')->totalPrice,
+        ];
+
+        return response()->json($data);
+    }
 }
