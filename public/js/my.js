@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    let location = window.location.origin;
     $('.button-plus').click(function () {
         let idFood = $(this).attr('data-id');
         $('#' + idFood).val(parseInt($('#' + idFood).val()) + 1);
@@ -9,57 +10,62 @@ $(document).ready(function () {
         $('#' + idFood).val(parseInt($('#' + idFood).val()) - 1);
         updateToCart(idFood);
     })
-    function updateToCart(id) {
-        let value = $(`#${id}`).val();
-        let idFood = $(`#${id}`).attr('data-id');
-        let location = window.location.origin;
+    function updateToCart(idFood) {
+        let value = $(`#${idFood}`).val();
+        if(value > 0){
 
-        // su ly ajax
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            url: location + '/customer/' + idFood + '/update-to-cart',
-            method: 'POST',
-            data: {
-                newQuantity: value
-            },
-            success: function (response) {
-                // su ly du lieu tra ve
-                $('#product-total-price-' + idFood).html(new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(response.foodUpdate.price));
-                $('#total-price-cart').html(new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(response.totalPriceCart));
-            },
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: location + '/customer/' + idFood + '/update-to-cart',
+                method: 'POST',
+                data: {
+                    newQuantity: value
+                },
+                success: function (response) {
+                    $('#food-total-price-' + idFood).html(new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(response.foodUpdate.price));
+                    $('#total-price-cart').html(new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(response.totalPriceCart));
+                },
 
-            error: function (error) {
-                console.log(error);
-            }
-        })
+                error: function (error) {
+                    console.log(error);
+                }
+            })
+        }else{
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    url: location + '/customer/' + idFood + '/delete',
+                    method: 'GET',
+                    success: function (response) {
+                        $('#food-' + idFood).remove();
+                        $('#total-price-cart').html(new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(response.totalPriceCart));
+                        $('#inner').html('<div id="alert-success" class="alert alert-success" role="alert">' + response.message + '</div>');
+                        setTimeout(function(){
+                            if ($('#alert-success').length > 0) {
+                                $('#alert-success').remove();
+                            }
+                        }, 2000)
+                    },
+
+                    error: function (error) {
+                        console.log(error);
+                    },
+                    timeout: 3000
+
+                })
+
+        }
     }
 
-    $('.delete-product').click(function () {
-        let idProduct = $(this).attr('data-id');
-        let location = window.location.origin;
-
-        // su ly ajax
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            url: location + '/cart/' + idProduct + '/delete-to-cart',
-            method: 'GET',
-            success: function (response) {
-                // su ly du lieu tra ve
-                $('#product-' + idProduct).remove();
-            },
-
-            error: function (error) {
-                console.log(error);
-            }
-        })
-    })
-
 })
+
+
+
