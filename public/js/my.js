@@ -26,6 +26,7 @@ $(document).ready(function () {
                     newQuantity: value
                 },
                 success: function (response) {
+                    $('#total-quantity-cart').html(response.totalQuantity);
                     $('#food-total-price-' + idFood).html(new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(response.foodUpdate.price));
                     $('#total-price-cart').html(new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(response.totalPriceCart));
                 },
@@ -46,6 +47,7 @@ $(document).ready(function () {
                     method: 'GET',
                     success: function (response) {
                         $('#food-' + idFood).remove();
+                        $('#total-quantity-cart').html(response.totalQuantity);
                         $('#total-price-cart').html(new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(response.totalPriceCart));
                         $('#inner').html('<div id="alert-success" class="alert alert-success" role="alert">' + response.message + '</div>');
                         setTimeout(function(){

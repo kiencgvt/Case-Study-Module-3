@@ -34,6 +34,7 @@ class CartController extends Controller
         session()->put('cart', $cart);
         $data = [
             'totalPriceCart' => session()->get('cart')->totalPrice,
+            'totalQuantity' => session()->get('cart')->totalQuantity,
             'message' =>  'Delete success'
         ];
         return response()->json($data );
@@ -47,6 +48,7 @@ class CartController extends Controller
 
         $data = [
             'foodUpdate' => session()->get('cart')->items[$idFood],
+            'totalQuantity' => session()->get('cart')->totalQuantity,
             'totalPriceCart' => session()->get('cart')->totalPrice,
         ];
 
