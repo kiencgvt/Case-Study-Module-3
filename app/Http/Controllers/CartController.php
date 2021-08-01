@@ -32,7 +32,12 @@ class CartController extends Controller
         $cart = new Cart($oldCart);
         $cart->delete($food);
         session()->put('cart', $cart);
-        return back();
+        $data = [
+            'totalPriceCart' => session()->get('cart')->totalPrice,
+            'totalQuantity' => session()->get('cart')->totalQuantity,
+            'message' =>  'Delete success'
+        ];
+        return response()->json($data );
     }
     function updateToCart(Request $request, $idFood) {
         $food = Food::find($idFood);
@@ -43,6 +48,7 @@ class CartController extends Controller
 
         $data = [
             'foodUpdate' => session()->get('cart')->items[$idFood],
+            'totalQuantity' => session()->get('cart')->totalQuantity,
             'totalPriceCart' => session()->get('cart')->totalPrice,
         ];
 

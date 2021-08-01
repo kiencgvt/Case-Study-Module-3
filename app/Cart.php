@@ -47,20 +47,21 @@ class Cart
 
     function delete($food)
     {
-        //kiem tra san pham ton tai trong gio hang chua
         if (array_key_exists($food->id, $this->items)) {
+
             $storeFoodDelete = $this->items[$food->id];
-            //giam tien
+
             $this->totalPrice -= $storeFoodDelete['price'];
-            //giam so luong
+
             $this->totalQuantity -= $storeFoodDelete['quantity'];
-            // xoa phan tu o vi tri $product->id
+
             unset($this->items[$food->id]);
         }
     }
 
     function update($food, $newQuantity)
     {
+
         if (array_key_exists($food->id, $this->items)) {
 
             $storeFoodUpdate = $this->items[$food->id];
