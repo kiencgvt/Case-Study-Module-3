@@ -25,9 +25,7 @@ class CartController extends Controller
         return view('front-end.restaurants.detail', compact('cart', 'food'));
     }
     function showAllCart(){
-        $oldCart = session()->get('cart');
-        $cart = new Cart($oldCart);
-        return response()->json($cart);
+        return response()->json(session()->get('cart'));
     }
     function delete($idFood)
     {

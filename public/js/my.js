@@ -1,29 +1,17 @@
 $(document).ready(function () {
     let location = window.location.origin;
-/*
-    $('.button-plus').click(function () {
-        let idFood = $(this).attr('data-id');
-        $('#' + idFood).val(parseInt($('#' + idFood).val()) + 1);
-        updateToCart(idFood);
-    })
-*/
-    $(document).on("click",".button-minus", function(){
+    $(document).on("click", ".button-minus", function () {
         let idFood = $(this).attr('data-id');
         console.log(idFood)
         $('#' + idFood).val(parseInt($('#' + idFood).val()) - 1);
         updateToCart(idFood);
-    } )
-    $(document).on("click",".button-plus", function(){
+    })
+    $(document).on("click", ".button-plus", function () {
         let idFood = $(this).attr('data-id');
         $('#' + idFood).val(parseInt($('#' + idFood).val()) + 1);
         updateToCart(idFood);
     })
-    /*$('.button-minus').click(function () {
-        let idFood = $(this).attr('data-id');
-        console.log(idFood)
-        $('#' + idFood).val(parseInt($('#' + idFood).val()) - 1);
-        updateToCart(idFood);
-    })*/
+
     function updateToCart(idFood) {
         let value = $(`#${idFood}`).val();
         if (value > 0) {
@@ -40,7 +28,7 @@ $(document).ready(function () {
                     newQuantity: value
                 },
                 success: function (response) {
-                  //  displayCart(response)
+                    //  displayCart(response)
                     $('#total-quantity-cart').html(response.totalQuantity);
                     $('#food-total-price-' + idFood).html(new Intl.NumberFormat('vi-VN', {
                         style: 'currency',
@@ -90,8 +78,8 @@ $(document).ready(function () {
 
         }
     }
+
     $('.addToCart').click(function () {
-        showCart();
         let idFood = $(this).attr('data-id');
         $.ajax({
             url: location + '/customer/' + idFood + '/addToCart',
@@ -102,11 +90,12 @@ $(document).ready(function () {
             }
         })
     })
-    function displayCart(res){
+
+    function displayCart(res) {
         let str = "";
         let cart = res.items;
-       for(let foodId in cart){
-           str+= ` <div id="food-${foodId}" class="bg-white border-bottom py-2">
+        for (let foodId in cart) {
+            str += ` <div id="food-${foodId}" class="bg-white border-bottom py-2">
                                 <div
                                     class="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
                                     <div class="media align-items-center">
@@ -133,18 +122,20 @@ $(document).ready(function () {
                                             </button>
                                         </span>
                                         <p class="text-gray mb-0 float-right ml-2 text-muted small"
-                                           id="food-total-price-${foodId}">${cart[foodId].price}
-                                            đ</p>
+                                           id="food-total-price-${foodId}" > ${new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(cart[foodId].price)}
+                                            </p>
                                     </div>
                                 </div>
                             </div>`
-       }
-       $("#cart").html(str)
+        }
+        $("#cart").html(str)
         $('#total-price-cart').html(new Intl.NumberFormat('vi-VN', {
             style: 'currency',
             currency: 'VND'
-        }).format(res.totalPriceCart));    }
-    function showCart(){
+        }).format(res.totalPrice));
+    }
+
+    function showCart() {
         $.ajax({
             url: location + '/customer/getAll',
             method: 'GET',
@@ -154,6 +145,7 @@ $(document).ready(function () {
             }
         })
     }
+
     showCart();
 })
 
