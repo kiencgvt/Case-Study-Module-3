@@ -133,9 +133,7 @@ $(document).ready(function () {
                             <h6 class="font-weight-bold mb-0">TO PAY <span class="float-right" id="total-price-cart">${ res.totalPrice } đ</span>
                             </h6>
                         </div>
-                        <div class="p-3">
-                            <a class="btn btn-success btn-block btn-lg" href="{{ route('paymentSuccessful') }}">PAY</a>
-                        </div>`;
+                       `;
         }
         $("#cart").html(str)
         $('#total-price-cart').html(new Intl.NumberFormat('vi-VN', {
