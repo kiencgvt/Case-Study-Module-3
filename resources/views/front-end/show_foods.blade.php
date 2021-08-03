@@ -20,11 +20,6 @@
         <div class="row">
             <div class="col-md-8 pt-3">
                 <div class="shadow-sm rounded bg-white mb-3 overflow-hidden">
-                {{--                    <div class="d-flex item-aligns-center">--}}
-                {{--                        <p class="font-weight-bold h6 p-3 border-bottom mb-0 w-100">Menu</p>--}}
-                <!-- <a class="small text-primary font-weight-bold ml-auto" href="#">View all <i class="feather-chevrons-right"></i></a> -->
-                    {{--                    </div>--}}
-
                     <div class="row m-0">
                         <div class="col-md-12 px-0 border-top">
                             <div>
@@ -54,9 +49,9 @@
                                             loại: {{$category->name}} </p>
                                         <p class="text-muted mb-0">Thời gian chuẩn bị: {{$food->preparation_time}}
                                             phút</p>
-                                        <p class="text-muted mb-0">Thẻ: {{$food->tag}} </p>
-                                        <span><a href="{{route('cart.addToCart', $food->id)}}"
-                                                 class="btn btn-success">Add To Cart</a></span>
+                                        <p class="text-muted mb-0"><a href="{{route('showFoodTag',$food->id)}}">Thẻ: {{$food->tag}}</a> </p>
+                                        <span><a data-id="{{$food->id}}"
+                                                 class="btn btn-success addToCart">Add To Cart</a></span>
                                     </div>
                                 </div>
                             </div>
@@ -253,45 +248,7 @@
                         </div>
                     @endif
                         <div id="inner"></div>
-
-                        @if(\Illuminate\Support\Facades\Session::has('cart'))
-                            @foreach(\Illuminate\Support\Facades\Session::get('cart')->items as $key =>$value)
-                                <div id="food-{{ $value['item']->id }}" class="bg-white border-bottom py-2">
-                                    <div
-                                        class="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
-                                        <div class="media align-items-center">
-                                            <div class="mr-2 text-danger">&middot;</div>
-                                            <div class="media-body">
-                                                <p class="m-0">{{$value['item']->name}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex align-items-center">
-                                        <span class="count-number float-right">
-                                            <button  type="button" class="btn-sm left dec btn btn-outline-secondary button-minus" data-id="{{ $value['item']->id }}">
-                                                <i class="feather-minus"></i> </button>
-                                            <input
-                                                class="count-number-input quantity-food" type="text" data-id="{{ $value['item']->id }}" readonly=""
-                                                id="{{ $value['item']->id }}"
-                                                value="{{$value['quantity']}}">
-                                            <button  type="button" class="btn-sm right inc btn btn-outline-secondary button-plus" data-id="{{ $value['item']->id }}">
-                                                <i class="feather-plus"></i>
-                                            </button>
-                                        </span>
-                                            <p class="text-gray mb-0 float-right ml-2 text-muted small" id="food-total-price-{{ $value['item']->id }}">{{number_format($value['price'])}}
-                                                đ</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                            <div class="bg-white p-3 clearfix border-bottom">
-                                <h6 class="font-weight-bold mb-0">TO PAY <span class="float-right" id="total-price-cart">{{ number_format(session('cart')->totalPrice) }} đ</span>
-                                </h6>
-                            </div>
-                        <div class="p-3">
-                            <a class="btn btn-success btn-block btn-lg" href="{{ route('paymentSuccessful') }}">PAY</a>
-                        </div>
-                    @endif
-
+                        <div id="cart"></div>
                 </div>
             </div>
         </div>
