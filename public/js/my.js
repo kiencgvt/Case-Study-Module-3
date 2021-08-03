@@ -1,18 +1,23 @@
 $(document).ready(function () {
     let location = window.location.origin;
-    $('.button-plus').click(function () {
+    $(document).on("click", ".button-minus", function () {
+        let idFood = $(this).attr('data-id');
+        console.log(idFood)
+        $('#' + idFood).val(parseInt($('#' + idFood).val()) - 1);
+        updateToCart(idFood);
+    })
+    $(document).on("click", ".button-plus", function () {
         let idFood = $(this).attr('data-id');
         $('#' + idFood).val(parseInt($('#' + idFood).val()) + 1);
         updateToCart(idFood);
     })
-    $('.button-minus').click(function () {
-        let idFood = $(this).attr('data-id');
-        $('#' + idFood).val(parseInt($('#' + idFood).val()) - 1);
-        updateToCart(idFood);
+    $(document).on("click", ".payment", function () {
+        window.location.href = location + '/paymentSuccessful'
     })
+
     function updateToCart(idFood) {
         let value = $(`#${idFood}`).val();
-        if(value > 0){
+        if (value > 0) {
 
             $.ajaxSetup({
                 headers: {
@@ -26,48 +31,143 @@ $(document).ready(function () {
                     newQuantity: value
                 },
                 success: function (response) {
+                    console.log(response)
+                    //  displayCart(response)
                     $('#total-quantity-cart').html(response.totalQuantity);
-                    $('#food-total-price-' + idFood).html(new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(response.foodUpdate.price));
-                    $('#total-price-cart').html(new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(response.totalPriceCart));
+                    $('#food-total-price-' + idFood).html(new Intl.NumberFormat('vi-VN', {
+                        style: 'currency',
+                        currency: 'VND'
+                    }).format(response.foodUpdate.price));
+                    $('#total-price-cart').html(new Intl.NumberFormat('vi-VN', {
+                        style: 'currency',
+                        currency: 'VND'
+                    }).format(response.totalPriceCart));
                 },
 
                 error: function (error) {
                     console.log(error);
                 }
             })
-        }else{
+        } else {
 
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: location + '/customer/' + idFood + '/delete',
+                method: 'GET',
+                success: function (response) {
+                    $('#food-' + idFood).remove();
+                    $('#total-quantity-cart').html(response.totalQuantity);
+                    $('#total-price-cart').html(new Intl.NumberFormat('vi-VN', {
+                        style: 'currency',
+                        currency: 'VND'
+                    }).format(response.totalPriceCart));
+                    $('#inner').html('<div id="alert-success" class="alert alert-success" role="alert">' + response.message + '</div>');
+                    setTimeout(function () {
+                        if ($('#alert-success').length > 0) {
+                            $('#alert-success').remove();
+                        }
+                    }, 2000)
+                    if(response.totalQuantity == 0) {
+                        $('.payment').remove();
                     }
-                });
-                $.ajax({
-                    url: location + '/customer/' + idFood + '/delete',
-                    method: 'GET',
-                    success: function (response) {
-                        $('#food-' + idFood).remove();
-                        $('#total-quantity-cart').html(response.totalQuantity);
-                        $('#total-price-cart').html(new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(response.totalPriceCart));
-                        $('#inner').html('<div id="alert-success" class="alert alert-success" role="alert">' + response.message + '</div>');
-                        setTimeout(function(){
-                            if ($('#alert-success').length > 0) {
-                                $('#alert-success').remove();
-                            }
-                        }, 2000)
-                    },
+                },
 
-                    error: function (error) {
-                        console.log(error);
-                    },
-                    timeout: 3000
+                error: function (error) {
+                    console.log(error);
+                },
+                timeout: 3000
 
-                })
+            })
 
         }
     }
 
-})
+    $('.addToCart').click(function () {
+        let idFood = $(this).attr('data-id');
+        $.ajax({
+            url: location + '/customer/' + idFood + '/addToCart',
+            method: 'GET',
+            type: 'json',
+            success: function (res) {
+                displayCart(res);
+            }
+        })
+    })
 
+    function displayCart(res) {
+        let str = "";
+        let cart = res.items;
+        for (let foodId in cart) {
+            str += ` <div id="food-${foodId}" class="bg-white border-bottom py-2">
+                                <div
+                                    class="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
+                                    <div class="media align-items-center">
+                                        <div class="mr-2 text-danger">&middot;</div>
+                                        <div class="media-body">
+                                            <p class="m-0 foodName">${cart[foodId].item.name}</p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <span class="count-number float-right">
+                                            <button type="button"
+                                                    class="btn-sm left dec btn btn-outline-secondary button-minus"
+                                                    data-id="${foodId}">
+                                                <i class="feather-minus"></i> </button>
+                                            <input
+                                                class="count-number-input quantity-food" type="text"
+                                                data-id="${foodId}" readonly=""
+                                                id="${foodId}"
+                                                value="${cart[foodId].quantity}">
+                                            <button type="button"
+                                                    class="btn-sm right inc btn btn-outline-secondary button-plus"
+                                                    data-id="${foodId}">
+                                                <i class="feather-plus"></i>
+                                            </button>
+                                        </span>
+                                        <p class="text-gray mb-0 float-right ml-2 text-muted small"
+                                           id="food-total-price-${foodId}" > ${new Intl.NumberFormat('vi-VN', {
+                                               style: 'currency',
+                                                currency: 'VND'
+                                                }).format(cart[foodId].price)}
+                                            </p>
+                                    </div>
+                                </div>
+                            </div>`
+        }
+        if (typeof (res.totalPrice) != "undefined" && res.totalPrice != 0) {
+            str += `<div class="payment"><div class="bg-white p-3 clearfix border-bottom">
+                            <h6 class="font-weight-bold mb-0">TO PAY <span class="float-right" id="total-price-cart">${res.totalPrice} đ</span>
+                            </h6>
+                        </div>
+                        <div class="p-3 displayPay">
+                           <a class="btn btn-success btn-block btn-lg payment">PAY</a>
+                         </div>
+                         </div>
+`;
+        }
+        $("#cart").html(str)
+        $('#total-price-cart').html(new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND'
+        }).format(res.totalPrice));
+    }
+
+    function showCart() {
+        $.ajax({
+            url: location + '/customer/getAll',
+            method: 'GET',
+            type: 'json',
+            success: function (res) {
+                displayCart(res)
+            }
+        })
+    }
+
+    showCart();
+})
 
 
