@@ -81,7 +81,7 @@
                             </div>
                         </div>
                     @endif
-                    <div id="inner"></div>
+                        <div id="inner"></div>
                         <div id="cart"></div>
                 </div>
             </div>
