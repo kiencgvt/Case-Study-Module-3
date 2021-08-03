@@ -57,8 +57,8 @@
                                         <p class="text-muted mb-0">Thời gian chuẩn bị: {{$foodTag->preparation_time}}
                                             phút</p>
                                         <p class="text-muted mb-0"><a href="">Thẻ: {{$foodTag->tag}}</a> </p>
-                                        <span><a href="{{route('cart.addToCart', $foodTag->id)}}"
-                                                 class="btn btn-success">Add To Cart</a></span>
+                                        <span><a data-id="{{$foodTag->id}}"
+                                                 class="btn btn-success addToCart">Add To Cart</a></span>
                                     </div>
                                 </div>
                             </div>
@@ -82,45 +82,7 @@
                         </div>
                     @endif
                     <div id="inner"></div>
-
-                    @if(\Illuminate\Support\Facades\Session::has('cart'))
-                        @foreach(\Illuminate\Support\Facades\Session::get('cart')->items as $key =>$value)
-                            <div id="food-{{ $value['item']->id }}" class="bg-white border-bottom py-2">
-                                <div
-                                    class="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
-                                    <div class="media align-items-center">
-                                        <div class="mr-2 text-danger">&middot;</div>
-                                        <div class="media-body">
-                                            <p class="m-0">{{$value['item']->name}}</p>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex align-items-center">
-                                        <span class="count-number float-right">
-                                            <button  type="button" class="btn-sm left dec btn btn-outline-secondary button-minus" data-id="{{ $value['item']->id }}">
-                                                <i class="feather-minus"></i> </button>
-                                            <input
-                                                class="count-number-input quantity-food" type="text" data-id="{{ $value['item']->id }}" readonly=""
-                                                id="{{ $value['item']->id }}"
-                                                value="{{$value['quantity']}}">
-                                            <button  type="button" class="btn-sm right inc btn btn-outline-secondary button-plus" data-id="{{ $value['item']->id }}">
-                                                <i class="feather-plus"></i>
-                                            </button>
-                                        </span>
-                                        <p class="text-gray mb-0 float-right ml-2 text-muted small" id="food-total-price-{{ $value['item']->id }}">{{number_format($value['price'])}}
-                                            đ</p>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                        <div class="bg-white p-3 clearfix border-bottom">
-                            <h6 class="font-weight-bold mb-0">TO PAY <span class="float-right" id="total-price-cart">{{ number_format(session('cart')->totalPrice) }} đ</span>
-                            </h6>
-                        </div>
-                        <div class="p-3">
-                            <a class="btn btn-success btn-block btn-lg" href="{{ route('paymentSuccessful') }}">PAY</a>
-                        </div>
-                    @endif
-
+                        <div id="cart"></div>
                 </div>
             </div>
         </div>
