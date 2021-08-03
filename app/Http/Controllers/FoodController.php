@@ -107,4 +107,11 @@ class FoodController extends Controller
         return view('front-end.show_food_discount',compact('foodDiscount'));
     }
 
+    public function showFoodTag($id)
+    {
+        $food = Food::find($id);
+        $foodTags = Food::where('tag',$food->tag)->paginate(5);
+        return view('front-end.show_food_tag',compact('foodTags','food'));
+    }
+
 }

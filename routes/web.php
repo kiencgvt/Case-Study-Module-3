@@ -103,6 +103,7 @@ Route::get('/food/{id}/detail', [RestaurantController::class,'showFoods'])->name
 Route::get('/paymentSuccessful', [CheckoutController::class, 'index'])->name('paymentSuccessful');
 Route::get('/category/{id}/trend',[FoodController::class,'list'])->name('category.trend');
 Route::get('/foods/discount',[FoodController::class,'showDiscountFood'])->name('discountFood');
+Route::get('/tag/foods/{id}',[FoodController::class,'showFoodTag'])->name('showFoodTag');
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
 Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');

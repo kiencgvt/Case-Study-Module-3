@@ -54,7 +54,7 @@
                                             loại: {{$category->name}} </p>
                                         <p class="text-muted mb-0">Thời gian chuẩn bị: {{$food->preparation_time}}
                                             phút</p>
-                                        <p class="text-muted mb-0">Thẻ: {{$food->tag}} </p>
+                                        <p class="text-muted mb-0"><a href="{{route('showFoodTag',$food->id)}}">Thẻ: {{$food->tag}}</a> </p>
                                         <span><a href="{{route('cart.addToCart', $food->id)}}"
                                                  class="btn btn-success">Add To Cart</a></span>
                                     </div>
