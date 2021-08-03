@@ -15,7 +15,7 @@ class CartController extends Controller
         $cart = new Cart($oldCart);
         $cart->add($food);
         session()->put('cart', $cart);
-        return back();
+        return response()->json($cart);
     }
 
     function index()
@@ -24,7 +24,9 @@ class CartController extends Controller
         $food = $cart->items;
         return view('front-end.restaurants.detail', compact('cart', 'food'));
     }
-
+    function showAllCart(){
+        return response()->json(session()->get('cart'));
+    }
     function delete($idFood)
     {
         $food = Food::find($idFood);
@@ -35,11 +37,13 @@ class CartController extends Controller
         $data = [
             'totalPriceCart' => session()->get('cart')->totalPrice,
             'totalQuantity' => session()->get('cart')->totalQuantity,
-            'message' =>  'Delete success'
+            'message' => 'Delete success'
         ];
-        return response()->json($data );
+        return response()->json($data);
     }
-    function updateToCart(Request $request, $idFood) {
+
+    function updateToCart(Request $request, $idFood)
+    {
         $food = Food::find($idFood);
         $oldCart = session()->get('cart');
         $cart = new Cart($oldCart);
