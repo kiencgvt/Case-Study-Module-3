@@ -11,6 +11,9 @@ $(document).ready(function () {
         $('#' + idFood).val(parseInt($('#' + idFood).val()) + 1);
         updateToCart(idFood);
     })
+    $(document).on("click", ".payment", function () {
+        window.location.href = location + '/paymentSuccessful'
+    })
 
     function updateToCart(idFood) {
         let value = $(`#${idFood}`).val();
@@ -28,6 +31,7 @@ $(document).ready(function () {
                     newQuantity: value
                 },
                 success: function (response) {
+                    console.log(response)
                     //  displayCart(response)
                     $('#total-quantity-cart').html(response.totalQuantity);
                     $('#food-total-price-' + idFood).html(new Intl.NumberFormat('vi-VN', {
@@ -67,6 +71,9 @@ $(document).ready(function () {
                             $('#alert-success').remove();
                         }
                     }, 2000)
+                    if(response.totalQuantity == 0) {
+                        $('.payment').remove();
+                    }
                 },
 
                 error: function (error) {
@@ -122,18 +129,25 @@ $(document).ready(function () {
                                             </button>
                                         </span>
                                         <p class="text-gray mb-0 float-right ml-2 text-muted small"
-                                           id="food-total-price-${foodId}" > ${new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(cart[foodId].price)}
+                                           id="food-total-price-${foodId}" > ${new Intl.NumberFormat('vi-VN', {
+                                               style: 'currency',
+                                                currency: 'VND'
+                                                }).format(cart[foodId].price)}
                                             </p>
                                     </div>
                                 </div>
                             </div>`
         }
-        if(typeof(res.totalPrice) != "undefined") {
-            str += `<div class="bg-white p-3 clearfix border-bottom">
-                            <h6 class="font-weight-bold mb-0">TO PAY <span class="float-right" id="total-price-cart">${ res.totalPrice } đ</span>
+        if (typeof (res.totalPrice) != "undefined" && res.totalPrice != 0) {
+            str += `<div class="payment"><div class="bg-white p-3 clearfix border-bottom">
+                            <h6 class="font-weight-bold mb-0">TO PAY <span class="float-right" id="total-price-cart">${res.totalPrice} đ</span>
                             </h6>
                         </div>
-                       `;
+                        <div class="p-3 displayPay">
+                           <a class="btn btn-success btn-block btn-lg payment">PAY</a>
+                         </div>
+                         </div>
+`;
         }
         $("#cart").html(str)
         $('#total-price-cart').html(new Intl.NumberFormat('vi-VN', {

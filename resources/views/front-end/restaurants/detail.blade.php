@@ -330,7 +330,7 @@
                     <div id="cart">
 
                     </div>
-                    {{--@if(\Illuminate\Support\Facades\Session::has('cart'))
+                    {{--
                         <div class="bg-white p-3 clearfix border-bottom">
                             <h6 class="font-weight-bold mb-0">TO PAY <span class="float-right" id="total-price-cart">{{ number_format(session('cart')->totalPrice) }} đ</span>
                             </h6>
@@ -339,9 +339,7 @@
                             <a class="btn btn-success btn-block btn-lg" href="{{ route('paymentSuccessful') }}">PAY</a>
                         </div>
                     @endif--}}
-                        <div class="p-3">
-                            <a class="btn btn-success btn-block btn-lg" href="{{ route('paymentSuccessful') }}">PAY</a>
-                        </div>
+
                 </div>
             </div>
         </div>
