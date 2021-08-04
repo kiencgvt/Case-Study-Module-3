@@ -20,7 +20,7 @@ class CheckoutController extends Controller
         $orders = new Order();
         $orders->order_date = date('Y-m-d');
         $orders->require_date = date('Y-m-d');
-        $orders->status = 'da gui';
+        $orders->status = 'Đang xử lý';
         $orders->user_id = $user['id'];
         $orders->total_price = $cart->totalPrice;
         $orders->save();
