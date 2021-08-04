@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Food;
+use App\Models\Order_detail;
 use App\Models\Shop;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -15,8 +15,7 @@ class HomeController extends Controller
         $categories = Category::all();
         $restaurants = Shop::all();
         $discountedFoods = Food::where('promotion_price', '<>', 'NULL')->orderBy('promotion_price')->take(3)->get();
-        $dishes = DB::table('order_details')
-            ->select('food_id',DB::raw('sum(quantity) as total'))
+        $dishes = Order_detail::select('food_id',DB::raw('sum(quantity) as total'))
             ->groupBy('food_id')
             ->orderByDesc('total')
             ->limit(9)
