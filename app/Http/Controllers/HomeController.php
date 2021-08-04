@@ -7,7 +7,6 @@ use App\Models\Food;
 use App\Models\Order_detail;
 use App\Models\Shop;
 use Illuminate\Support\Facades\DB;
-
 class HomeController extends Controller
 {
     function index() {

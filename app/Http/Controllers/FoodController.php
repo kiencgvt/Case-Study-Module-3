@@ -5,11 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\FormFoodRequest;
 use App\Models\Category;
 use App\Models\Food;
-use App\Models\Order_detail;
-use App\Models\Shop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
