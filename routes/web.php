@@ -101,7 +101,7 @@ Route::get('/restaurants/{id}/detail', [RestaurantController::class,'detail'])->
 Route::get('/categories/{category_id}/restaurants/{restaurant_id}/food', [RestaurantController::class,'listFoods'])->name('restau.detail-category');
 Route::get('/food/{id}/detail', [RestaurantController::class,'showFoods'])->name('restau.show-food');
 
-Route::get('/paymentSuccessful', [CheckoutController::class, 'index'])->name('paymentSuccessful');
+Route::get('/paymentSuccessful', [CheckoutController::class, 'payment'])->name('paymentSuccessful');
 Route::get('/category/{id}/trend',[FoodController::class,'list'])->name('category.trend');
 Route::get('/foods/discount',[FoodController::class,'showDiscountFood'])->name('discountFood');
 Route::get('/tag/foods/{id}',[FoodController::class,'showFoodTag'])->name('showFoodTag');
