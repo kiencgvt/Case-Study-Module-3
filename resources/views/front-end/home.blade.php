@@ -37,33 +37,17 @@
         </div>
         <div class="bg-white">
             <div class="container">
+                <div class="pt-4 pb-2 title d-flex align-items-center">
+                    <h5 class="m-0">Món ăn bán chạy</h5>
+                </div>
                 <div class="offer-slider">
+                    @foreach($dishes as $dish)
                     <div class="cat-item px-1 py-3">
-                        <a class="d-block text-center shadow-sm" href="trending.html">
-                            <img alt="{{ route('restau.detail', 1) }}" src="{{ asset('image/bun-hai-san.jpg') }}" class="img-fluid rounded">
+                        <a class="d-block text-center shadow-sm" href="{{route('restau.show-food',$dish->food_id)}}">
+                            <img alt="{{ route('restau.detail', 1) }}" src="{{ asset('storage/'.(\App\Models\Food::find($dish->food_id))->image) }}" class="img-fluid rounded">
                         </a>
                     </div>
-                    <div class="cat-item px-1 py-3">
-                        <a class="d-block text-center shadow-sm" href="trending.html">
-                            <img alt="#" src="{{ asset('image/shushi.jpg') }}" class="img-fluid rounded">
-                        </a>
-                    </div>
-                    <div class="cat-item px-1 py-3">
-                        <a class="d-block text-center shadow-sm" href="trending.html">
-                            <img alt="#" src="{{ asset('image/bami.jpg') }}" class="img-fluid rounded">
-                        </a>
-                    </div>
-                    <div class="cat-item px-1 py-3">
-                        <a class="d-block text-center shadow-sm" href="trending.html">
-                            <img alt="#" src="{{ asset('image/the-alley.jpg') }}" class="img-fluid rounded">
-                        </a>
-                    </div>
-                    <div class="cat-item px-1 py-3">
-                        <a class="d-block text-center shadow-sm" href="trending.html">
-                            <img alt="#" src="{{ asset('image/mcdonald.jpeg') }}"
-                                 class="img-fluid rounded">
-                        </a>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
