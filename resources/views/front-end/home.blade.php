@@ -44,7 +44,7 @@
                     @foreach($dishes as $dish)
                     <div class="cat-item px-1 py-3">
                         <a class="d-block text-center shadow-sm" href="{{route('restau.show-food',$dish->food_id)}}">
-                            <img alt="{{ route('restau.detail', 1) }}" src="{{ asset('storage/'.(\App\Models\Food::find($dish->food_id))->image) }}" class="img-fluid rounded">
+                            <img alt="#" src="{{ asset('storage/'.(\App\Models\Food::find($dish->food_id))->image) }}" class="img-fluid rounded">
                         </a>
                     </div>
                     @endforeach
