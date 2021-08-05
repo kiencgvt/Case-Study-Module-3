@@ -83,7 +83,7 @@ class ShopController extends Controller
     public function orders($idShop)
     {
         $shop = Shop::findOrFail($idShop);
-        $orders = $shop->order_details->unique('order_id');
+        $orders = $shop->order_details->unique('order_id')->values();
         return view('collaborators.order.list_order',compact('orders','idShop'));
     }
 
