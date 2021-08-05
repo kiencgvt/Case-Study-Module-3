@@ -336,6 +336,15 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 <script src="{{ asset('js/my.js') }}"></script>
+<script>
+    $(document).ready(function(){
+        $("#myTab a").click(function(e){
+            e.preventDefault();
+            $(this).tab('show');
+        });
+    });
+</script>
+
 </body>
 
 </html>

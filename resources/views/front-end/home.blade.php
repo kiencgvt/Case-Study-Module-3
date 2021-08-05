@@ -37,18 +37,50 @@
         </div>
         <div class="bg-white">
             <div class="container">
-                <div class="pt-4 pb-2 title d-flex align-items-center">
-                    <h5 class="m-0">Món ăn bán chạy</h5>
-                </div>
-                <div class="offer-slider">
-                    @foreach($dishes as $dish)
-                    <div class="cat-item px-1 py-3">
-                        <a class="d-block text-center shadow-sm" href="{{route('restau.show-food',$dish->food_id)}}">
-                            <img alt="#" src="{{ asset('storage/'.(\App\Models\Food::find($dish->food_id))->image) }}" class="img-fluid rounded">
-                        </a>
+                <div class="container">
+                    <div class="bs-example">
+                        <ul id="myTab" class="nav nav-pills">
+                            <li class="nav-item">
+                                <a href="#sell-food" class="nav-link active">Món ăn bán chạy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#fast-delivery" class="nav-link">Món ăn giao nhanh</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#like-food" class="nav-link">Món ăn ưa thích</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="sell-food">
+                                <div class="offer-slider">
+                                    @foreach($dishes as $dish)
+                                        <div class="cat-item px-1 py-3">
+                                            <a class="d-block text-center shadow-sm" href="{{route('restau.show-food',$dish->food_id)}}">
+                                                <img alt="#" src="{{ asset('storage/'.(\App\Models\Food::find($dish->food_id))->image) }}" class="img-fluid rounded">
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                </div>
+
+                            </div>
+                            <div class="tab-pane fade show active" id="fast-delivery">
+                                <div class="offer-slider">
+                                    @foreach($fastDeliveryFoods as $fastDeliveryFood)
+                                        <div class="cat-item px-1 py-3">
+                                            <a class="d-block text-center shadow-sm" href="{{route('restau.show-food',$fastDeliveryFood->id)}}">
+                                                <img alt="#" src="{{ asset('storage/'.$fastDeliveryFood->image) }}" class="img-fluid rounded">
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div class="tab-pane fade show active" id="like-food">
+
+                            </div>
+                        </div>
                     </div>
-                    @endforeach
                 </div>
+
             </div>
         </div>
         <div class="container">
