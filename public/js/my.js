@@ -168,6 +168,9 @@ $(document).ready(function () {
     }
 
     showCart();
+    function displayFood(){
+
+    }
 })
 
 

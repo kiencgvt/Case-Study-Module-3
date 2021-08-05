@@ -14,12 +14,13 @@ class HomeController extends Controller
         $categories = Category::all();
         $restaurants = Shop::all();
         $discountedFoods = Food::where('promotion_price', '<>', 'NULL')->orderBy('promotion_price')->take(3)->get();
+        $fastDeliveryFoods = Food::where('preparation_time',10)->get();
         $dishes = Order_detail::select('food_id',DB::raw('sum(quantity) as total'))
             ->groupBy('food_id')
             ->orderByDesc('total')
             ->limit(9)
             ->get();
-        return view('front-end.home', compact('foods', 'categories', 'restaurants', 'discountedFoods','dishes'));
+        return view('front-end.home', compact('foods', 'categories', 'restaurants', 'discountedFoods','dishes','fastDeliveryFoods'));
     }
 
 }
