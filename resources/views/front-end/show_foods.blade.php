@@ -37,6 +37,7 @@
                                             vụ: {{number_format($food->service_charge)}} đ</p>
                                         <p class="text-muted mb-0">Cửa
                                             hàng: {{$shop->name}} </p>
+                                        <p>Lượt xem:{{$food->view_count}}</p>
                                         <a href="#">Top Star: </a>
                                         <div class="d-inline-block" style="font-size: 14px;"><i
                                                 class="feather-star text-warning"></i>
