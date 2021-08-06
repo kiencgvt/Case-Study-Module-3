@@ -20,7 +20,9 @@ class HomeController extends Controller
             ->orderByDesc('total')
             ->limit(9)
             ->get();
-        return view('front-end.home', compact('foods', 'categories', 'restaurants', 'discountedFoods','dishes','fastDeliveryFoods'));
+        $mostViewFoods = DB::table('foods')->orderBy('view_count','desc')->limit(9)->get();
+        return view('front-end.home', compact('foods', 'categories', 'restaurants', 'discountedFoods','dishes','fastDeliveryFoods','mostViewFoods'));
+
     }
 
 }

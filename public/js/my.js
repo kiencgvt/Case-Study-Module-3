@@ -14,7 +14,6 @@ $(document).ready(function () {
     $(document).on("click", ".payment", function () {
         window.location.href = location + '/paymentSuccessful'
     })
-
     function updateToCart(idFood) {
         let value = $(`#${idFood}`).val();
         if (value > 0) {
@@ -85,7 +84,6 @@ $(document).ready(function () {
 
         }
     }
-
     $('.addToCart').click(function () {
         let idFood = $(this).attr('data-id');
         $.ajax({
