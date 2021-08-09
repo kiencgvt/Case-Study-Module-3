@@ -33,7 +33,7 @@
 
                                 <div class="media">
                                     <div class="col-md-6">
-                                        <img width="100%" alt="#" src="{{ asset('storage/'.$foodTag->image) }}">
+                                        <img style="width: 350px;height: 300px" alt="#" src="{{ asset('storage/'.$foodTag->image) }}">
                                     </div>
                                     <div class="col-md-6">
                                         <h4 class="mb-1">{{$foodTag->name}}</h4>

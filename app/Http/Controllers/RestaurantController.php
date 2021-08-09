@@ -7,6 +7,7 @@ use App\Models\Food;
 use App\Models\Shop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class RestaurantController extends Controller
 {
@@ -33,6 +34,11 @@ class RestaurantController extends Controller
 
     public function showFoods($idfood)
     {
+        $foodKey = 'food'.$idfood;
+        if(!Session::has($foodKey)){
+            Food::where('id',$idfood)->increment('view_count');
+            Session::put($foodKey,1);
+        }
         $food = Food::find($idfood);
         $shop = Shop::find($food->shop_id);
         $category = Category::find($food->category_id);

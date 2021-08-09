@@ -30,6 +30,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <h4 class="mb-1">{{$food->name}}</h4>
+                                        <p class="text-muted mb-0">Lượt
+                                            xem: {{$food->view_count}} </p>
                                         <p class="text-muted mb-0">Giá: {{number_format($food->price)}} đ</p>
                                         <p class="text-muted mb-0">Giá khuyến
                                             mãi: {{number_format($food->promotion_price)}} đ</p>

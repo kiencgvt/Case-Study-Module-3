@@ -15,12 +15,17 @@ class HomeController extends Controller
         $restaurants = Shop::all();
         $discountedFoods = Food::where('promotion_price', '<>', 'NULL')->orderBy('promotion_price')->take(3)->get();
         $fastDeliveryFoods = Food::where('preparation_time',10)->get();
-        $dishes = Order_detail::select('food_id',DB::raw('sum(quantity) as total'))
+        $order_details = Order_detail::select('food_id',DB::raw('sum(quantity) as total'))
             ->groupBy('food_id')
             ->orderByDesc('total')
             ->limit(9)
             ->get();
-        return view('front-end.home', compact('foods', 'categories', 'restaurants', 'discountedFoods','dishes','fastDeliveryFoods'));
+        $hotSellFoods = [];
+        foreach ($order_details as $order_detail) {
+            $hotSellFoods = array_merge($hotSellFoods, Food::where('id', $order_detail->food_id)->get()->toArray());
+        }
+        $mostViewFoods = DB::table('foods')->orderBy('view_count', 'desc')->limit(9)->get();
+        return view('front-end.home', compact('foods', 'categories', 'restaurants', 'discountedFoods','hotSellFoods','fastDeliveryFoods','mostViewFoods'));
     }
 
 }
