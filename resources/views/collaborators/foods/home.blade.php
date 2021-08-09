@@ -130,7 +130,7 @@
                     @foreach($foods as $key=>$food)
                         <tr>
                             <th scope="row">{{$key+1}}</th>
-                            <td><img src="{{asset('storage/'.$food->image)}}" alt="" width="70px"></td>
+                            <td><img src="{{asset('storage/'.$food->image)}}" alt="" width="70px" height="70px"></td>
                             <td>{{$food->name}}</td>
                             <td>{{number_format($food->price)}}</td>
                             <td>{{number_format($food->promotion_price)}}</td>
