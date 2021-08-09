@@ -84,6 +84,7 @@
                             <div class="cat-item px-1 py-3">
                                 <a class="d-block text-center shadow-sm" href="{{ route('restau.show-food', $mostViewFood->id) }}">
                                     <img style="width: 270px;height: 200px" alt="#" src="{{asset('storage/'.$mostViewFood->image)}}" class="img-fluid rounded">
+                                    {{ $mostViewFood->name }}
                                 </a>
                             </div>
                         @endforeach
@@ -100,6 +101,7 @@
                             <div class="cat-item px-1 py-3">
                                 <a class="d-block text-center shadow-sm" href="{{ route('restau.show-food',$hotSellFood['id']) }}">
                                     <img style="width: 270px;height: 200px" alt="#" src="{{ asset('storage/'.$hotSellFood['image'])}}" class="img-fluid rounded">
+                                    {{ $hotSellFood['name'] }}
                                 </a>
                             </div>
                         @endforeach
@@ -116,6 +118,7 @@
                             <div class="cat-item px-1 py-3">
                                 <a class="d-block text-center shadow-sm" href="{{ route('restau.show-food',$fastDeliveryFood->id) }}">
                                     <img style="width: 270px;height: 200px" alt="#" src="{{asset('storage/'.$fastDeliveryFood->image)}}" class="img-fluid rounded">
+                                    {{ $fastDeliveryFood->name }}
                                 </a>
                             </div>
                         @endforeach

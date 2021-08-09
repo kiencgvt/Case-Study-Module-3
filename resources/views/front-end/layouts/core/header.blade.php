@@ -56,14 +56,9 @@
                             </div>
                     @endif
                     <!-- signin -->
-                        <a href="checkout.html" class="widget-header mr-4 text-dark">
                             <div class="icon d-flex align-items-center">
                                 <i class="feather-shopping-cart h6 mr-2 mb-0"></i> Giỏ hàng(<span  id="total-quantity-cart">{{ (session()->has('cart')) ? session()->get('cart')->totalQuantity : 0 }}</span>)
                             </div>
-                        </a>
-                        <a class="toggle" href="#">
-                            <span></span>
-                        </a>
                     </div>
                     <!-- widgets-wrap.// -->
                 </div>
