@@ -95,7 +95,6 @@ $(document).ready(function () {
             }
         })
     })
-
     function displayCart(res) {
         let str = "";
         let cart = res.items;
@@ -160,11 +159,23 @@ $(document).ready(function () {
             method: 'GET',
             type: 'json',
             success: function (res) {
-                displayCart(res)
+                mostviewfood = "";
+
             }
         })
     }
     showCart();
+    function getFoodHasMostView(){
+        $.ajax({
+            url: location+ '/api/getmostviewfood',
+            method: 'GET',
+            type: 'json',
+            success: function (response){
+
+            }
+        })
+    }
+    getFoodHasMostView();
 })
 
 

@@ -28,61 +28,14 @@
                 @foreach($categories as $category)
                 <div class="cat-item px-1 py-3">
                     <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="{{route('category.trend',$category->id)}}">
-                        <img alt="#" src="{{ asset('storage/'.$category->image) }}" class="img-fluid mb-2">
+                        <img alt="#" src="{{ asset('storage/'.$category->image) }}" class="img-fluid mb-2" style="width: 170px;height: 78px;object-fit: fill">
                         <p class="m-0 small">{{ $category->name }}</p>
                     </a>
                 </div>
                 @endforeach
             </div>
         </div>
-        <div class="bg-white">
-            <div class="container">
-                <div class="container">
-                    <div class="bs-example">
-                        <ul id="myTab" class="nav nav-pills">
-                            <li class="nav-item">
-                                <a href="#sell-food" class="nav-link active">Món ăn bán chạy</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#fast-delivery" class="nav-link">Món ăn giao nhanh</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#like-food" class="nav-link">Món ăn ưa thích</a>
-                            </li>
-                        </ul>
-                        <div class="tab-content">
-                            <div class="tab-pane fade show active" id="sell-food">
-                                <div class="offer-slider">
-                                    @foreach($dishes as $dish)
-                                        <div class="cat-item px-1 py-3">
-                                            <a class="d-block text-center shadow-sm" href="{{route('restau.show-food',$dish->food_id)}}">
-                                                <img alt="#" src="{{ asset('storage/'.(\App\Models\Food::find($dish->food_id))->image) }}" class="img-fluid rounded">
-                                            </a>
-                                        </div>
-                                    @endforeach
-                                </div>
 
-                            </div>
-                            <div class="tab-pane fade show active" id="fast-delivery">
-                                <div class="offer-slider">
-                                    @foreach($fastDeliveryFoods as $fastDeliveryFood)
-                                        <div class="cat-item px-1 py-3">
-                                            <a class="d-block text-center shadow-sm" href="{{route('restau.show-food',$fastDeliveryFood->id)}}">
-                                                <img alt="#" src="{{ asset('storage/'.$fastDeliveryFood->image) }}" class="img-fluid rounded">
-                                            </a>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                            <div class="tab-pane fade show active" id="like-food">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
         <div class="container">
             <div class="pt-4 pb-2 title d-flex align-items-center">
                 <h5 class="m-0">Chọn nhà hàng</h5>
@@ -122,13 +75,60 @@
                 @endforeach
 
             </div>
+            <div class="py-3 title d-flex align-items-center">
+                <h5 class="m-0">Món ăn được xem nhiều nhất</h5>
+            </div>
+            <div class="bg-white">
+                <div class="container">
+                    <div class="offer-slider">
+                        @foreach($mostViewFoods as $mostViewFood)
+                            <div class="cat-item px-1 py-3">
+                                <a class="d-block text-center shadow-sm" href="{{ route('restau.show-food',$mostViewFood->id) }}">
+                                    <img alt="#" src="{{asset('storage/'.$mostViewFood->image)}}" class="img-fluid rounded" style="width: 300px;height: 150px">
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+            <div class="py-3 title d-flex align-items-center">
+                <h5 class="m-0">Giao nhanh nhất</h5>
+            </div>
+            <div class="bg-white">
+                <div class="container">
+                    <div class="offer-slider">
+                        @foreach($fastDeliveryFoods as $fastDeliveryFood)
+                            <div class="cat-item px-1 py-3">
+                                <a class="d-block text-center shadow-sm" href="{{ route('restau.show-food',$fastDeliveryFood->id) }}">
+                                    <img alt="#" src="{{asset('storage/'.$fastDeliveryFood->image)}}" class="img-fluid rounded" style="width: 300px;height: 150px">
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+            <div class="py-3 title d-flex align-items-center">
+                <h5 class="m-0">Mua nhiều nhất</h5>
+            </div>
+            <div class="bg-white">
+                <div class="container">
+                    <div class="offer-slider">
+                        @foreach($mostSellFoods as $mostSellFood)
+                            <div class="cat-item px-1 py-3">
+                                <a class="d-block text-center shadow-sm" href="{{ route('restau.show-food',$mostSellFood->food->id) }}">
+                                    <img alt="#" src="{{asset('storage/'.$mostSellFood->food->image)}}"  class="img-fluid rounded" style="width: 300px;height: 150px">
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
 
-
+            <!-- Most popular --><!-- Most sales -->
             {{---------------------------------------------------- Hết -------------------------------------------------------}}
 
             <div class="pt-2 pb-3 title d-flex align-items-center">
-                <a href="{{route('discountFood')}}"><h5 class="m-0">Most sales</h5></a>
-                <a class="font-weight-bold ml-auto" href="#">26 places <i class="feather-chevrons-right"></i></a>
+                <a href="{{route('discountFood')}}"><h5 class="m-0">Món giảm giá</h5></a>
             </div>
             <div class="most_sale">
                 <div class="row mb-3">
@@ -144,7 +144,7 @@
                                 <div class="member-plan position-absolute"><span
                                         class="badge badge-dark">Promoted</span></div>
                                 <a href="{{ route('restau.show-food', $discountedFood->id) }}">
-                                    <img alt="#" src="{{ asset('storage/' . $discountedFood->image) }}" class="img-fluid item-img w-100">
+                                    <img alt="#" src="{{ asset('storage/' . $discountedFood->image) }}" class="img-fluid item-img w-100" style="width: 300px;height: 150px">
                                 </a>
                             </div>
                             <div class="p-3 position-relative">

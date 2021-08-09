@@ -24,7 +24,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
-
 Route::get('/showrestaurant', [SearchController::class, 'showDetail'])->name('search');
 Route::get('/search', [SearchController::class, 'search'])->name('restaurant.search');
 
@@ -71,16 +70,16 @@ Route::middleware(['auth', 'checkCollab'])->prefix('collab')->group(function () 
     Route::get('/{id}/delete', [FoodController::class, 'delete'])->name('collab.delete');
     Route::get('/search', [FoodController::class, 'search'])->name('collab.search');
 
-    Route::prefix('/shop')->group(function (){
-        Route::get('/',[ShopController::class,'index'])->name('shop.index');
-        Route::get('/create',[ShopController::class,'create'])->name('shop.create');
-        Route::post('/create',[ShopController::class,'store'])->name('shop.store');
-        Route::get('/{id}/edit',[ShopController::class,'edit'])->name('shop.edit');
-        Route::post('/{id}/edit',[ShopController::class,'update'])->name('shop.update');
-        Route::get('/{id}/delete',[ShopController::class,'delete'])->name('shop.delete');
-        Route::get('/search',[ShopController::class,'search'])->name('shop.search');
-        Route::get('/{idShop}/order',[ShopController::class,'orders'])->name('shop.order');
-        Route::get('/{idShop}/orderDetail/{idOrder}',[ShopController::class,'orderDetails'])->name('shop.orderDetail');
+    Route::prefix('/shop')->group(function () {
+        Route::get('/', [ShopController::class, 'index'])->name('shop.index');
+        Route::get('/create', [ShopController::class, 'create'])->name('shop.create');
+        Route::post('/create', [ShopController::class, 'store'])->name('shop.store');
+        Route::get('/{id}/edit', [ShopController::class, 'edit'])->name('shop.edit');
+        Route::post('/{id}/edit', [ShopController::class, 'update'])->name('shop.update');
+        Route::get('/{id}/delete', [ShopController::class, 'delete'])->name('shop.delete');
+        Route::get('/search', [ShopController::class, 'search'])->name('shop.search');
+        Route::get('/{idShop}/order', [ShopController::class, 'orders'])->name('shop.order');
+        Route::get('/{idShop}/orderDetail/{idOrder}', [ShopController::class, 'orderDetails'])->name('shop.orderDetail');
 
     });
 });
@@ -90,21 +89,21 @@ Route::middleware(['auth', 'checkCustomer'])->prefix('customer')->group(function
 //        return view('front-end.cart');
 //    });
 
-    Route::get('/',[CartController::class,'index'])->name('cart.index');
-    Route::get('/{idFood}/addToCart',[CartController::class,'addToCart'])->name('cart.addToCart');
-    Route::get('/getAll',[CartController::class,'showAllCart'])->name('cart.showAllCart');
-    Route::get('/{idFood}/delete',[CartController::class,'delete'])->name('cart.delete');
+    Route::get('/', [CartController::class, 'index'])->name('cart.index');
+    Route::get('/{idFood}/addToCart', [CartController::class, 'addToCart'])->name('cart.addToCart');
+    Route::get('/getAll', [CartController::class, 'showAllCart'])->name('cart.showAllCart');
+    Route::get('/{idFood}/delete', [CartController::class, 'delete'])->name('cart.delete');
     Route::post('{idFood}/update-to-cart', [CartController::class, 'updateToCart'])->name('cart.updateToCart');
 });
 
-Route::get('/restaurants/{id}/detail', [RestaurantController::class,'detail'])->name('restau.detail');
-Route::get('/categories/{category_id}/restaurants/{restaurant_id}/food', [RestaurantController::class,'listFoods'])->name('restau.detail-category');
-Route::get('/food/{id}/detail', [RestaurantController::class,'showFoods'])->name('restau.show-food');
+Route::get('/restaurants/{id}/detail', [RestaurantController::class, 'detail'])->name('restau.detail');
+Route::get('/categories/{category_id}/restaurants/{restaurant_id}/food', [RestaurantController::class, 'listFoods'])->name('restau.detail-category');
+Route::get('/food/{id}/detail', [RestaurantController::class, 'showFoods'])->name('restau.show-food');
 
 Route::get('/paymentSuccessful', [CheckoutController::class, 'payment'])->name('paymentSuccessful');
-Route::get('/category/{id}/trend',[FoodController::class,'list'])->name('category.trend');
-Route::get('/foods/discount',[FoodController::class,'showDiscountFood'])->name('discountFood');
-Route::get('/tag/foods/{id}',[FoodController::class,'showFoodTag'])->name('showFoodTag');
+Route::get('/category/{id}/trend', [FoodController::class, 'list'])->name('category.trend');
+Route::get('/foods/discount', [FoodController::class, 'showDiscountFood'])->name('discountFood');
+Route::get('/tag/foods/{id}', [FoodController::class, 'showFoodTag'])->name('showFoodTag');
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
 Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');

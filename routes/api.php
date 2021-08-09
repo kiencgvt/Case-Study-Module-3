@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/getmostviewfood', [\App\Http\Controllers\HomeController::class, 'getFoodHasMostView']);
 Route::group(['middleware'=>['sessions']],function (){
     Route::get('/showcart',[\App\Http\Controllers\CartController::class,'showAllCart']);
 
